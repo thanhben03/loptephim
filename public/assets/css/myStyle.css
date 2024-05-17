@@ -1,0 +1,58 @@
+.ion-ios-star-outline.stared {
+    color: yellow !important;
+}
+.ion-ios-star-outline {
+    cursor: pointer;
+}
+.pagination {
+    margin-top: 22px !important;
+}
+
+#form-search-index {
+    display: flex;
+    width: 100%;
+}
+
+.my-movie {
+
+}
+
+.my-movie-item {
+    position: absolute;
+    color: white;
+    /* left: 43px; */
+    z-index: 1;
+    padding: 1px 5px;
+    background-color: green;
+}
+
+.my-movie-item-r {
+    position: absolute;
+    color: white;
+    /* left: 43px; */
+    right: 0;
+    z-index: 1;
+    padding: 1px 5px;
+    background-color: red;
+}
+
+.my-movie-item-lb {
+    position: absolute;
+    color: white;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    padding: 1px 5px;
+    background-color: black;
+    padding: 3px;
+    opacity: 0.8;
+}
+
+.dropdownhover-bottom.custom-dropdown {
+    flex-direction: column;
+    height: 202px;
+    flex-wrap: wrap;
+    display: flex;
+    width: max-content;
+}

@@ -1,0 +1,15 @@
+.my-dropdown {
+    display: flex;
+    flex-direction: column;
+    max-height: 166px;
+    flex-wrap: wrap;
+    width: max-content !important;
+}
+
+.wrap-detail-movie {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 62px;
+}
