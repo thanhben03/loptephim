@@ -6,7 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>PolluxUI Admin</title>
+    <title>Lopte Phim - Admin</title>
     <!-- base:css -->
     <link rel="stylesheet" href="{{asset('vendors/typicons/typicons.css')}}">
     <link rel="stylesheet" href="{{asset('vendors/css/vendor.bundle.base.css')}}">
@@ -35,27 +35,27 @@
             </div>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-            <ul class="navbar-nav mr-lg-2">
-                <li class="nav-item nav-profile dropdown">
-                    <a class="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">
-                        <img src="../../images/faces/face5.jpg" alt="profile">
-                        <span class="nav-profile-name">Eugenia Mullins</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                        <a class="dropdown-item">
-                            <i class="typcn typcn-cog-outline text-primary"></i>
-                            Settings
-                        </a>
-                        <a class="dropdown-item">
-                            <i class="typcn typcn-eject text-primary"></i>
-                            Logout
-                        </a>
-                    </div>
-                </li>
-                <li class="nav-item nav-user-status dropdown">
-                    <p class="mb-0">Last login was 23 hours ago.</p>
-                </li>
-            </ul>
+{{--            <ul class="navbar-nav mr-lg-2">--}}
+{{--                <li class="nav-item nav-profile dropdown">--}}
+{{--                    <a class="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">--}}
+{{--                        <img src="../../images/faces/face5.jpg" alt="profile">--}}
+{{--                        <span class="nav-profile-name">Eugenia Mullins</span>--}}
+{{--                    </a>--}}
+{{--                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">--}}
+{{--                        <a class="dropdown-item">--}}
+{{--                            <i class="typcn typcn-cog-outline text-primary"></i>--}}
+{{--                            Settings--}}
+{{--                        </a>--}}
+{{--                        <a class="dropdown-item">--}}
+{{--                            <i class="typcn typcn-eject text-primary"></i>--}}
+{{--                            Logout--}}
+{{--                        </a>--}}
+{{--                    </div>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item nav-user-status dropdown">--}}
+{{--                    <p class="mb-0">Last login was 23 hours ago.</p>--}}
+{{--                </li>--}}
+{{--            </ul>--}}
             <ul class="navbar-nav navbar-nav-right">
                 <li class="nav-item nav-date dropdown">
                     <a class="nav-link d-flex justify-content-center align-items-center" href="javascript:;">

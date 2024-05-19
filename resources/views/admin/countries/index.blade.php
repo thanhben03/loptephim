@@ -32,7 +32,7 @@
 
                                 </td>
                                 <td>
-                                    <a href="{{route('admin.genre.edit', $country->id)}}">{{$country->name}}</a>
+                                    <a href="{{route('admin.country.edit', $country->id)}}">{{$country->name}}</a>
                                 </td>
 
                                 <td>

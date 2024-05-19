@@ -8,9 +8,13 @@
                     @csrf
                     <div class="form-group">
                         <label for="exampleInputName1">Name</label>
-                        <input type="text" onkeyup="ChangeToSlug()" name="name" class="form-control" id="name" placeholder="Title">
+                        <input type="text" onkeyup="ChangeToSlug()" name="name" class="form-control" id="name" placeholder="Name">
                     </div>
 
+                    <div class="form-group">
+                        <label for="exampleInputName1">Slug</label>
+                        <input type="text" name="slug" class="form-control" id="slug" placeholder="Slug">
+                    </div>
 
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
                     <button class="btn btn-light">Cancel</button>
@@ -22,13 +26,12 @@
 @push('js')
     <script>
         function ChangeToSlug() {
-            var title, slug;
+            var name, slug;
 
             //Lấy text từ thẻ input title
-            title = document.getElementById("title").value;
-            console.log(title)
+            name = document.getElementById("name").value;
             //Đổi chữ hoa thành chữ thường
-            slug = title.toLowerCase();
+            slug = name.toLowerCase();
 
             //Đổi ký tự có dấu thành không dấu
             slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a');

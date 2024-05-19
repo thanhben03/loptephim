@@ -112,6 +112,18 @@ ol {
   Helper CSS
 -----------------------*/
 
+/*.title-movie-mobile {*/
+/*    display: inline-block;*/
+/*    width: 120px;*/
+/*    white-space: nowrap;*/
+/*    overflow: hidden !important;*/
+/*    color: white;*/
+/*    text-overflow: ellipsis;*/
+/*}*/
+.link-movie-mobile {
+    color: white !important;
+}
+
 .section-title {
 	margin-bottom: 30px;
 }
@@ -420,6 +432,7 @@ ol {
 .header__right {
 	text-align: right;
 	padding: 20px 0 15px;
+    margin: 0 65px;
 }
 
 .header__right a {
@@ -655,6 +668,7 @@ ol {
     height: 325px;
 	position: relative;
 	border-radius: 5px;
+    width: max-content;
 }
 
 .product__item__pic .ep {
@@ -679,7 +693,7 @@ ol {
     position: absolute;
     left: 7px;
     bottom: 10px;
-    width: 93%;
+    width: calc(100% - 20px);
     text-align: center;
     cursor: pointer;
 }
@@ -2151,8 +2165,8 @@ ol {
 	}
 	.header__right {
 		position: absolute;
-		right: 120px;
-		top: -42px;
+		left: 10px;
+		top: 16px;
 		padding: 0;
 	}
 	.header__menu {
@@ -2281,6 +2295,7 @@ ol {
         height: 160px;
         position: relative;
         border-radius: 5px;
+        width: auto;
     }
 
     .product__item__text ul {
@@ -2294,6 +2309,24 @@ ol {
         overflow: hidden !important;
         text-overflow: ellipsis;
     }
+
+    .title-movie-mobile {
+        display: inline-block;
+        width: 94px;
+        white-space: nowrap;
+        overflow: hidden !important;
+        color: white;
+        text-overflow: ellipsis;
+    }
+
+    .product__item__pic .comment {
+        font-size: 10px;
+    }
+
+    .link-movie-mobile {
+        font-size: 13px;
+    }
+
 
 }
 
@@ -2364,3 +2397,4 @@ ol {
 		padding: 18px 20px 20px;
 	}
 }
+

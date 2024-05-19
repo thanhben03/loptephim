@@ -1,9 +1,22 @@
 @extends('layouts.master')
-@section('banner')
-    <!-- Hero Section Begin -->
-    @include('components.banner')
-@endsection
 @section('content')
+    <!-- Breadcrumb Begin -->
+    <div class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__links">
+                        <a href="{{route('home')}}"><i class="fa fa-home"></i> Home</a>
+                        <a href="#">Country</a>
+                        <span>{{$country->name}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
+
+    <!-- Product Section Begin -->
     <section class="product spad">
         <div class="container">
             <div class="row">
@@ -12,83 +25,22 @@
                         <div class="row">
                             <div class="col-lg-8 col-md-8 col-sm-8">
                                 <div class="section-title">
-                                    <h4>PHIM BỘ</h4>
+                                    <h4>{{$country->name}}</h4>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="btn__all">
-                                    <a href="{{route('client.theloai', 'phim-bo')}}" class="primary-btn">View All <span class="arrow_right"></span></a>
-                                </div>
-                            </div>
+
                         </div>
-                        <div class="row">
-                            @foreach($phimbo as $item)
-                                <div class="col-3" style="padding: 4px">
-                                    <div class="product__item">
-                                        <div class="product__item__pic set-bg">
-                                            <img style="height: 100%" src="{{$item->thumbnail}}" alt="">
-                                            <div class="ep">18 / 18</div>
-                                            <div onclick="showModalDetail({{$item->id}})" class="comment">Xem phim</div>
-                                        </div>
-                                        <div class="product__item__text">
-                                            <ul>
-                                                <li>Active</li>
-                                                <li>Movie</li>
-                                            </ul>
-                                            <span class="title-movie-mobile">
-                                                <a onclick="showModalDetail({{$item->id}})" class="link-movie-mobile" href="#">{{$item->title}}</a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
+                        <div class="row movie-container">
+                            @include('client.country_load')
 
                         </div>
                     </div>
-                    <div class="popular__product">
-                        <div class="row">
-                            <div class="col-lg-8 col-md-8 col-sm-8">
-                                <div class="section-title">
-                                    <h4>PHIM LẺ</h4>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="btn__all">
-                                    <a href="{{route('client.theloai', 'phim-le')}}" class="primary-btn">View All <span class="arrow_right"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            @foreach($phimle as $item)
-                                <div class="col-3" style="padding: 4px">
-                                    <div class="product__item">
-                                        <div class="product__item__pic">
-                                            <img style="height: 100%" src="{{$item->thumbnail}}" alt="">
-                                            <div class="ep">18 / 18</div>
-                                            <div onclick="showModalDetail({{$item->id}})" class="comment">Xem phim</div>
-                                        </div>
-                                        <div class="product__item__text">
-                                            <ul>
-                                                <li>Active</li>
-                                                <li>Movie</li>
-                                            </ul>
-                                            <span class="title-movie-mobile">
-                                                <a onclick="showModalDetail({{$item->id}})" class="link-movie-mobile">
-                                                    {{$item->title}}
-                                                </a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
 
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
-
+    <!-- Product Section End -->
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -143,8 +95,36 @@
         </div>
     </div>
 @endsection
-
 @push('custom-js')
+    <script>
+        $(document).ready(function () {
+            let nextPageUrl = '{{$movies->nextPageUrl()}}';
+            $(window).scroll(function () {
+                if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
+                    if (nextPageUrl) {
+                        loadMore();
+                    }
+                }
+            })
+
+            function loadMore() {
+                $.ajax({
+                    url: nextPageUrl,
+                    type: 'get',
+                    beforeSend: function () {
+                        nextPageUrl = ''
+                    },
+                    success: function (data) {
+                        nextPageUrl = data.nextPageUrl;
+                        $(".movie-container").append(data.view);
+                    },
+                    error: function (xhr, status, err) {
+                        console.log(err)
+                    }
+                })
+            }
+        })
+    </script>
     <script>
         function showModalDetail(idMovie) {
 

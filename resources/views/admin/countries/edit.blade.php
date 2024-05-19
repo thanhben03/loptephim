@@ -3,13 +3,17 @@
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Chỉnh sửa Movie</h4>
+                <h4 class="card-title">Chỉnh sửa Quốc gia</h4>
                 <form method="POST" action="{{ route('admin.country.update', $country->id) }}" class="forms-sample">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
-                        <label for="exampleInputName1">Title</label>
-                        <input type="text" value="{{$country->title}}"  name="name" class="form-control" id="name" placeholder="Title">
+                        <label for="exampleInputName1">Name</label>
+                        <input type="text" onkeyup="ChangeToSlug()" value="{{$country->name}}"  name="name" class="form-control" id="name" placeholder="Title">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Slug</label>
+                        <input type="text" value="{{$country->slug}}" name="slug" class="form-control" id="slug" placeholder="slug">
                     </div>
 
 
@@ -23,13 +27,12 @@
 @push('js')
     <script>
         function ChangeToSlug() {
-            var title, slug;
+            var name, slug;
 
             //Lấy text từ thẻ input title
-            title = document.getElementById("title").value;
-            console.log(title)
+            name = document.getElementById("name").value;
             //Đổi chữ hoa thành chữ thường
-            slug = title.toLowerCase();
+            slug = name.toLowerCase();
 
             //Đổi ký tự có dấu thành không dấu
             slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Country;
 use App\Models\Genre;
 use App\Models\Movie;
+use App\Models\MovieCountry;
 use App\Models\MovieGenre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -51,6 +52,7 @@ class IndexController extends Controller
             ->where('genre_id', $genre->id)
 //            ->with('movie')
             ->paginate(4);
+
         if ($request->ajax()) {
             $view = view('client.genre_load', [
                 'movies' => $movies
@@ -61,6 +63,28 @@ class IndexController extends Controller
         return view('client.genre', [
             'movies' => $movies,
             'genre' => $genre
+        ]);
+
+    }
+
+    public function quocgia(Request $request, $slug)
+    {
+        $country = Country::query()->where('slug', $slug)->first();
+        $movies = MovieCountry::query()
+            ->where('country_id', $country->id)
+//            ->with('movie')
+            ->paginate(4);
+
+        if ($request->ajax()) {
+            $view = view('client.country_load', [
+                'movies' => $movies
+            ])->render();
+            return Response::json(['view' => $view, 'nextPageUrl' => $movies->nextPageUrl()] );
+        }
+//        dd($movies[0]->movie);
+        return view('client.country', [
+            'movies' => $movies,
+            'country' => $country
         ]);
 
     }

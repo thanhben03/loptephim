@@ -10,6 +10,7 @@ use App\Models\MovieGenre;
 use App\Models\MovieLink;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 
 class MovieController extends Controller
@@ -135,6 +136,7 @@ class MovieController extends Controller
 
     public function search(Request $request)
     {
+//        dd($request->all());
         $query = Movie::query();
 
         // Tìm kiếm theo tên phim
@@ -142,23 +144,30 @@ class MovieController extends Controller
             $query->where('title', 'like', '%' . $request->input('movie_name') . '%');
         }
 
-        // Tìm kiếm theo thể loại
-        if ($request->has('genres')) {
-            // dd(0);
-            $query->join('movie_genres', 'movie_genres.movie_id', '=', 'movies.id')
-                ->join('genres', 'movie_genres.genre_id', '=', 'genres.id')
-                ->whereIn('genres.id', $request->genres);
-        }
+//        // Tìm kiếm theo thể loại
+//        if ($request->has('genres')) {
+//            // dd(0);
+//            $query->join('movie_genres', 'movie_genres.movie_id', '=', 'movies.id')
+//                ->join('genres', 'movie_genres.genre_id', '=', 'genres.id')
+//                ->whereIn('genres.id', $request->genres);
+//        }
+//
+//        // Tìm kiếm theo năm
+//        if ($request->fromYear != 'no-data' && $request->toYear != 'no-data') {
+//            $query->whereBetween(DB::raw('YEAR(release_date)'), [$request->fromYear, $request->toYear]);
+//        }
 
-        // Tìm kiếm theo năm
-        if ($request->fromYear != 'no-data' && $request->toYear != 'no-data') {
-            $query->whereBetween(DB::raw('YEAR(release_date)'), [$request->fromYear, $request->toYear]);
+        $movies = $query->paginate(4);
+        if ($request->ajax()) {
+            $view = view('client.search_load', [
+                'movies' => $movies
+            ])->render();
+            return Response::json(['view' => $view, 'nextPageUrl' => $movies->nextPageUrl()] );
         }
-
-        $movies = $query->get();
-        // $totalMovieOfSearch = $movies->count();
-        // dd($movies->count());
-        return view('client.movie.search', compact('movies',));
+//        dd($movies[0]->movie);
+        return view('client.search', [
+            'movies' => $movies
+        ]);
     }
 
     public function getMovie(Request $request)

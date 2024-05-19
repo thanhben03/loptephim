@@ -37,7 +37,8 @@ class CountryController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|max:30'
+            'name' => 'required|max:30',
+            'slug' => 'required'
         ]);
 
         $country = new Country();
@@ -65,7 +66,7 @@ class CountryController extends Controller
      */
     public function edit(Country $country)
     {
-        return view('admin.country.edit', compact('country'));
+        return view('admin.countries.edit', compact('country'));
     }
 
     /**
@@ -77,8 +78,7 @@ class CountryController extends Controller
      */
     public function update(Request $request, Country $country)
     {
-        $country->name = $request->name;
-        $country->status = $request->status;
+        $country->fill($request->all());
 
         $country->save();
 

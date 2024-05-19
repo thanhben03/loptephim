@@ -22,6 +22,7 @@ Route::post('/search', [IndexController::class, 'index'])->name('search');
 
 //Movie
 Route::get('/the-loai/{slug}', [IndexController::class, 'theloai'])->name('client.theloai');
+Route::get('/quoc-gia/{slug}', [IndexController::class, 'quocgia'])->name('client.quocgia');
 
 
 Route::prefix('admin')->middleware('auth')->name('admin.')->group(function ()
@@ -44,7 +45,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::post('/api/movie/', [\App\Http\Controllers\MovieController::class, 'getMovie'])->name('api.getMovie');
- Route::get('/theloai', \App\Livewire\GenreMovie::class);
+Route::post('/search', [\App\Http\Controllers\MovieController::class, 'search'])->name('search');
+
 
 
 require __DIR__.'/auth.php';
