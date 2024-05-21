@@ -25,6 +25,7 @@ class GameController extends Controller
     public function index()
     {
         $games = Game::paginate(10);
+//        dd($games[0]->genres);
         return view('admin.games.index', compact('games'));
     }
 

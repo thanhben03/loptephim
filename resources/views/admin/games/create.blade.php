@@ -46,6 +46,14 @@
                             @endforeach
                         </select>
 
+                        <div class="mt-3">
+                            <select class="form-control" name="type">
+                                <option value="0">Game Mod</option>
+                                <option value="1">App Mod</option>
+
+                            </select>
+                        </div>
+
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail3">Version</label>

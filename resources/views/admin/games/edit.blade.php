@@ -48,6 +48,13 @@
                         </select>
 
                     </div>
+                    <div class="form-group mt-3">
+                        <select class="form-control" name="type">
+                            <option value="0" @if(!$game->type) selected @endif>Game Mod</option>
+                            <option value="1" @if($game->type) selected @endif>App Mod</option>
+                        </select>
+
+                    </div>
                     <div class="form-group">
                         <label for="exampleInputEmail3">Version</label>
                         <input value="{{$game->version}}" type="text" name="version" class="form-control" id="version"
@@ -62,13 +69,16 @@
 
                     </div>
                     <div class="form-group">
+                        <span onclick="saveContentMod()" class="btn btn-success">Save</span>
                         <label for="exampleTextarea1">Tính năng mod:</label>
-                        <textarea name="mod_feartured" class="form-control" id="exampleTextarea1" rows="4">{{$game->mod_feartured}}</textarea>
+                        <textarea rows="5" class="form-control" id="sample-mod">{{$game->mod_feartured}}</textarea>
+                        <input type="text" name="mod_feartured" value="{{$game->mod_feartured}}" hidden id="mod_feartured">
+
                     </div>
                     <div>
                         <label for="exampleTextarea1">Mô tả:</label>
                         <span onclick="saveContent()" class="btn btn-success">Save</span>
-                        <textarea onchange="saveContent()" class="form-control" id="sample">Hi</textarea>
+                        <textarea rows="5" onchange="saveContent()" class="form-control" id="sample">{{$game->desc}}</textarea>
                         <input type="text" name="desc" value="{{$game->desc}}" hidden id="desc">
                     </div>
                     <div class="form-group link-movie">
@@ -101,10 +111,61 @@
     <script>
 
         const editor = SUNEDITOR.create((document.getElementById('sample') || 'sample'),{
-            // All of the plugins are loaded in the "window.SUNEDITOR" object in dist/suneditor.min.js file
-            // Insert options
-            // Language global object (default: en)
-            lang: SUNEDITOR_LANG['en']
+            lang: SUNEDITOR_LANG['en'],
+            // font : [
+            //     'Arial',
+            //     'tohoma',
+            //     'Courier New,Courier'
+            // ],
+            buttonList: [
+                ['undo', 'redo'],
+                ['font', 'fontSize', 'formatBlock'],
+                ['paragraphStyle', 'blockquote'],
+                ['bold', 'underline', 'italic', 'strike', 'subscript', 'superscript'],
+                ['fontColor', 'hiliteColor', 'textStyle'],
+                ['removeFormat'],
+                '/', // Line break
+                ['outdent', 'indent'],
+                ['align', 'horizontalRule', 'list', 'lineHeight'],
+                ['table', 'link', 'image', 'video', 'audio' /** ,'math' */], // You must add the 'katex' library at options to use the 'math' plugin.
+                /** ['imageGallery'] */ // You must add the "imageGalleryUrl".
+                ['fullScreen', 'showBlocks', 'codeView'],
+                ['preview', 'print'],
+                ['save', 'template'],
+                /** ['dir', 'dir_ltr', 'dir_rtl'] */ // "dir": Toggle text direction, "dir_ltr": Right to Left, "dir_rtl": Left to Right
+            ],
+            defaultStyle: 'font-family:arial'
+
+
+        });
+
+        const editor1 = SUNEDITOR.create((document.getElementById('sample-mod') || 'sample'),{
+            lang: SUNEDITOR_LANG['en'],
+            // font : [
+            //     'Arial',
+            //     'tohoma',
+            //     'Courier New,Courier'
+            // ],
+            buttonList: [
+                ['undo', 'redo'],
+                ['font', 'fontSize', 'formatBlock'],
+                ['paragraphStyle', 'blockquote'],
+                ['bold', 'underline', 'italic', 'strike', 'subscript', 'superscript'],
+                ['fontColor', 'hiliteColor', 'textStyle'],
+                ['removeFormat'],
+                '/', // Line break
+                ['outdent', 'indent'],
+                ['align', 'horizontalRule', 'list', 'lineHeight'],
+                ['table', 'link', 'image', 'video', 'audio' /** ,'math' */], // You must add the 'katex' library at options to use the 'math' plugin.
+                /** ['imageGallery'] */ // You must add the "imageGalleryUrl".
+                ['fullScreen', 'showBlocks', 'codeView'],
+                ['preview', 'print'],
+                ['save', 'template'],
+                /** ['dir', 'dir_ltr', 'dir_rtl'] */ // "dir": Toggle text direction, "dir_ltr": Right to Left, "dir_rtl": Left to Right
+            ],
+            defaultStyle: 'font-family:arial'
+
+
         });
         function init() {
             editor.setContents(document.getElementById('desc').value);
@@ -113,6 +174,11 @@
         function saveContent() {
             // console.log(editor.getContents())
             document.getElementById('desc').value = editor.getContents();
+
+        }
+        function saveContentMod() {
+            // console.log(editor.getContents())
+            document.getElementById('mod_feartured').value = editor1.getContents();
 
         }
     </script>
