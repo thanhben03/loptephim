@@ -159,24 +159,16 @@
                 success: function (data) {
                     $("#movie-genre").text(`Thể loại: ${data.movie.genre_name}`)
                     $("#movie-country").text(`Quốc gia: ${data.movie.country_name}`)
-<<<<<<< HEAD
                     $("#movie-vietsub").text(`Vietsub: ${data.movie.is_vietsub}`)
                     $("#movie-release_day").text(`Ngày phát hành: ${data.movie.release_date}` )
-=======
                     
                     $("#movie-vietsub").text(`Vietsub: ${data.movie.is_vietsub}`)
                     $("#movie-release_day").text(`Năm: ${data.movie.release_date}` )
->>>>>>> bc97782 (config server)
                     $("#movie-desc-text").text(data.movie.desc)
                     $("#movie-name").text(data.movie.title)
                     $('#exampleModal').modal('show');
                     let html = '';
                     let i = 1;
-<<<<<<< HEAD
-
-=======
-                    
->>>>>>> bc97782 (config server)
                     data.links.forEach(link => {
                         html += `
                             <li>
