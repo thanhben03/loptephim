@@ -8,8 +8,10 @@
 
 .wrap-detail-movie {
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    height: 62px;
+
+}
+
+
+.link-movie {
+    font-size: 20px;
 }
