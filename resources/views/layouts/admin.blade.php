@@ -413,15 +413,43 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+                    <a class="nav-link" data-toggle="collapse" href="#country" aria-expanded="false" aria-controls="charts">
                         <i class="typcn typcn-chart-pie-outline menu-icon"></i>
                         <span class="menu-title">Quốc gia</span>
                         <i class="menu-arrow"></i>
                     </a>
-                    <div class="collapse" id="charts">
+                    <div class="collapse" id="country">
                         <ul class="nav flex-column sub-menu">
                             <li class="nav-item"> <a class="nav-link" href="{{route("admin.country.create")}}">Thêm</a></li>
                             <li class="nav-item"> <a class="nav-link" href="{{route("admin.country.index")}}">Danh sách</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#gamemod" aria-expanded="false" aria-controls="charts">
+                        <i class="typcn typcn-chart-pie-outline menu-icon"></i>
+                        <span class="menu-title">Game/App Mod</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="gamemod">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <a class="nav-link" href="{{route("admin.game.create")}}">Thêm</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="{{route("admin.game.index")}}">Danh sách</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#genre_game" aria-expanded="false" aria-controls="charts">
+                        <i class="typcn typcn-chart-pie-outline menu-icon"></i>
+                        <span class="menu-title">Thể Loại Mod</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="genre_game">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <a class="nav-link" href="{{route("admin.genre_game.create")}}">Thêm</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="{{route("admin.genre_game.index")}}">Danh sách</a></li>
                         </ul>
                     </div>
                 </li>
@@ -470,6 +498,11 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/suneditor@latest/dist/css/suneditor.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/suneditor@latest/dist/suneditor.min.js"></script>
+<!-- languages (Basic Language: English/en) -->
+<script src="https://cdn.jsdelivr.net/npm/suneditor@latest/src/lang/ko.js"></script>
 <!-- endinject -->
 <!-- Custom js for this page-->
 <script src="{{asset('js/dashboard.js')}}"></script>

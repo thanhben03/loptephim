@@ -32,6 +32,8 @@ Route::prefix('admin')->middleware('auth')->name('admin.')->group(function ()
    Route::resource('/country',CountryController::class);
 //    Route::resource('/celebrity',CelebrityController::class);
     Route::resource('/movie',\App\Http\Controllers\MovieController::class);
+    Route::resource('/game',\App\Http\Controllers\GameController::class);
+    Route::resource('/genre_game',\App\Http\Controllers\GenreGameController::class);
 });
 
 Route::get('/dashboard', function () {

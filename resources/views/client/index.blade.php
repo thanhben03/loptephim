@@ -127,10 +127,13 @@
                                             </textarea>
                                         </div>
                                     </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="alert alert-danger">
                                     <ul id="movie-link">
 
                                     </ul>
-
                                 </div>
                             </li>
                         </ul>
@@ -159,18 +162,24 @@
                 success: function (data) {
                     $("#movie-genre").text(`Thể loại: ${data.movie.genre_name}`)
                     $("#movie-country").text(`Quốc gia: ${data.movie.country_name}`)
-                    $("#movie-vietsub").text(`Vietsub: ${data.movie.is_vietsub ? 'Có' : 'Không'}`)
+                    $("#movie-vietsub").text(`Vietsub: ${data.movie.is_vietsub}`)
                     $("#movie-release_day").text(`Ngày phát hành: ${data.movie.release_date}` )
                     $("#movie-desc-text").text(data.movie.desc)
                     $("#movie-name").text(data.movie.title)
                     $('#exampleModal').modal('show');
                     let html = '';
+                    let i = 1;
+
                     data.links.forEach(link => {
                         html += `
                             <li>
-                                <a target="_blank" href="${link.link}">${link.link}</a>
+                                <div class="link-movie">
+                                    <span>Link xem ${i}:</span>
+                                    <a target="_blank" href="${link.link}">${link.link}</a>
+                                </div>
                             </li>
                         `
+                        i++;
                     })
                     $("#movie-link").html(html);
                 }
