@@ -14,12 +14,13 @@
                             <th>Name</th>
                             <th>Thumbnail</th>
                             <th>Thể loại</th>
+                            <th>Game/App</th>
                             <th>Hành động</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($games as $game)
-                            <tr>
+                            <tr class="td-custom">
                                 <td>
                                     {{$game->id}}
 
@@ -31,10 +32,12 @@
                                     <img src="{{$game->thumbnail}}" style="border-radius: 0">
                                 </td>
 
-                                <td style="
-                                display: flex;
-                                flex-direction: column;">
+                                <td>
                                         <label style="width: max-content" class="badge badge-danger">{{$game->genres->name}}</label>
+                                </td>
+
+                                <td >
+                                    <label style="width: max-content" class="badge badge-danger">{{$game->type ? 'Game' : 'App'}}</label>
                                 </td>
 
                                 <td>
