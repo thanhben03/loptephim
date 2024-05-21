@@ -184,7 +184,6 @@
 
         function addLinkToMovie() {
             let linkModal = $("#linkModal")[0];
-            // console.log(linkModal[0]); return;
             let link = $(".wrap-movie-link").append(
                 `
                     <div class="wrap-link">
