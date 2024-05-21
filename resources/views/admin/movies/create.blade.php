@@ -67,11 +67,9 @@
                         <textarea name="desc" class="form-control" id="exampleTextarea1" rows="4"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="exampleSelectGender">Vietsub</label>
-                        <select name="is_vietsub" class="form-control" id="exampleSelectGender">
-                            <option value="0">Không</option>
-                            <option value="1">Có</option>
-                        </select>
+                        <label for="exampleSelectGender">Ngôn ngữ:</label>
+                        <input type="text" name="is_vietsub" class="form-control" id="is_vietsub"
+                            placeholder="Thuyết minh, lồng tiếng">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputCity1">Ngày phát hành</label>
