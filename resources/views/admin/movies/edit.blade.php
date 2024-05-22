@@ -69,11 +69,9 @@
                         <textarea name="desc" class="form-control" id="exampleTextarea1" rows="4">{{$movie->desc}}</textarea>
                     </div>
                     <div class="form-group">
-                        <label for="exampleSelectGender">Vietsub</label>
-                        <select name="is_vietsub" class="form-control" id="exampleSelectGender">
-                            <option {{!$movie->is_vietsub ? 'selected' : ''}} value="0">Không</option>
-                            <option {{$movie->is_vietsub ? 'selected' : ''}} value="1">Có</option>
-                        </select>
+                        <label for="exampleSelectGender">Ngôn ngữ:</label>
+                        <input value="{{$movie->is_vietsub}}" type="text" name="is_vietsub" class="form-control" id="is_vietsub"
+                               placeholder="Thuyết minh, lồng tiếng">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputCity1">Năm phát hành</label>
