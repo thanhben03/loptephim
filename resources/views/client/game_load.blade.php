@@ -3,7 +3,7 @@
         <div class="product__item">
             <div class="product__item__pic set-bg">
                 <img style="height: 100%" src="{{$item->thumbnail}}" alt="">
-                <div class="ep">18 / 18</div>
+                <div class="ep">{{$item->version}}</div>
                 <div onclick="showModalDetail({{$item->id}})" class="comment">Download</div>
             </div>
             <div class="product__item__text">
