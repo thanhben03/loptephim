@@ -76,8 +76,8 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputCity1">Ngày phát hành</label>
-                        <input type="date" value="{{$movie->release_date}}" name="release_date" class="form-control" id="exampleInputCity1" placeholder="Location">
+                        <label for="exampleInputCity1">Năm phát hành</label>
+                        <input type="text" value="{{$movie->release_date}}" name="release_date" class="form-control" id="exampleInputCity1" placeholder="">
                     </div>
                     <div class="form-group link-movie">
                         <div class="wrap-add-movie">

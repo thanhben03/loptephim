@@ -45,7 +45,8 @@
                             <li class="{{ Request::routeIs('home') ? 'active' : '' }}"><a href="{{route('home')}}">Homepage</a></li>
                             <li class="{{ request()->is('*phim-le') ? 'active' : '' }}"><a href="{{route('client.theloai', 'phim-le')}}">Phim lẻ</a></li>
                             <li class="{{ request()->is('*phim-bo') ? 'active' : '' }}"><a href="{{route('client.theloai', 'phim-bo')}}">Phim bộ</a></li>
-                            <li class="{{ request()->is('sites/*/edit') ? 'active' : '' }}"><a href="{{route('client.theloai', 'phim-bo')}}">Game mod</a></li>
+                            <li class="{{ request()->is('*game-mod') ? 'active' : '' }}"><a href="{{route('client.gamemod')}}">Game mod</a></li>
+                            <li class="{{ request()->is('*app-mod') ? 'active' : '' }}"><a href="{{route('client.appmod')}}">App mod</a></li>
 
                             <li><a href="./categories.html">Thể loại <span class="arrow_carrot-down"></span></a>
                                 <ul class="dropdown my-dropdown">

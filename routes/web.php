@@ -24,6 +24,11 @@ Route::post('/search', [IndexController::class, 'index'])->name('search');
 Route::get('/the-loai/{slug}', [IndexController::class, 'theloai'])->name('client.theloai');
 Route::get('/quoc-gia/{slug}', [IndexController::class, 'quocgia'])->name('client.quocgia');
 
+//Game - app
+Route::get('/game-mod', [IndexController::class, 'gamemod'])->name('client.gamemod');
+Route::get('/app-mod', [IndexController::class, 'appmod'])->name('client.appmod');
+
+
 
 Route::prefix('admin')->middleware('auth')->name('admin.')->group(function ()
 {
@@ -47,6 +52,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::post('/api/movie/', [\App\Http\Controllers\MovieController::class, 'getMovie'])->name('api.getMovie');
+Route::post('/api/game/', [\App\Http\Controllers\GameController::class, 'getGame'])->name('api.getGame');
 Route::post('/search', [\App\Http\Controllers\MovieController::class, 'search'])->name('search');
 
 

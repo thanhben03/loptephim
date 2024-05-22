@@ -144,21 +144,18 @@ class GameController extends Controller
         ]);
     }
 
-    public function getMovie(Request $request)
+    public function getGame(Request $request)
     {
         $id = $request->id;
-        $movie = DB::table('movies as m')
-            ->join('movie_genres as mg', 'm.id', '=', 'mg.movie_id')
-            ->join('movie_countries as mc', 'm.id', '=', 'mc.movie_id')
-            ->join('genres as g', 'mg.genre_id', '=', 'g.id')
-            ->join('countries as c', 'mc.country_id', '=', 'c.id')
-                ->select('m.*', 'g.name as genre_name', 'c.name as country_name')
-                ->where('m.id', $id)
+        $game = DB::table('games as g')
+                ->join('games_genres as gg', 'g.genre_id', '=', 'gg.id')
+                ->select('g.*', 'gg.name as game_genre')
+                ->where('g.id', $id)
                 ->first();
-        $links = MovieLink::query()->where('movie_id', $id)->get();
+        $links = GameLink::query()->where('game_id', $id)->get();
 
         return response()->json([
-            'movie' => $movie,
+            'game' => $game,
             'links' => $links
         ]);
     }
