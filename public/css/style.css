@@ -2165,7 +2165,7 @@ ol {
 	}
 	.header__right {
 		position: absolute;
-		left: 10px;
+		left: -45px;
 		top: 16px;
 		padding: 0;
 	}
@@ -2188,6 +2188,7 @@ ol {
 	}
 	.slicknav_nav ul {
 		margin: 0;
+        flex-direction: column;
 	}
 	.slicknav_nav .slicknav_row,
 	.slicknav_nav a {
@@ -2205,6 +2206,7 @@ ol {
 	}
 	.slicknav_nav .slicknav_arrow {
 		color: #111111;
+        display: none;
 	}
 	.slicknav_nav .slicknav_row:hover {
 		border-radius: 0;
