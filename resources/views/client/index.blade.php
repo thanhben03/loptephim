@@ -108,6 +108,7 @@
                                         <li id="movie-release_day">Ngày phát hành: 12</li>
                                         <li id="movie-country">Quốc gia: VN</li>
                                         <li id="movie-vietsub">Vietsub: Có</li>
+                                        <li id="movie-code"></li>
                                     </ul>
                                 </div>
                             </li>
@@ -160,6 +161,7 @@
                     $("#movie-release_day").text(`Ngày phát hành: ${data.movie.release_date}` )
 
                     $("#movie-vietsub").text(`Vietsub: ${data.movie.is_vietsub}`)
+                    $("#movie-code").text(`Mã: #${data.movie.id}`)
                     $("#movie-release_day").text(`Năm: ${data.movie.release_date}` )
                     $("#movie-desc-text").text(data.movie.desc)
                     $("#movie-name").text(data.movie.title)

@@ -48,7 +48,7 @@
                             <li class="{{ request()->is('*game-mod') ? 'active' : '' }}"><a href="{{route('client.gamemod')}}">Game mod</a></li>
                             <li class="{{ request()->is('*app-mod') ? 'active' : '' }}"><a href="{{route('client.appmod')}}">App mod</a></li>
 
-                            <li><a href="#">Thể loại <span class="arrow_carrot-down"></span></a>
+                            <li><a href="#">Thể loại</a>
                                 <ul class="dropdown my-dropdown">
                                     @foreach($genres as $genre)
                                         <li><a href="{{ route('client.theloai', $genre->slug) }}">{{$genre->name}}</a></li>
@@ -56,7 +56,7 @@
 
                                 </ul>
                             </li>
-                            <li><a href="#">Quốc gia <span class="arrow_carrot-down"></span></a>
+                            <li><a href="#">Quốc gia</a>
                                 <ul class="dropdown my-dropdown">
                                     @foreach($countries as $country)
                                         <li><a href="{{route('client.quocgia', $country->slug)}}">{{$country->name}}</a></li>

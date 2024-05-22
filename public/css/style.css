@@ -2206,7 +2206,7 @@ ol {
 	}
 	.slicknav_nav .slicknav_arrow {
 		color: #111111;
-        display: none;
+        /*display: none;*/
 	}
 	.slicknav_nav .slicknav_row:hover {
 		border-radius: 0;

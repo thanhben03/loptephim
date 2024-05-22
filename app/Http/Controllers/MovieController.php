@@ -141,7 +141,8 @@ class MovieController extends Controller
 
         // Tìm kiếm theo tên phim
         if ($request->movie_name != null) {
-            $query->where('title', 'like', '%' . $request->input('movie_name') . '%');
+            $query->where('title', 'like', '%' . $request->input('movie_name') . '%')
+            ->orWhere('id', $request->input('movie_name'));
         }
 
 //        // Tìm kiếm theo thể loại
