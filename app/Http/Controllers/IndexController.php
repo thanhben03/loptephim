@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Country;
+use App\Models\Game;
 use App\Models\Genre;
 use App\Models\Movie;
 use App\Models\MovieCountry;
@@ -85,6 +86,46 @@ class IndexController extends Controller
         return view('client.country', [
             'movies' => $movies,
             'country' => $country
+        ]);
+
+    }
+
+    public function gamemod(Request $request)
+    {
+        $games = Game::query()
+            ->where('type', '=', 0)
+//            ->with('movie')
+            ->paginate(4);
+
+        if ($request->ajax()) {
+            $view = view('client.game_load', [
+                'games' => $games
+            ])->render();
+            return Response::json(['view' => $view, 'nextPageUrl' => $games->nextPageUrl()] );
+        }
+//        dd($movies[0]->movie);
+        return view('client.game', [
+            'games' => $games
+        ]);
+
+    }
+
+    public function appmod(Request $request)
+    {
+        $games = Game::query()
+            ->where('type', '=', 1)
+//            ->with('movie')
+            ->paginate(4);
+
+        if ($request->ajax()) {
+            $view = view('client.app_load', [
+                'games' => $games
+            ])->render();
+            return Response::json(['view' => $view, 'nextPageUrl' => $games->nextPageUrl()] );
+        }
+//        dd($movies[0]->movie);
+        return view('client.app', [
+            'games' => $games
         ]);
 
     }

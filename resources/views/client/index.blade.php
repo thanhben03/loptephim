@@ -27,11 +27,11 @@
                                     <div class="product__item">
                                         <div class="product__item__pic set-bg">
                                             <img style="height: 100%" src="{{$item->thumbnail}}" alt="">
-                                            <div class="ep">18 / 18</div>
+                                            <div class="ep">{{$item->release_date}}</div>
                                             <div onclick="showModalDetail({{$item->id}})" class="comment">Xem phim</div>
                                         </div>
                                         <div class="product__item__text">
-                                            
+
                                             <span class="title-movie-mobile">
                                                 <a onclick="showModalDetail({{$item->id}})" class="link-movie-mobile" href="#">{{$item->title}}</a>
                                             </span>
@@ -61,14 +61,11 @@
                                     <div class="product__item">
                                         <div class="product__item__pic">
                                             <img style="height: 100%" src="{{$item->thumbnail}}" alt="">
-                                            <div class="ep">18 / 18</div>
+                                            <div class="ep">{{$item->release_date}}</div>
                                             <div onclick="showModalDetail({{$item->id}})" class="comment">Xem phim</div>
                                         </div>
                                         <div class="product__item__text">
-                                            <ul>
-                                                <li>Active</li>
-                                                <li>Movie</li>
-                                            </ul>
+
                                             <span class="title-movie-mobile">
                                                 <a onclick="showModalDetail({{$item->id}})" class="link-movie-mobile">
                                                     {{$item->title}}
@@ -161,7 +158,7 @@
                     $("#movie-country").text(`Quốc gia: ${data.movie.country_name}`)
                     $("#movie-vietsub").text(`Vietsub: ${data.movie.is_vietsub}`)
                     $("#movie-release_day").text(`Ngày phát hành: ${data.movie.release_date}` )
-                    
+
                     $("#movie-vietsub").text(`Vietsub: ${data.movie.is_vietsub}`)
                     $("#movie-release_day").text(`Năm: ${data.movie.release_date}` )
                     $("#movie-desc-text").text(data.movie.desc)
