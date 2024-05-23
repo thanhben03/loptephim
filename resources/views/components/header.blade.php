@@ -43,26 +43,27 @@
                     <nav class="header__menu mobile-menu">
                         <ul class="d-flex">
                             <li class="{{ Request::routeIs('home') ? 'active' : '' }}"><a href="{{route('home')}}">Homepage</a></li>
-                            <li class="{{ request()->is('*phim-le') ? 'active' : '' }}"><a href="{{route('client.theloai', 'phim-le')}}">Phim lẻ</a></li>
-                            <li class="{{ request()->is('*phim-bo') ? 'active' : '' }}"><a href="{{route('client.theloai', 'phim-bo')}}">Phim bộ</a></li>
+                            <li class="{{ request()->is('*phim-le') ? 'active' : '' }}"><a href="{{route('client.theloai', 'phim-le')}}">Phim Lẻ</a></li>
+                            <li class="{{ request()->is('*phim-viet') ? 'active' : '' }}"><a href="{{route('client.theloai', 'phim-viet')}}">Phim Vệt</a></li>
+                            <li class="{{ request()->is('*phim-chieu-rap') ? 'active' : '' }}"><a href="{{route('client.theloai', 'phim-chieu-rap')}}">Phim Chiếu Rạp</a></li>
                             <li class="{{ request()->is('*game-mod') ? 'active' : '' }}"><a href="{{route('client.gamemod')}}">Game mod</a></li>
                             <li class="{{ request()->is('*app-mod') ? 'active' : '' }}"><a href="{{route('client.appmod')}}">App mod</a></li>
 
-                            <li><a href="#">Thể loại</a>
-                                <ul class="dropdown my-dropdown">
-                                    @foreach($genres as $genre)
-                                        <li><a href="{{ route('client.theloai', $genre->slug) }}">{{$genre->name}}</a></li>
-                                    @endforeach
+{{--                            <li><a href="#">Thể loại</a>--}}
+{{--                                <ul class="dropdown my-dropdown">--}}
+{{--                                    @foreach($genres as $genre)--}}
+{{--                                        <li><a href="{{ route('client.theloai', $genre->slug) }}">{{$genre->name}}</a></li>--}}
+{{--                                    @endforeach--}}
 
-                                </ul>
-                            </li>
-                            <li><a href="#">Quốc gia</a>
-                                <ul class="dropdown my-dropdown">
-                                    @foreach($countries as $country)
-                                        <li><a href="{{route('client.quocgia', $country->slug)}}">{{$country->name}}</a></li>
-                                    @endforeach
-                                </ul>
-                            </li>
+{{--                                </ul>--}}
+{{--                            </li>--}}
+{{--                            <li><a href="#">Quốc gia</a>--}}
+{{--                                <ul class="dropdown my-dropdown">--}}
+{{--                                    @foreach($countries as $country)--}}
+{{--                                        <li><a href="{{route('client.quocgia', $country->slug)}}">{{$country->name}}</a></li>--}}
+{{--                                    @endforeach--}}
+{{--                                </ul>--}}
+{{--                            </li>--}}
                         </ul>
                     </nav>
                 </div>

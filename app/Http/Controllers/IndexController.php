@@ -21,20 +21,31 @@ class IndexController extends Controller
             ->join('movies','movie_banners.movie_id', '=', 'movies.id')
 //            ->join('genres','movie_banners.movie_id', '=', 'movies.id')
             ->get();
-        $phimbo = DB::table('movie_genres')
-            ->join('movies', 'movie_genres.movie_id', '=', 'movies.id')
-            ->where('movie_genres.genre_id', 1)
-            ->take(16)->get();
-        $phimle = DB::table('movie_genres')
-            ->join('movies', 'movie_genres.movie_id', '=', 'movies.id')
-            ->where('movie_genres.genre_id', 4)
+
+        $phimle = DB::table('movies as m')
+            ->join('movie_genres as mg', 'mg.movie_id', '=','m.id')
+            ->join('genres as g', 'g.id', '=','mg.genre_id')
+            ->where('g.slug', 'phim-le')
+            ->take(16)
+            ->get();
+        $phimviet = DB::table('movies as m')
+            ->join('movie_genres as mg', 'mg.movie_id', '=','m.id')
+            ->join('genres as g', 'g.id', '=','mg.genre_id')
+            ->where('g.slug', 'phim-viet')
+            ->take(16)
+            ->get();
+        $phimRap = DB::table('movies as m')
+            ->join('movie_genres as mg', 'mg.movie_id', '=','m.id')
+            ->join('genres as g', 'g.id', '=','mg.genre_id')
+            ->where('g.slug', 'phim-chieu-rap')
             ->take(16)
             ->get();
         $genres = Genre::get();
         $countries = Country::get();
 
         view()->share('genres', $genres);
-        view()->share('phimbo', $phimbo);
+        view()->share('phimviet', $phimviet);
+        view()->share('phimRap', $phimRap);
         view()->share('phimle', $phimle);
         view()->share('banners', $banners);
         view()->share('countries', $countries);

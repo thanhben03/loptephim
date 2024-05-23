@@ -2297,7 +2297,7 @@ ol {
         height: 160px;
         position: relative;
         border-radius: 5px;
-        width: auto;
+        width: max-content;
     }
 
     .product__item__text ul {

@@ -182,6 +182,9 @@ class MovieController extends Controller
                 ->select('m.*', 'g.name as genre_name', 'c.name as country_name')
                 ->where('m.id', $id)
                 ->first();
+        $movieView = Movie::query()->where('id', $id)->firstOrFail();
+        $movieView->view = $movieView->view + 1;
+        $movieView->save();
         $links = MovieLink::query()->where('movie_id', $id)->get();
 
         return response()->json([

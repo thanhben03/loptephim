@@ -152,6 +152,9 @@ class GameController extends Controller
                 ->select('g.*', 'gg.name as game_genre')
                 ->where('g.id', $id)
                 ->first();
+        $gameView = Game::query()->where('id', $id)->firstOrFail();
+        $gameView->view += 1;
+        $gameView->save();
         $links = GameLink::query()->where('game_id', $id)->get();
 
         return response()->json([

@@ -15,6 +15,7 @@
                             <th>Thumbnail</th>
                             <th>Vietsub</th>
                             <th>Thể loại</th>
+                            <th>Lượt xem</th>
                             <th>Ngày phát hành</th>
                             <th>Hành động</th>
                         </tr>
@@ -46,6 +47,7 @@
                                         <label style="width: max-content" class="badge badge-danger">{{$item->genre->name}}</label>
                                     @endforeach
                                 </td>
+                                <td>{{$movie->view }}</td>
                                 <td>
                                     {{$movie->release_date}}
                                 </td>

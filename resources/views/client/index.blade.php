@@ -12,17 +12,17 @@
                         <div class="row">
                             <div class="col-lg-8 col-md-8 col-sm-8">
                                 <div class="section-title">
-                                    <h4>PHIM BỘ</h4>
+                                    <h4>PHIM LẺ</h4>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4">
                                 <div class="btn__all">
-                                    <a href="{{route('client.theloai', 'phim-bo')}}" class="primary-btn">View All <span class="arrow_right"></span></a>
+                                    <a href="{{route('client.theloai', 'phim-le')}}" class="primary-btn">View All <span class="arrow_right"></span></a>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            @foreach($phimbo as $item)
+                            @foreach($phimle as $item)
                                 <div class="col-3" style="padding: 4px">
                                     <div class="product__item">
                                         <div class="product__item__pic set-bg">
@@ -46,17 +46,53 @@
                         <div class="row">
                             <div class="col-lg-8 col-md-8 col-sm-8">
                                 <div class="section-title">
-                                    <h4>PHIM LẺ</h4>
+                                    <h4>PHIM VIỆT</h4>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4">
                                 <div class="btn__all">
-                                    <a href="{{route('client.theloai', 'phim-le')}}" class="primary-btn">View All <span class="arrow_right"></span></a>
+                                    <a href="{{route('client.theloai', 'phim-viet')}}" class="primary-btn">View All <span class="arrow_right"></span></a>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            @foreach($phimle as $item)
+                            @foreach($phimviet as $item)
+                                <div class="col-3" style="padding: 4px">
+                                    <div class="product__item">
+                                        <div class="product__item__pic">
+                                            <img style="height: 100%" src="{{$item->thumbnail}}" alt="">
+                                            <div class="ep">{{$item->release_date}}</div>
+                                            <div onclick="showModalDetail({{$item->id}})" class="comment">Xem phim</div>
+                                        </div>
+                                        <div class="product__item__text">
+
+                                            <span class="title-movie-mobile">
+                                                <a onclick="showModalDetail({{$item->id}})" class="link-movie-mobile">
+                                                    {{$item->title}}
+                                                </a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+
+                        </div>
+                    </div>
+                    <div class="popular__product">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                <div class="section-title">
+                                    <h4>PHIM CHIẾU RẠP</h4>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <div class="btn__all">
+                                    <a href="{{route('client.theloai', 'phim-chieu-rap')}}" class="primary-btn">View All <span class="arrow_right"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            @foreach($phimRap as $item)
                                 <div class="col-3" style="padding: 4px">
                                     <div class="product__item">
                                         <div class="product__item__pic">

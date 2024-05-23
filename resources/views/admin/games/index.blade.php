@@ -14,6 +14,7 @@
                             <th>Name</th>
                             <th>Thumbnail</th>
                             <th>Thể loại</th>
+                            <th>View</th>
                             <th>Game/App</th>
                             <th>Hành động</th>
                         </tr>
@@ -35,6 +36,8 @@
                                 <td>
                                         <label style="width: max-content" class="badge badge-danger">{{$game->genres->name}}</label>
                                 </td>
+
+                                <td>{{$game->view}}</td>
 
                                 <td >
                                     <label style="width: max-content" class="badge badge-danger">{{$game->type ? 'Game' : 'App'}}</label>
