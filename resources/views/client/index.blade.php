@@ -208,8 +208,7 @@
                         html += `
                             <li>
                                 <div class="link-movie">
-                                    <span>Link xem ${i}:</span>
-                                    <a target="_blank" href="${link.link}">${link.link}</a>
+                                    <a target="_blank" href="${link.link}">Link xem ${i}</a>
                                 </div>
                             </li>
                         `

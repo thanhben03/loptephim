@@ -1,0 +1,7 @@
+[25-May-2024 19:14:00 Asia/Ho_Chi_Minh] PHP Warning:  require(/home/benboits/loptephim.benboit.shop/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/benboits/loptephim.benboit.shop/public/index.php on line 34
+[25-May-2024 19:14:00 Asia/Ho_Chi_Minh] PHP Warning:  require(/home/benboits/loptephim.benboit.shop/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/benboits/loptephim.benboit.shop/public/index.php on line 34
+[25-May-2024 19:14:00 Asia/Ho_Chi_Minh] PHP Fatal error:  Uncaught Error: Failed opening required '/home/benboits/loptephim.benboit.shop/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/benboits/loptephim.benboit.shop/public/index.php:34
+Stack trace:
+#0 /home/benboits/loptephim.benboit.shop/server.php(21): require_once()
+#1 {main}
+  thrown in /home/benboits/loptephim.benboit.shop/public/index.php on line 34
