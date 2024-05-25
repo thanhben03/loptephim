@@ -40,7 +40,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail3">Thể loại</label>
-                        <select class="form-control" name="genre_id">
+                        <select class="form-control" multiple name="genre_id[]" id="genre">
                             @foreach($genres as $genre)
                                 <option value="{{$genre->id }}">{{$genre->name}}</option>
                             @endforeach
@@ -109,6 +109,9 @@
 @endsection
 @push('js')
     <script>
+        $(document).ready(function() {
+            $('#genre').select2();
+        });
         const editor = SUNEDITOR.create((document.getElementById('sample') || 'sample'),{
             lang: SUNEDITOR_LANG['en'],
             // font : [

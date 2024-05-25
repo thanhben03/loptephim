@@ -58,20 +58,28 @@ class MovieController extends Controller
 
             $movie = Movie::create($validated);
             $inserts = [];
+            $insertsGenre = [];
             foreach ($request->link as $key => $value) {
                 $inserts[] = [
                     'movie_id' => $movie->id,
                     'link' => $value
                 ];
             }
+            foreach ($request->genre_id as $key => $value) {
+                $insertsGenre[] = [
+                    'movie_id' => $movie->id,
+                    'genre_id' => $value
+                ];
+            }
             MovieCountry::query()->create([
                 'movie_id' => $movie->id,
                 'country_id' => $request['country_id']
             ]);
-            MovieGenre::query()->create([
-                'movie_id' => $movie->id,
-                'genre_id' => $request['genre_id']
-            ]);
+//            MovieGenre::query()->create([
+//                'movie_id' => $movie->id,
+//                'genre_id' => $request['genre_id']
+//            ]);
+            MovieGenre::insert($insertsGenre);
             MovieLink::insert($inserts);
         });
 
@@ -86,11 +94,16 @@ class MovieController extends Controller
 
     public function edit(Movie $movie)
     {
+        $genreIds = DB::table('movie_genres as mg')
+                    ->join('movies as m', 'm.id', '=', 'mg.movie_id')
+                    ->where('m.id', $movie->id)
+                    ->pluck('mg.genre_id')
+                    ->all();
         $links = DB::table('movie_links')
                 ->join('movies', 'movies.id', '=', 'movie_links.movie_id')
                 ->where('movies.id', $movie->id)
                 ->get();
-        return view('admin.movies.edit', compact('movie', 'links'));
+        return view('admin.movies.edit', compact('movie', 'links', 'genreIds'));
     }
 
     public function update(Request $request, Movie $movie)
@@ -114,10 +127,14 @@ class MovieController extends Controller
             MovieCountry::query()->updateOrCreate([
                 'movie_id' => $movie->id
             ], ['country_id' => $request['country_id']]);
+            MovieGenre::query()->where('movie_id', $movie->id)->delete();
 
-            MovieGenre::query()->updateOrCreate([
-                'movie_id' => $movie->id
-            ], ['genre_id' => $request['genre_id']]);
+            foreach ($request->genre_id as $item) {
+                MovieGenre::query()->create([
+                    'movie_id' => $movie->id,
+                    'genre_id' => $item
+                ]);
+            }
 
             MovieLink::insert($inserts);
         });
@@ -144,19 +161,6 @@ class MovieController extends Controller
             ->orWhere('id', $request->input('movie_name'));
         }
 
-//        // Tìm kiếm theo thể loại
-//        if ($request->has('genres')) {
-//            // dd(0);
-//            $query->join('movie_genres', 'movie_genres.movie_id', '=', 'movies.id')
-//                ->join('genres', 'movie_genres.genre_id', '=', 'genres.id')
-//                ->whereIn('genres.id', $request->genres);
-//        }
-//
-//        // Tìm kiếm theo năm
-//        if ($request->fromYear != 'no-data' && $request->toYear != 'no-data') {
-//            $query->whereBetween(DB::raw('YEAR(release_date)'), [$request->fromYear, $request->toYear]);
-//        }
-
         $movies = $query->paginate(4);
         if ($request->ajax()) {
             $view = view('client.search_load', [
@@ -178,16 +182,30 @@ class MovieController extends Controller
             ->join('movie_countries as mc', 'm.id', '=', 'mc.movie_id')
             ->join('genres as g', 'mg.genre_id', '=', 'g.id')
             ->join('countries as c', 'mc.country_id', '=', 'c.id')
-                ->select('m.*', 'g.name as genre_name', 'c.name as country_name')
+                ->select('m.*', 'g.name as genre_name', 'g.id as genre_id', 'c.name as country_name')
                 ->where('m.id', $id)
-                ->first();
+                ->get();
+        $genres = [];
+        $results = [];
+        if (count($movie) > 1) {
+            foreach ($movie as $item) {
+                $genres[] = [
+                    'id' => $item->genre_id,
+                    'text' => $item->genre_name,
+                ];
+            }
+            $response = $movie->toArray()[0];
+            $response->genre_name = $genres;
+
+            $movie[0] = $response;
+        }
         $movieView = Movie::query()->where('id', $id)->firstOrFail();
         $movieView->view = $movieView->view + 1;
         $movieView->save();
         $links = MovieLink::query()->where('movie_id', $id)->get();
 
         return response()->json([
-            'movie' => $movie,
+            'movie' => $movie[0],
             'links' => $links
         ]);
     }

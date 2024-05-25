@@ -29,6 +29,7 @@ class IndexController extends Controller
             ->where('g.slug', 'phim-le')
             ->take(16)
             ->get();
+//        dd($phimle[7]->genre);
         $phimviet = DB::table('movies as m')
             ->join('movie_genres as mg', 'mg.movie_id', '=','m.id')
             ->join('genres as g', 'g.id', '=','mg.genre_id')

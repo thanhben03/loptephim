@@ -182,7 +182,15 @@
                     'id': idMovie
                 },
                 success: function (data) {
-                    $("#movie-genre").text(`Thể loại: ${data.movie.genre_name}`)
+                    let genre_name = '';
+                    if (Array.isArray(data.movie.genre_name)) {
+                        data.movie.genre_name.forEach((ele) => {
+                            genre_name += `${ele.text},`
+                        })
+                    } else {
+                        genre_name = data.movie.genre_name
+                    }
+                    $("#movie-genre").text(`Thể loại: ${genre_name}`)
                     $("#movie-country").text(`Quốc gia: ${data.movie.country_name}`)
                     $("#movie-vietsub").text(`Vietsub: ${data.movie.is_vietsub}`)
                     $("#movie-release_day").text(`Ngày phát hành: ${data.movie.release_date}` )
