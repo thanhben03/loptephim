@@ -76,6 +76,11 @@
                         <input type="text" name="release_date" class="form-control" id="exampleInputCity1"
                             placeholder="">
                     </div>
+                    <div class="form-group">
+                        <label for="exampleInputCity1">Link trailer</label>
+                        <input type="text" name="trailer" class="form-control" id="exampleInputCity1"
+                               placeholder="">
+                    </div>
                     <div class="form-group link-movie">
                         <div class="wrap-add-movie">
                             <label for="exampleInputCity1">Link</label>

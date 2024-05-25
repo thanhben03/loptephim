@@ -77,6 +77,10 @@
                         <label for="exampleInputCity1">Năm phát hành</label>
                         <input type="text" value="{{$movie->release_date}}" name="release_date" class="form-control" id="exampleInputCity1" placeholder="">
                     </div>
+                    <div class="form-group">
+                        <label for="exampleInputCity1">Link trailer</label>
+                        <input type="text" value="{{$movie->trailer}}" name="release_date" class="form-control" id="exampleInputCity1" placeholder="">
+                    </div>
                     <div class="form-group link-movie">
                         <div class="wrap-add-movie">
                             <label for="exampleInputCity1">Link</label>
