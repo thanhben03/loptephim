@@ -44,7 +44,7 @@ class MovieController extends Controller
             'title' => 'required|max:100',
             'slug' => 'required',
             'thumbnail' => 'required',
-            'desc' => 'required',
+//            'desc' => 'required',
             'release_date' => 'required',
             'is_vietsub' => 'required',
             'link' => 'required',

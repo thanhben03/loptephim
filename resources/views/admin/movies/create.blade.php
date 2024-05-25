@@ -62,12 +62,12 @@
                     <div class="form-group show-image">
 
                     </div>
-                    <div class="form-group">
-                        <label for="exampleTextarea1">Mô tả</label>
-                        <span onclick="saveContent()" class="btn btn-success">Save</span>
+{{--                    <div class="form-group">--}}
+{{--                        <label for="exampleTextarea1">Mô tả</label>--}}
+{{--                        <span onclick="saveContent()" class="btn btn-success">Save</span>--}}
 
-                        <textarea name="desc" class="form-control" id="sample" rows="4"></textarea>
-                    </div>
+{{--                        <textarea name="desc" class="form-control" id="sample" rows="4"></textarea>--}}
+{{--                    </div>--}}
                     <div class="form-group">
                         <label for="exampleSelectGender">Ngôn ngữ:</label>
                         <input type="text" name="is_vietsub" class="form-control" id="is_vietsub"

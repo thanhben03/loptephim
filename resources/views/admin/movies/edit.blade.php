@@ -64,12 +64,12 @@
                             <img style="height: 200px" src="{{$movie->thumbnail}}" />
                         @endif
                     </div>
-                    <div>
-                        <label for="exampleTextarea1">Mô tả:</label>
-                        <span onclick="saveContent()" class="btn btn-success">Save</span>
-                        <textarea rows="5" onchange="saveContent()" class="form-control" id="sample">{{$movie->desc}}</textarea>
-                        <input type="text" name="desc" value="{{$movie->desc}}" hidden id="desc">
-                    </div>
+{{--                    <div>--}}
+{{--                        <label for="exampleTextarea1">Mô tả:</label>--}}
+{{--                        <span onclick="saveContent()" class="btn btn-success">Save</span>--}}
+{{--                        <textarea rows="5" onchange="saveContent()" class="form-control" id="sample">{{$movie->desc}}</textarea>--}}
+{{--                        <input type="text" name="desc" value="{{$movie->desc}}" hidden id="desc">--}}
+{{--                    </div>--}}
                     <div class="form-group">
                         <label for="exampleSelectGender">Ngôn ngữ:</label>
                         <input value="{{$movie->is_vietsub}}" type="text" name="is_vietsub" class="form-control" id="is_vietsub"
