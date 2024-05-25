@@ -55,7 +55,6 @@ class MovieController extends Controller
         unset($validated['link']);
         $linkcode = $validated['trailer'];
         $validated['trailer'] .= "https://www.youtube.com/embed/".$linkcode;
-
         DB::transaction(function () use ($validated,$request){
 
             $movie = Movie::create($validated);
@@ -100,7 +99,8 @@ class MovieController extends Controller
 
         $data = $request->all();
 
-
+        $linkcode = $data['trailer'];
+        $data['trailer'] .= "https://www.youtube.com/embed/".$linkcode;
         unset($data['link']);
         unset($data['genre_id']);
         unset($data['country_id']);
