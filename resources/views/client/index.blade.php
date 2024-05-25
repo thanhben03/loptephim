@@ -4,6 +4,7 @@
     @include('components.banner')
 @endsection
 @section('content')
+    <input type="text" class="form-control">
     <section class="product spad">
         <div class="container">
             <div class="row">
