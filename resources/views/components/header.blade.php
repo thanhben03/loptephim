@@ -49,14 +49,12 @@
                             <li class="{{ request()->is('*game-mod') ? 'active' : '' }}"><a href="{{route('client.gamemod')}}">Game mod</a></li>
                             <li class="{{ request()->is('*app-mod') ? 'active' : '' }}"><a href="{{route('client.appmod')}}">App mod</a></li>
 
-{{--                            <li><a href="#">Thể loại</a>--}}
-{{--                                <ul class="dropdown my-dropdown">--}}
-{{--                                    @foreach($genres as $genre)--}}
-{{--                                        <li><a href="{{ route('client.theloai', $genre->slug) }}">{{$genre->name}}</a></li>--}}
-{{--                                    @endforeach--}}
-
-{{--                                </ul>--}}
-{{--                            </li>--}}
+                            <li><a href="#">Liên hệ</a>
+                                <ul class="dropdown my-dropdown">
+                                    <li><a target="_blank" href="https://www.facebook.com/cnlopte?mibextid=LQQJ4d">Fanpage</a></li>
+                                    <li><a target="_blank" href="https://t.me/ModGameAppTrick">Telegram</a></li>
+                                </ul>
+                            </li>
 {{--                            <li><a href="#">Quốc gia</a>--}}
 {{--                                <ul class="dropdown my-dropdown">--}}
 {{--                                    @foreach($countries as $country)--}}
