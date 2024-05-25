@@ -206,8 +206,6 @@
 
                     $(".movie-trailer").attr('src', `https://www.youtube.com/embed/${data.movie.trailer}`)
 
-                    $(".movie-trailer").attr('src', data.movie.trailer)
-
                     $('#exampleModal').modal('show');
                     let html = '';
                     let i = 1;
