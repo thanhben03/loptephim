@@ -145,7 +145,7 @@
                                         <li id="movie-country">Quốc gia: VN</li>
                                         <li id="movie-vietsub">Vietsub: Có</li>
                                         <li id="movie-code"></li>
-                                        <iframe class="movie-trailer" width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                                        <iframe class="movie-trailer" width="420" height="345" src="">
                                         </iframe>
                                     </ul>
                                 </div>
@@ -203,7 +203,7 @@
                     $("#movie-release_day").text(`Năm: ${data.movie.release_date}` )
                     $("#movie-desc-text").text(data.movie.desc)
                     $("#movie-name").text(data.movie.title)
-                    $("#movie-trailer").attr('src', data.movie.trailer)
+                    $(".movie-trailer").attr('src', `https://www.youtube.com/embed/${data.movie.trailer}`)
                     $('#exampleModal').modal('show');
                     let html = '';
                     let i = 1;
