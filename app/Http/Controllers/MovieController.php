@@ -53,6 +53,8 @@ class MovieController extends Controller
 //            'country_id' => 'required',
         ]);
         unset($validated['link']);
+        $linkcode = $validated['trailer'];
+        $validated['trailer'] .= "https://www.youtube.com/embed/".$linkcode;
 
         DB::transaction(function () use ($validated,$request){
 
