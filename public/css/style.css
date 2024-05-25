@@ -2329,7 +2329,9 @@ ol {
         font-size: 13px;
     }
 
-
+    .movie-trailer {
+        width: max-content;
+    }
 }
 
 /* Small Device = 320px */
