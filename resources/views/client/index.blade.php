@@ -150,18 +150,7 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li>
-                                <div class="alert alert-success" role="alert">
-                                    <div class="movie-desc">
-                                        <div class="form-group">
-                                            <label>Mô tả: </label>
-                                            <textarea class="form-control" disabled id="movie-desc-text">
 
-                                            </textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
                             <li>
                                 <div class="alert alert-danger">
                                     <ul id="movie-link">
@@ -201,7 +190,7 @@
                     $("#movie-vietsub").text(`Vietsub: ${data.movie.is_vietsub}`)
                     $("#movie-code").text(`Mã: #${data.movie.id}`)
                     $("#movie-release_day").text(`Năm: ${data.movie.release_date}` )
-                    $("#movie-desc-text").text(data.movie.desc)
+                    // $("#movie-desc-text").text(data.movie.desc)
                     $("#movie-name").text(data.movie.title)
 
                     $(".movie-trailer").attr('src', `https://www.youtube.com/embed/${data.movie.trailer}`)
