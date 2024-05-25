@@ -58,7 +58,7 @@
                         <div class="row">
                             @foreach($phimviet as $item)
                                 <div class="col-3" style="padding: 4px">
-                                    <div class="product__item" onclick="showModalDetail({{$item->movie->id}})" >
+                                    <div class="product__item" onclick="showModalDetail({{$item->id}})" >
                                         <div class="product__item__pic">
                                             <img style="height: 100%" src="{{$item->thumbnail}}" alt="">
                                             <div class="ep">{{$item->release_date}}</div>
