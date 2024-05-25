@@ -64,9 +64,11 @@
                             <img style="height: 200px" src="{{$movie->thumbnail}}" />
                         @endif
                     </div>
-                    <div class="form-group">
-                        <label for="exampleTextarea1">Mô tả</label>
-                        <textarea name="desc" class="form-control" id="exampleTextarea1" rows="4">{{$movie->desc}}</textarea>
+                    <div>
+                        <label for="exampleTextarea1">Mô tả:</label>
+                        <span onclick="saveContent()" class="btn btn-success">Save</span>
+                        <textarea rows="5" onchange="saveContent()" class="form-control" id="sample">{{$movie->desc}}</textarea>
+                        <input type="text" name="desc" value="{{$movie->desc}}" hidden id="desc">
                     </div>
                     <div class="form-group">
                         <label for="exampleSelectGender">Ngôn ngữ:</label>
@@ -79,7 +81,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputCity1">Link trailer</label>
-                        <input type="text" value="{{$movie->trailer}}" name="release_date" class="form-control" id="exampleInputCity1" placeholder="">
+                        <input type="text" value="{{$movie->trailer}}" name="trailer" class="form-control" id="exampleInputCity1" placeholder="">
                     </div>
                     <div class="form-group link-movie">
                         <div class="wrap-add-movie">
@@ -108,6 +110,48 @@
     </div>
 @endsection
 @push('js')
+    <script>
+        const editor = SUNEDITOR.create((document.getElementById('sample') || 'sample'),{
+            lang: SUNEDITOR_LANG['en'],
+            // font : [
+            //     'Arial',
+            //     'tohoma',
+            //     'Courier New,Courier'
+            // ],
+            buttonList: [
+                ['undo', 'redo'],
+                ['font', 'fontSize', 'formatBlock'],
+                ['paragraphStyle', 'blockquote'],
+                ['bold', 'underline', 'italic', 'strike', 'subscript', 'superscript'],
+                ['fontColor', 'hiliteColor', 'textStyle'],
+                ['removeFormat'],
+                '/', // Line break
+                ['outdent', 'indent'],
+                ['align', 'horizontalRule', 'list', 'lineHeight'],
+                ['table', 'link', 'image', 'video', 'audio' /** ,'math' */], // You must add the 'katex' library at options to use the 'math' plugin.
+                /** ['imageGallery'] */ // You must add the "imageGalleryUrl".
+                ['fullScreen', 'showBlocks', 'codeView'],
+                ['preview', 'print'],
+                ['save', 'template'],
+                /** ['dir', 'dir_ltr', 'dir_rtl'] */ // "dir": Toggle text direction, "dir_ltr": Right to Left, "dir_rtl": Left to Right
+            ],
+            defaultStyle: 'font-family:arial'
+
+
+        });
+
+
+        function init() {
+            editor.setContents(document.getElementById('desc').value);
+        }
+        init();
+        function saveContent() {
+            // console.log(editor.getContents())
+            document.getElementById('desc').value = editor.getContents();
+
+        }
+
+    </script>
     <script>
 
 

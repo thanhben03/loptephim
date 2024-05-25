@@ -138,11 +138,7 @@
 
         const editor1 = SUNEDITOR.create((document.getElementById('sample-mod') || 'sample'),{
             lang: SUNEDITOR_LANG['en'],
-            // font : [
-            //     'Arial',
-            //     'tohoma',
-            //     'Courier New,Courier'
-            // ],
+
             buttonList: [
                 ['undo', 'redo'],
                 ['font', 'fontSize', 'formatBlock'],
@@ -161,8 +157,6 @@
                 /** ['dir', 'dir_ltr', 'dir_rtl'] */ // "dir": Toggle text direction, "dir_ltr": Right to Left, "dir_rtl": Left to Right
             ],
             defaultStyle: 'font-family:arial'
-
-
         });
         function init() {
             editor.setContents(document.getElementById('desc').value);

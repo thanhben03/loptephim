@@ -48,6 +48,7 @@ class MovieController extends Controller
             'release_date' => 'required',
             'is_vietsub' => 'required',
             'link' => 'required',
+            'trailer' => 'required',
 //            'genre_id' => 'required',
 //            'country_id' => 'required',
         ]);
