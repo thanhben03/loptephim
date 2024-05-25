@@ -44,7 +44,7 @@ class MovieController extends Controller
             'title' => 'required|max:100',
             'slug' => 'required',
             'thumbnail' => 'required',
-//            'desc' => 'required',
+            'country' => 'required',
             'release_date' => 'required',
             'is_vietsub' => 'required',
             'link' => 'required',
@@ -71,10 +71,10 @@ class MovieController extends Controller
                     'genre_id' => $value
                 ];
             }
-            MovieCountry::query()->create([
-                'movie_id' => $movie->id,
-                'country_id' => $request['country_id']
-            ]);
+//            MovieCountry::query()->create([
+//                'movie_id' => $movie->id,
+//                'country_id' => $request['country_id']
+//            ]);
 //            MovieGenre::query()->create([
 //                'movie_id' => $movie->id,
 //                'genre_id' => $request['genre_id']
@@ -124,9 +124,9 @@ class MovieController extends Controller
                     'link' => $value
                 ];
             }
-            MovieCountry::query()->updateOrCreate([
-                'movie_id' => $movie->id
-            ], ['country_id' => $request['country_id']]);
+//            MovieCountry::query()->updateOrCreate([
+//                'movie_id' => $movie->id
+//            ], ['country_id' => $request['country_id']]);
             MovieGenre::query()->where('movie_id', $movie->id)->delete();
 
             foreach ($request->genre_id as $item) {

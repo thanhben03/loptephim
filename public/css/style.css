@@ -711,7 +711,8 @@ ol {
 }
 
 .product__item__text {
-	padding-top: 20px;
+	/*padding-top: 20px;*/
+    font-weight: bold;
 }
 
 .product__item__text ul {
@@ -2297,7 +2298,7 @@ ol {
         height: 160px;
         position: relative;
         border-radius: 5px;
-        width: max-content;
+        width: fit-content;
     }
 
     .product__item__text ul {
@@ -2314,7 +2315,7 @@ ol {
 
     .title-movie-mobile {
         display: inline-block;
-        width: 94px;
+        width: 80px;
         white-space: nowrap;
         overflow: hidden !important;
         color: white;

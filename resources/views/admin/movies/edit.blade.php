@@ -54,11 +54,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail3">Quốc gia</label>
-                        <select class="form-control" name="country_id">
-                            @foreach($countries as $country)
-                                <option @if($country->id == $movie->movie_countries[0]->country->id) selected @endif value="{{$country->id }}">{{$country->name}}</option>
-                            @endforeach
-                        </select>
+                        <input class="form-control" type="text" name="country" value="{{$movie->country}}">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword4">Thumbnail</label>

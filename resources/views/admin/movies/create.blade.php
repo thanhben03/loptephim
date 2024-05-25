@@ -48,11 +48,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail3">Quốc gia</label>
-                        <select class="form-control" name="country_id">
-                            @foreach($countries as $country)
-                                <option value="{{$country->id }}">{{$country->name}}</option>
-                            @endforeach
-                        </select>
+                        <input class="form-control" type="text" name="country">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword4">Thumbnail</label>

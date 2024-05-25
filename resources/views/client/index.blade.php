@@ -28,7 +28,7 @@
                                         <div class="product__item__pic set-bg">
                                             <img style="height: 100%" src="{{$item->thumbnail}}" alt="">
                                             <div class="ep">{{$item->release_date}}</div>
-                                            <div onclick="showModalDetail({{$item->id}})" class="comment">Xem phim</div>
+{{--                                            <div onclick="showModalDetail({{$item->id}})" class="comment">Xem phim</div>--}}
                                         </div>
                                         <div class="product__item__text">
 
@@ -58,11 +58,11 @@
                         <div class="row">
                             @foreach($phimviet as $item)
                                 <div class="col-3" style="padding: 4px">
-                                    <div class="product__item">
+                                    <div class="product__item" onclick="showModalDetail({{$item->movie->id}})" >
                                         <div class="product__item__pic">
                                             <img style="height: 100%" src="{{$item->thumbnail}}" alt="">
                                             <div class="ep">{{$item->release_date}}</div>
-                                            <div onclick="showModalDetail({{$item->id}})" class="comment">Xem phim</div>
+{{--                                            <div onclick="showModalDetail({{$item->id}})" class="comment">Xem phim</div>--}}
                                         </div>
                                         <div class="product__item__text">
 
@@ -191,7 +191,7 @@
                         genre_name = data.movie.genre_name
                     }
                     $("#movie-genre").text(`Thể loại: ${genre_name}`)
-                    $("#movie-country").text(`Quốc gia: ${data.movie.country_name}`)
+                    $("#movie-country").text(`Quốc gia: ${data.movie.country}`)
                     $("#movie-vietsub").text(`Vietsub: ${data.movie.is_vietsub}`)
                     $("#movie-release_day").text(`Ngày phát hành: ${data.movie.release_date}` )
 
