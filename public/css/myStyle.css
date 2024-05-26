@@ -79,7 +79,7 @@
         top: 10px;
     }
 
-    .product__item__pic .vietsub {
+    .vietsub {
         position: absolute;
         top: 32px;
         width: max-content;
