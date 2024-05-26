@@ -46,40 +46,17 @@
             </div>
         </form>
         <div id="popup">
-            <div class="hang">
-                <div class="so" onclick="chonSo('q')">q</div>
-                <div class="so" onclick="chonSo('w')">w</div>
-                <div class="so" onclick="chonSo('e')">e</div>
-                <div class="so" onclick="chonSo('r')">r</div>
-                <div class="so" onclick="chonSo('t')">t</div>
-                <div class="so" onclick="chonSo('y')">y</div>
-                <div class="so" onclick="chonSo('u')">u</div>
-                <div class="so" onclick="chonSo('i')">i</div>
-                <div class="so" onclick="chonSo('o')">o</div>
-                <div class="so" onclick="chonSo('p')">p</div>
-            </div>
-            <div class="hang">
-                <div class="so" onclick="chonSo('a')">a</div>
-                <div class="so" onclick="chonSo('s')">s</div>
-                <div class="so" onclick="chonSo('d')">d</div>
-                <div class="so" onclick="chonSo('f')">f</div>
-                <div class="so" onclick="chonSo('g')">g</div>
-                <div class="so" onclick="chonSo('h')">h</div>
-                <div class="so" onclick="chonSo('j')">j</div>
-                <div class="so" onclick="chonSo('k')">k</div>
-                <div class="so" onclick="chonSo('l')">l</div>
-            </div>
-            <div class="hang">
-                <div class="so" onclick="chonSo('z')">z</div>
-                <div class="so" onclick="chonSo('x')">x</div>
-                <div class="so" onclick="chonSo('c')">c</div>
-                <div class="so" onclick="chonSo('v')">v</div>
-                <div class="so" onclick="chonSo('b')">b</div>
-                <div class="so" onclick="chonSo('n')">n</div>
-                <div class="so" onclick="chonSo('m')">m</div>
-
-            </div>
-            <button onclick="closePopup()" class="btn-btn-danger">Close</button>
+            <div class="so" onclick="chonSo(0)">0</div>
+            <div class="so" onclick="chonSo(1)">1</div>
+            <div class="so" onclick="chonSo(2)">2</div>
+            <div class="so" onclick="chonSo(3)">3</div>
+            <div class="so" onclick="chonSo(4)">4</div>
+            <div class="so" onclick="chonSo(5)">5</div>
+            <div class="so" onclick="chonSo(6)">6</div>
+            <div class="so" onclick="chonSo(7)">7</div>
+            <div class="so" onclick="chonSo(8)">8</div>
+            <div class="so" onclick="chonSo(9)">9</div>
+            <button class="btn btn-success" onclick="closePopup()">Close</button>
         </div>
     </div>
 </div>
