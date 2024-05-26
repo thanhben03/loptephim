@@ -43,7 +43,6 @@
 }
 
 .vietsub {
-    position: absolute;
     width: max-content;
     height: 18px;
     font-size: 8px;
@@ -89,7 +88,6 @@
     }
 
     .vietsub {
-        position: absolute;
         top: 32px;
         width: max-content;
         height: 18px;
