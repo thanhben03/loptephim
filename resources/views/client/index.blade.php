@@ -28,7 +28,7 @@
                                         <div class="product__item__pic set-bg">
                                             <img style="height: 100%" src="{{$item->thumbnail}}" alt="">
                                             <div class="ep">{{$item->release_date}}</div>
-                                            <div class="btn btn-success vietsub">{{$item->is_vietsub}}</div>
+                                            <div class="ep vietsub">{{$item->is_vietsub}}</div>
 {{--                                            <div onclick="showModalDetail({{$item->id}})" class="comment">Xem phim</div>--}}
                                         </div>
                                         <div class="product__item__text">

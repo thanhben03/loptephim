@@ -81,12 +81,12 @@
 
     .product__item__pic .vietsub {
         position: absolute;
-        left: 0;
-        bottom: 0;
+        top: 32px;
         width: max-content;
         height: 18px;
         font-size: 8px;
         display: flex;
         align-items: center;
+        background-color: #0a763f;
     }
 }
