@@ -27,6 +27,7 @@ class IndexController extends Controller
             ->join('genres as g', 'g.id', '=','mg.genre_id')
             ->select('m.*', 'g.name')
             ->where('g.slug', 'phim-le')
+            ->orderBy('id', 'desc')
             ->take(16)
             ->get();
 //        dd($phimle[7]->genre);
@@ -35,6 +36,7 @@ class IndexController extends Controller
             ->join('genres as g', 'g.id', '=','mg.genre_id')
             ->select('m.*', 'g.name')
             ->where('g.slug', 'phim-viet')
+            ->orderBy('id', 'desc')
             ->take(16)
             ->get();
         $phimRap = DB::table('movies as m')
@@ -42,6 +44,7 @@ class IndexController extends Controller
             ->join('genres as g', 'g.id', '=','mg.genre_id')
             ->select('m.*', 'g.name')
             ->where('g.slug', 'phim-chieu-rap')
+            ->orderBy('id', 'desc')
             ->take(16)
             ->get();
         $genres = Genre::get();
@@ -109,6 +112,8 @@ class IndexController extends Controller
     {
         $games = Game::query()
             ->where('type', '=', 0)
+            ->orderBy('id', 'desc')
+
 //            ->with('movie')
             ->paginate(4);
 
@@ -129,6 +134,8 @@ class IndexController extends Controller
     {
         $games = Game::query()
             ->where('type', '=', 1)
+            ->orderBy('id', 'desc')
+
 //            ->with('movie')
             ->paginate(4);
 
