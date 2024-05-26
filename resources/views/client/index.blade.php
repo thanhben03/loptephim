@@ -101,7 +101,6 @@
                                         <div class="product__item__pic">
                                             <img style="height: 100%" src="{{$item->thumbnail}}" alt="">
                                             <div class="ep">{{$item->release_date}}</div>
-                                            <div class="btn btn-success vietsub">{{$item->is_vietsub}}</div>
 
                                         </div>
                                         <div class="product__item__text">
@@ -111,6 +110,8 @@
                                                     {{$item->title}}
                                                 </a>
                                             </span>
+                                            <span class="btn btn-success vietsub">{{$item->is_vietsub}}</span>
+
                                         </div>
                                     </div>
                                 </div>
