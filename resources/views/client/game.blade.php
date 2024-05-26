@@ -93,13 +93,13 @@
                                     </div>
                                 </div>
                             </li>
-                            <li>
-                                <div class="alert alert-success">
-                                    <ul id="game-link">
+{{--                            <li>--}}
+{{--                                <div class="alert alert-success">--}}
+{{--                                    <ul id="game-link">--}}
 
-                                    </ul>
-                                </div>
-                            </li>
+{{--                                    </ul>--}}
+{{--                                </div>--}}
+{{--                            </li>--}}
                         </ul>
                     </div>
                 </div>
@@ -162,20 +162,20 @@
                     $("#game-name").text(data.game.name)
                     $('#exampleModal').modal('show');
 
-                    let html = '';
-                    let i = 1;
-                    data.links.forEach(link => {
-                        html += `
-                            <li>
-                                <div class="link-movie">
-                                    <span>Link tải ${i}:</span>
-                                    <a target="_blank" href="${link.link}">${link.link}</a>
-                                </div>
-                            </li>
-                        `
-                        i++;
-                    })
-                    $("#game-link").html(html);
+                    // let html = '';
+                    // let i = 1;
+                    // data.links.forEach(link => {
+                    //     html += `
+                    //         <li>
+                    //             <div class="link-movie">
+                    //                 <span>Link tải ${i}:</span>
+                    //                 <a target="_blank" href="${link.link}">${link.link}</a>
+                    //             </div>
+                    //         </li>
+                    //     `
+                    //     i++;
+                    // })
+                    // $("#game-link").html(html);
                 }
             })
         }

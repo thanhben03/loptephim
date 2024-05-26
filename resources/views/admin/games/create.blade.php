@@ -81,22 +81,7 @@
                         <textarea onchange="saveContent()" class="form-control" id="sample">Hi</textarea>
                         <input type="text" name="desc" hidden id="desc">
                     </div>
-                    <div class="form-group link-movie">
-                        <div class="wrap-add-movie">
-                            <label for="exampleInputCity1">Link</label>
-                            <button type="button" class="btn-add-movie" data-bs-toggle="modal"
-                                data-bs-target="#modal">Thêm</button>
-                        </div>
-                        <i class="mdi mdi-delete"></i>
 
-                        <div class="wrap-movie-link">
-                            <div class="wrap-link">
-{{--                                <input type="text" name="link[]" class="form-control" id="exampleInputCity1">--}}
-{{--                                <i class="typcn typcn-delete-outline menu-icon btn-deletel-link"></i>--}}
-                            </div>
-                        </div>
-
-                    </div>
 
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
                     <button class="btn btn-light">Cancel</button>

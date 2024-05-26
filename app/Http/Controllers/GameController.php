@@ -45,15 +45,6 @@ class GameController extends Controller
         DB::transaction(function () use ($validated,$request){
 
             $game = Game::query()->create($validated);
-            $inserts = [];
-            foreach ($request->link as $key => $value) {
-                $inserts[] = [
-                    'game_id' => $game->id,
-                    'link' => $value
-                ];
-            }
-
-            GameLink::query()->insert($inserts);
         });
 
 
@@ -78,25 +69,8 @@ class GameController extends Controller
     {
 
         $data = $request->all();
-
-
         unset($data['link']);
-
-        DB::transaction(function () use ($data,$request, $game){
-
-            $game->fill($data);
-            $inserts = [];
-            GameLink::query()->where('game_id', $game->id)->delete();
-            foreach ($request->link as $key => $value) {
-                $inserts[] = [
-                    'game_id' => $game->id,
-                    'link' => $value
-                ];
-            }
-
-            GameLink::query()->insert($inserts);
-        });
-
+        $game->fill($data);
         $game->save();
 
         return back()->with('success', 'Updated Successfull !');
