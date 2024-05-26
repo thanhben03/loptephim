@@ -25,7 +25,6 @@
     <link rel="stylesheet" href="{{asset('css/slicknav.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/style.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/myStyle.css')}}" type="text/css">
-
 </head>
 
 <body>

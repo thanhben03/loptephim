@@ -179,10 +179,8 @@ class MovieController extends Controller
         $id = $request->id;
         $movie = DB::table('movies as m')
             ->join('movie_genres as mg', 'm.id', '=', 'mg.movie_id')
-            ->join('movie_countries as mc', 'm.id', '=', 'mc.movie_id')
             ->join('genres as g', 'mg.genre_id', '=', 'g.id')
-            ->join('countries as c', 'mc.country_id', '=', 'c.id')
-                ->select('m.*', 'g.name as genre_name', 'g.id as genre_id', 'c.name as country_name')
+                ->select('m.*', 'g.name as genre_name', 'g.id as genre_id')
                 ->where('m.id', $id)
                 ->get();
         $genres = [];

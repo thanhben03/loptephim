@@ -683,6 +683,18 @@ ol {
 	top: 10px;
 }
 
+.product__item__pic .vietsub {
+    font-size: 13px;
+    color: #ffffff;
+    background: #2bb621;
+    display: inline-block;
+    padding: 2px 12px;
+    border-radius: 4px;
+    position: absolute;
+    left: 10px;
+    top: 42px;
+}
+
 .product__item__pic .comment {
     font-size: 14px;
     color: #ffffff;
@@ -2315,12 +2327,13 @@ ol {
 
     .title-movie-mobile {
         display: inline-block;
-        width: 80px;
+        width: 86px;
         white-space: nowrap;
         overflow: hidden !important;
         color: white;
         text-overflow: ellipsis;
     }
+
 
     .product__item__pic .comment {
         font-size: 10px;

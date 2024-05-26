@@ -37,10 +37,53 @@
         <div class="search-close-switch"><i class="icon_close"></i></div>
         <form class="search-model-form" action="{{route('search')}}" method="POST">
             @csrf
+
             <input type="text" name="movie_name" id="search-input" placeholder="Search here.....">
+
+            <div class="mt-4" style="float: right">
+                <button onclick="showPopup()" class="btn btn-info" type="button">Mở bàn phím</button>
+                <button class="btn btn-success"  type="submit">Tìm kiếm</button>
+            </div>
         </form>
+        <div id="popup">
+            <div class="hang">
+                <div class="so" onclick="chonSo('q')">q</div>
+                <div class="so" onclick="chonSo('w')">w</div>
+                <div class="so" onclick="chonSo('e')">e</div>
+                <div class="so" onclick="chonSo('r')">r</div>
+                <div class="so" onclick="chonSo('t')">t</div>
+                <div class="so" onclick="chonSo('y')">y</div>
+                <div class="so" onclick="chonSo('u')">u</div>
+                <div class="so" onclick="chonSo('i')">i</div>
+                <div class="so" onclick="chonSo('o')">o</div>
+                <div class="so" onclick="chonSo('p')">p</div>
+            </div>
+            <div class="hang">
+                <div class="so" onclick="chonSo('a')">a</div>
+                <div class="so" onclick="chonSo('s')">s</div>
+                <div class="so" onclick="chonSo('d')">d</div>
+                <div class="so" onclick="chonSo('f')">f</div>
+                <div class="so" onclick="chonSo('g')">g</div>
+                <div class="so" onclick="chonSo('h')">h</div>
+                <div class="so" onclick="chonSo('j')">j</div>
+                <div class="so" onclick="chonSo('k')">k</div>
+                <div class="so" onclick="chonSo('l')">l</div>
+            </div>
+            <div class="hang">
+                <div class="so" onclick="chonSo('z')">z</div>
+                <div class="so" onclick="chonSo('x')">x</div>
+                <div class="so" onclick="chonSo('c')">c</div>
+                <div class="so" onclick="chonSo('v')">v</div>
+                <div class="so" onclick="chonSo('b')">b</div>
+                <div class="so" onclick="chonSo('n')">n</div>
+                <div class="so" onclick="chonSo('m')">m</div>
+
+            </div>
+            <button onclick="closePopup()" class="btn-btn-danger">Close</button>
+        </div>
     </div>
 </div>
+
 <!-- Search model end -->
 
 <!-- Js Plugins -->
@@ -53,7 +96,21 @@
 <script src="{{asset('js/jquery.slicknav.js')}}"></script>
 <script src="{{asset('js/owl.carousel.min.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
+<script>
+    function showPopup() {
+        document.getElementById("popup").style.display = "block";
+    }
 
+    function chonSo(so) {
+        document.getElementById("search-input").value += so;
+
+    }
+
+    function closePopup() {
+
+        document.getElementById("popup").style.display = "none";
+    }
+</script>
 
 @stack('custom-js')
 

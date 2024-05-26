@@ -28,6 +28,7 @@
                                         <div class="product__item__pic set-bg">
                                             <img style="height: 100%" src="{{$item->thumbnail}}" alt="">
                                             <div class="ep">{{$item->release_date}}</div>
+                                            <div class="vietsub">{{$item->is_vietsub}}</div>
 {{--                                            <div onclick="showModalDetail({{$item->id}})" class="comment">Xem phim</div>--}}
                                         </div>
                                         <div class="product__item__text">
@@ -62,6 +63,8 @@
                                         <div class="product__item__pic">
                                             <img style="height: 100%" src="{{$item->thumbnail}}" alt="">
                                             <div class="ep">{{$item->release_date}}</div>
+                                            <div class="vietsub">{{$item->is_vietsub}}</div>
+
 {{--                                            <div onclick="showModalDetail({{$item->id}})" class="comment">Xem phim</div>--}}
                                         </div>
                                         <div class="product__item__text">
@@ -94,11 +97,12 @@
                         <div class="row">
                             @foreach($phimRap as $item)
                                 <div class="col-3" style="padding: 4px">
-                                    <div class="product__item">
+                                    <div class="product__item" onclick="showModalDetail({{$item->id}})" >
                                         <div class="product__item__pic">
                                             <img style="height: 100%" src="{{$item->thumbnail}}" alt="">
                                             <div class="ep">{{$item->release_date}}</div>
-                                            <div onclick="showModalDetail({{$item->id}})" class="comment">Xem phim</div>
+                                            <div class="vietsub">{{$item->is_vietsub}}</div>
+
                                         </div>
                                         <div class="product__item__text">
 
