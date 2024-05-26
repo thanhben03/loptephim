@@ -2334,6 +2334,16 @@ ol {
         text-overflow: ellipsis;
     }
 
+    .vietsub {
+        top: 32px;
+        width: max-content;
+        height: 18px;
+        font-size: 8px;
+        display: flex;
+        align-items: center;
+        background-color: #0a763f;
+    }
+
 
     .product__item__pic .comment {
         font-size: 10px;
@@ -2416,3 +2426,12 @@ ol {
 	}
 }
 
+.vietsub {
+    top: 32px;
+    width: max-content;
+    height: 18px;
+    font-size: 8px;
+    display: flex;
+    align-items: center;
+    background-color: #0a763f;
+}
