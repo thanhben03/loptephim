@@ -41,7 +41,6 @@
             <input type="text" name="movie_name" id="search-input" placeholder="Search here.....">
 
             <div class="mt-4" style="float: right">
-                <button onclick="showPopup()" class="btn btn-info" type="button">Mở bàn phím</button>
                 <button class="btn btn-success"  type="submit">Tìm kiếm</button>
             </div>
         </form>
@@ -56,7 +55,6 @@
             <div class="so btn btn-info" onclick="chonSo(7)">7</div>
             <div class="so btn btn-info" onclick="chonSo(8)">8</div>
             <div class="so btn btn-info" onclick="chonSo(9)">9</div>
-            <button class="btn btn-success" onclick="closePopup()">Close</button>
             <button class="btn btn-danger" onclick="clearValue()">Clear</button>
         </div>
     </div>
