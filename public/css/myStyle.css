@@ -42,6 +42,15 @@
     cursor: pointer;
 }
 
+.vietsub {
+    position: absolute;
+    width: max-content;
+    height: 18px;
+    font-size: 8px;
+    display: flex;
+    align-items: center;
+    background-color: #0a763f;
+}
 
 @media only screen and (max-width: 767px) {
     #popup {
@@ -90,3 +99,5 @@
         background-color: #0a763f;
     }
 }
+
+
