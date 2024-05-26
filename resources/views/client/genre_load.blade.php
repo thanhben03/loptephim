@@ -4,6 +4,7 @@
             <div class="product__item__pic set-bg">
                 <img style="height: 100%" src="{{$item->movie->thumbnail}}" alt="">
                 <div class="ep">{{$item->movie->release_date}}</div>
+                <div class="btn btn-success vietsub">{{$item->movie->is_vietsub}}</div>
             </div>
             <div class="product__item__text">
 
