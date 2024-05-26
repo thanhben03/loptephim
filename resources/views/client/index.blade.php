@@ -12,12 +12,12 @@
                         <div class="row">
                             <div class="col-lg-8 col-md-8 col-sm-8">
                                 <div class="section-title">
-                                    <h4>PHIM LẺ</h4>
+                                    <h4>Chiếu Rạp Nước Ngoài</h4>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4">
                                 <div class="btn__all">
-                                    <a href="{{route('client.theloai', 'phim-le')}}" class="primary-btn">View All <span class="arrow_right"></span></a>
+                                    <a href="{{route('client.theloai', 'chieu-rap-nuoc-ngoai')}}" class="primary-btn">View All <span class="arrow_right"></span></a>
                                 </div>
                             </div>
                         </div>
@@ -48,12 +48,12 @@
                         <div class="row">
                             <div class="col-lg-8 col-md-8 col-sm-8">
                                 <div class="section-title">
-                                    <h4>PHIM VIỆT</h4>
+                                    <h4>Chiếu Rạp Việt</h4>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4">
                                 <div class="btn__all">
-                                    <a href="{{route('client.theloai', 'phim-viet')}}" class="primary-btn">View All <span class="arrow_right"></span></a>
+                                    <a href="{{route('client.theloai', 'chieu-rap-viet')}}" class="primary-btn">View All <span class="arrow_right"></span></a>
                                 </div>
                             </div>
                         </div>
@@ -87,12 +87,12 @@
                         <div class="row">
                             <div class="col-lg-8 col-md-8 col-sm-8">
                                 <div class="section-title">
-                                    <h4>PHIM CHIẾU RẠP</h4>
+                                    <h4>Phim Hay Khác</h4>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4">
                                 <div class="btn__all">
-                                    <a href="{{route('client.theloai', 'phim-chieu-rap')}}" class="primary-btn">View All <span class="arrow_right"></span></a>
+                                    <a href="{{route('client.theloai', 'phim-hay-khac')}}" class="primary-btn">View All <span class="arrow_right"></span></a>
                                 </div>
                             </div>
                         </div>

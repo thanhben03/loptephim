@@ -22,28 +22,32 @@ class IndexController extends Controller
 //            ->join('genres','movie_banners.movie_id', '=', 'movies.id')
             ->get();
 
+//        chieu rap nuoc ngoai
         $phimle = DB::table('movies as m')
             ->join('movie_genres as mg', 'mg.movie_id', '=','m.id')
             ->join('genres as g', 'g.id', '=','mg.genre_id')
             ->select('m.*', 'g.name')
-            ->where('g.slug', 'phim-le')
+            ->where('g.slug', 'chieu-rap-nuoc-ngoai')
             ->orderBy('id', 'desc')
             ->take(16)
             ->get();
-//        dd($phimle[7]->genre);
+
+
+//        chieu rap viet
         $phimviet = DB::table('movies as m')
             ->join('movie_genres as mg', 'mg.movie_id', '=','m.id')
             ->join('genres as g', 'g.id', '=','mg.genre_id')
             ->select('m.*', 'g.name')
-            ->where('g.slug', 'phim-viet')
+            ->where('g.slug', 'chieu-rap-viet')
             ->orderBy('id', 'desc')
             ->take(16)
             ->get();
+//        phim hay khac
         $phimRap = DB::table('movies as m')
             ->join('movie_genres as mg', 'mg.movie_id', '=','m.id')
             ->join('genres as g', 'g.id', '=','mg.genre_id')
             ->select('m.*', 'g.name')
-            ->where('g.slug', 'phim-chieu-rap')
+            ->where('g.slug', 'phim-hay-khac')
             ->orderBy('id', 'desc')
             ->take(16)
             ->get();
