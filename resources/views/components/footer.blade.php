@@ -57,6 +57,7 @@
             <div class="so" onclick="chonSo(8)">8</div>
             <div class="so" onclick="chonSo(9)">9</div>
             <button class="btn btn-success" onclick="closePopup()">Close</button>
+            <button class="btn btn-danger" onclick="clearValue()">Clear</button>
         </div>
     </div>
 </div>
@@ -86,6 +87,9 @@
     function closePopup() {
 
         document.getElementById("popup").style.display = "none";
+    }
+    function clearValue() {
+        document.getElementById("search-input").value = '';
     }
 </script>
 
