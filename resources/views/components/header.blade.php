@@ -42,9 +42,9 @@
                     <nav class="header__menu mobile-menu">
                         <ul class="d-flex">
                             <li class="{{ Request::routeIs('home') ? 'active' : '' }}"><a href="{{route('home')}}">Homepage</a></li>
-                            <li class="{{ request()->is('*phim-le') ? 'active' : '' }}"><a href="{{route('client.theloai', 'phim-le')}}">Phim Lẻ</a></li>
-                            <li class="{{ request()->is('*phim-viet') ? 'active' : '' }}"><a href="{{route('client.theloai', 'phim-viet')}}">Phim Vệt</a></li>
-                            <li class="{{ request()->is('*phim-chieu-rap') ? 'active' : '' }}"><a href="{{route('client.theloai', 'phim-chieu-rap')}}">Phim Chiếu Rạp</a></li>
+                            <li class="{{ request()->is('*rap-nuoc-ngoai') ? 'active' : '' }}"><a href="{{route('client.theloai', 'chieu-rap-nuoc-ngoai')}}">Rạp Nước Ngoài</a></li>
+                            <li class="{{ request()->is('*rap-viet') ? 'active' : '' }}"><a href="{{route('client.theloai', 'chieu-rap-viet')}}">Rạp Vệt</a></li>
+                            <li class="{{ request()->is('*phim-hay-khac') ? 'active' : '' }}"><a href="{{route('client.theloai', 'phim-hay-khac')}}">Phim Hay Khác</a></li>
                             <li class="{{ request()->is('*game-mod') ? 'active' : '' }}"><a href="{{route('client.gamemod')}}">Game mod</a></li>
                             <li class="{{ request()->is('*app-mod') ? 'active' : '' }}"><a href="{{route('client.appmod')}}">App mod</a></li>
 
