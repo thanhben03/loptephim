@@ -121,7 +121,7 @@
             dataType: 'json',
             data: {
                 "_token": "{{ csrf_token() }}",
-                'license': $("#license").val()
+                'license': $("#license-input").val()
             },
             beforeSend: function () {
                 $("#msg").removeClass()
