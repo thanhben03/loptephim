@@ -10,4 +10,5 @@ class License extends Model
     use HasFactory;
     protected $table = 'license';
     protected $guarded = [];
+    public $timestamps = false;
 }

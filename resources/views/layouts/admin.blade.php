@@ -456,6 +456,19 @@
                         </ul>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#license" aria-expanded="false" aria-controls="charts">
+                        <i class="typcn typcn-chart-pie-outline menu-icon"></i>
+                        <span class="menu-title">License</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="license">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <a class="nav-link" href="{{route("admin.license.create")}}">Thêm</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="{{route("admin.license.index")}}">Danh sách</a></li>
+                        </ul>
+                    </div>
+                </li>
 
             </ul>
         </nav>
