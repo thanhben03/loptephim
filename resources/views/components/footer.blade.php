@@ -89,7 +89,7 @@
         <div class="so btn btn-info" onclick="chonSo1(7)">7</div>
         <div class="so btn btn-info" onclick="chonSo1(8)">8</div>
         <div class="so btn btn-info" onclick="chonSo1(9)">9</div>
-        <button class="btn btn-danger" onclick="clearValue()">Clear</button>
+        <button class="btn btn-danger" onclick="clearValue1()">Clear</button>
     </div>
 </div>
 <!-- Search model end -->
@@ -185,6 +185,9 @@ https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js
     }
     function clearValue() {
         document.getElementById("search-input").value = '';
+    }
+    function clearValue1() {
+        document.getElementById("license-input").value = '';
     }
 </script>
 
