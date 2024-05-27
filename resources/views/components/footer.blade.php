@@ -44,7 +44,7 @@
                 <button class="btn btn-success"  type="submit">Tìm kiếm</button>
             </div>
         </form>
-        <div id="popup">
+        <div class="popup">
             <div class="so btn btn-info" onclick="chonSo(0)">0</div>
             <div class="so btn btn-info" onclick="chonSo(1)">1</div>
             <div class="so btn btn-info" onclick="chonSo(2)">2</div>
@@ -77,6 +77,19 @@
                 <button type="button" onclick="active()" class="btn btn-primary">Xác thực</button>
             </div>
         </div>
+    </div>
+    <div class="popup">
+        <div class="so btn btn-info" onclick="chonSo(0)">0</div>
+        <div class="so btn btn-info" onclick="chonSo(1)">1</div>
+        <div class="so btn btn-info" onclick="chonSo(2)">2</div>
+        <div class="so btn btn-info" onclick="chonSo(3)">3</div>
+        <div class="so btn btn-info" onclick="chonSo(4)">4</div>
+        <div class="so btn btn-info" onclick="chonSo(5)">5</div>
+        <div class="so btn btn-info" onclick="chonSo(6)">6</div>
+        <div class="so btn btn-info" onclick="chonSo(7)">7</div>
+        <div class="so btn btn-info" onclick="chonSo(8)">8</div>
+        <div class="so btn btn-info" onclick="chonSo(9)">9</div>
+        <button class="btn btn-danger" onclick="clearValue()">Clear</button>
     </div>
 </div>
 <!-- Search model end -->

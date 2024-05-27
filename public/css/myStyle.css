@@ -21,7 +21,7 @@
     cursor: pointer;
 }
 
-#popup {
+.popup {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -29,6 +29,7 @@
     border: 1px solid #ccc;
     padding: 20px;
     z-index: 100;
+    display: none;
 }
 
 .so {
@@ -52,7 +53,7 @@
 }
 
 @media only screen and (max-width: 767px) {
-    #popup {
+    .popup {
         top: 75%;
         left: 50%;
         transform: translate(-50%, -50%);
