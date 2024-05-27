@@ -174,10 +174,12 @@
             </div>
         </div>
     </div>
+
 @endsection
 
 @push('custom-js')
     <script>
+
         function showModalDetail(idMovie) {
 
             $.ajax({

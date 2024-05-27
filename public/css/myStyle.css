@@ -75,7 +75,7 @@
         background: red;
     }
 
-    .product__item__pic .ep {
+    .product__item__pic .ep, .game__item__pic .ep {
         font-size: 9px;
         color: #ffffff;
         background: #e53637;

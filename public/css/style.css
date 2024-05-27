@@ -2313,6 +2313,13 @@ ol {
         width: fit-content;
     }
 
+    .game__item__pic {
+        height: 100%;
+        position: relative;
+        border-radius: 5px;
+        width: fit-content;
+    }
+
     .product__item__text ul {
         display: none;
     }

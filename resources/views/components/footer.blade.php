@@ -60,7 +60,25 @@
     </div>
 </div>
 
+<!-- Button trigger modal -->
 
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Nhập License</h5>
+            </div>
+            <div class="modal-body">
+                <div id="msg"></div>
+                <input type="text" id="license" name="license" class="form-control" placeholder="Key">
+            </div>
+            <div class="modal-footer" id="modal-footer">
+                <button type="button" onclick="active()" class="btn btn-primary">Xác thực</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Search model end -->
 
 <!-- Js Plugins -->
@@ -76,34 +94,40 @@
 <script>
 
     $( document ).ready(function() {
-        // document.cookie = 'active=true'
-        console.log(getCookie('active'))
-        if (getCookie('active') != 'true')
-            active()
+
+        if (getCookie('active') != 'true') {
+            $('#staticBackdrop').modal('show')
+        }
 
     });
 
     function active() {
-        let license = prompt("Nhập key để tiếp tục sử dụng");
         $.ajax({
             url: '{{route('api.checkLicense')}}',
             type: 'POST',
             dataType: 'json',
             data: {
                 "_token": "{{ csrf_token() }}",
-                'license': license
+                'license': $("#license").val()
+            },
+            beforeSend: function () {
+                $("#msg").removeClass()
             },
             success: function (res) {
-                alert('Kích hoạt thành công');
                 document.cookie = 'active=true';
+                $("#msg").text('Xác thực thành công !')
+                $("#msg").addClass('alert alert-success')
+                setTimeout(function () {
+                    $('#staticBackdrop').modal('toggle')
+                }, 1500)
+
             },
             error: function (err) {
-                alert("Key hết hạn hoặc không tồn tại");
-                active();
+                $("#msg").text('Kết hết hạn hoặc không tồn tại !')
+                $("#msg").addClass('alert alert-danger')
+
             }
         })
-
-
     }
 
     function getCookie(cname) {
