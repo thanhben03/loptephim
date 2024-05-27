@@ -19,6 +19,6 @@
         </div>
     </div>
     <div class="container">
-        <div class="alert alert-info">Fowlow Tiktok Phim Để Lấy Mã Phim </div>
+        <div class="alert alert-info">Follow Tiktok Phim Để Lấy Mã Phim </div>
     </div>
 </section>
