@@ -162,11 +162,10 @@ class IndexController extends Controller
     {
         $currentTime = date('Y-m-d H:i:s');
         $license = $request->license;
-
         try {
             $check = License::query()
                 ->where('license', '=', $license)
-                ->where('expired', '<=', $currentTime)
+                ->where('expired', '>=', $currentTime)
                 ->firstOrFail();
             return \response()->json([
                 'msg' => 'Kích hoạt thành công',
