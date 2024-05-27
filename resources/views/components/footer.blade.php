@@ -71,7 +71,7 @@
             </div>
             <div class="modal-body">
                 <div id="msg"></div>
-                <input type="text" id="license" name="license" class="form-control" placeholder="Key">
+                <input type="text" id="license-input" name="license" class="form-control" placeholder="Key">
             </div>
             <div class="modal-footer" id="modal-footer">
                 <button type="button" onclick="active()" class="btn btn-primary">Xác thực</button>
@@ -79,16 +79,16 @@
         </div>
     </div>
     <div class="popup">
-        <div class="so btn btn-info" onclick="chonSo(0)">0</div>
-        <div class="so btn btn-info" onclick="chonSo(1)">1</div>
-        <div class="so btn btn-info" onclick="chonSo(2)">2</div>
-        <div class="so btn btn-info" onclick="chonSo(3)">3</div>
-        <div class="so btn btn-info" onclick="chonSo(4)">4</div>
-        <div class="so btn btn-info" onclick="chonSo(5)">5</div>
-        <div class="so btn btn-info" onclick="chonSo(6)">6</div>
-        <div class="so btn btn-info" onclick="chonSo(7)">7</div>
-        <div class="so btn btn-info" onclick="chonSo(8)">8</div>
-        <div class="so btn btn-info" onclick="chonSo(9)">9</div>
+        <div class="so btn btn-info" onclick="chonSo1(0)">0</div>
+        <div class="so btn btn-info" onclick="chonSo1(1)">1</div>
+        <div class="so btn btn-info" onclick="chonSo1(2)">2</div>
+        <div class="so btn btn-info" onclick="chonSo1(3)">3</div>
+        <div class="so btn btn-info" onclick="chonSo1(4)">4</div>
+        <div class="so btn btn-info" onclick="chonSo1(5)">5</div>
+        <div class="so btn btn-info" onclick="chonSo1(6)">6</div>
+        <div class="so btn btn-info" onclick="chonSo1(7)">7</div>
+        <div class="so btn btn-info" onclick="chonSo1(8)">8</div>
+        <div class="so btn btn-info" onclick="chonSo1(9)">9</div>
         <button class="btn btn-danger" onclick="clearValue()">Clear</button>
     </div>
 </div>
@@ -164,6 +164,11 @@
 
     function chonSo(so) {
         document.getElementById("search-input").value += so;
+
+    }
+
+    function chonSo1(so) {
+        document.getElementById("license-input").value += so;
 
     }
 
