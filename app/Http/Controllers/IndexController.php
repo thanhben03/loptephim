@@ -166,7 +166,7 @@ class IndexController extends Controller
         try {
             $check = License::query()
                 ->where('license', '=', $license)
-                ->where('expired', '>=', $currentTime)
+                ->where('expired', '<=', $currentTime)
                 ->firstOrFail();
             return \response()->json([
                 'msg' => 'Kích hoạt thành công',
