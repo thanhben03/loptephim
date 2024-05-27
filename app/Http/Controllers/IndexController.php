@@ -160,7 +160,7 @@ class IndexController extends Controller
 
     public function checkLicense(Request $request)
     {
-        $currentTime = date('Y-m-d');
+        $currentTime = date('Y-m-d H:i:s');
         $license = $request->license;
 
         try {
@@ -169,7 +169,8 @@ class IndexController extends Controller
                 ->where('expired', '>=', $currentTime)
                 ->firstOrFail();
             return \response()->json([
-                'msg' => 'Kích hoạt thành công'
+                'msg' => 'Kích hoạt thành công',
+                'license' => $check
             ], 200);
         } catch (\Throwable $e) {
             return \response()->json([

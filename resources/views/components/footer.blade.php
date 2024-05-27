@@ -103,6 +103,9 @@
 <script src="{{asset('js/mixitup.min.js')}}"></script>
 <script src="{{asset('js/jquery.slicknav.js')}}"></script>
 <script src="{{asset('js/owl.carousel.min.js')}}"></script>
+<script src="
+https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js
+"></script>
 <script src="{{asset('js/main.js')}}"></script>
 <script>
 
@@ -110,6 +113,7 @@
 
         if (getCookie('active') != 'true') {
             $('#staticBackdrop').modal('show')
+
         }
 
     });
@@ -127,7 +131,10 @@
                 $("#msg").removeClass()
             },
             success: function (res) {
-                document.cookie = 'active=true';
+                let date = new Date(res.license.expired);
+                let curr = new Date();
+                // document.cookie = `active=true; expires=${date};`;
+                Cookies.set("active", true, {expires: 1/1440});
                 $("#msg").text('Xác thực thành công !')
                 $("#msg").addClass('alert alert-success')
                 setTimeout(function () {
