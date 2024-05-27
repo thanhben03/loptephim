@@ -160,6 +160,8 @@ class IndexController extends Controller
 
     public function checkLicense(Request $request)
     {
+        $mac_address = exec('getmac');
+
         $currentTime = date('Y-m-d H:i:s');
         $license = $request->license;
         try {
@@ -167,6 +169,14 @@ class IndexController extends Controller
                 ->where('license', '=', $license)
                 ->where('expired', '>=', $currentTime)
                 ->firstOrFail();
+            if ($check->mac_address == null) {
+                $check->mac_address = $mac_address;
+                $check->save();
+            } else {
+                if (!str_contains($check->mac_address, $mac_address)) {
+                    throw new \Exception('Key chỉ sử dụng cho 1 thiết bị', 401);
+                }
+            }
             return \response()->json([
                 'msg' => 'Kích hoạt thành công',
                 'license' => $check

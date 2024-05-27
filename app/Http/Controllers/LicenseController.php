@@ -65,9 +65,9 @@ class LicenseController extends Controller
         return back()->with('success', 'Updated Successfull !');
     }
 
-    public function destroy(Movie $movie)
+    public function destroy(License $license)
     {
-        $movie->delete();
+        $license->delete();
         return back()->with('success', 'Deleted Successfull !');
     }
 
