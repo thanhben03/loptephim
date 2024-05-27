@@ -43,7 +43,7 @@
                         <ul class="d-flex">
                             <li class="{{ Request::routeIs('home') ? 'active' : '' }}"><a href="{{route('home')}}">Homepage</a></li>
                             <li class="{{ request()->is('*rap-nuoc-ngoai') ? 'active' : '' }}"><a href="{{route('client.theloai', 'chieu-rap-nuoc-ngoai')}}">Rạp Nước Ngoài</a></li>
-                            <li class="{{ request()->is('*rap-viet') ? 'active' : '' }}"><a href="{{route('client.theloai', 'chieu-rap-viet')}}">Rạp Vệt</a></li>
+                            <li class="{{ request()->is('*rap-viet') ? 'active' : '' }}"><a href="{{route('client.theloai', 'chieu-rap-viet')}}">Rạp Việt</a></li>
                             <li class="{{ request()->is('*phim-hay-khac') ? 'active' : '' }}"><a href="{{route('client.theloai', 'phim-hay-khac')}}">Phim Hay Khác</a></li>
                             <li class="{{ request()->is('*game-mod') ? 'active' : '' }}"><a href="{{route('client.gamemod')}}">Game mod</a></li>
                             <li class="{{ request()->is('*app-mod') ? 'active' : '' }}"><a href="{{route('client.appmod')}}">App mod</a></li>

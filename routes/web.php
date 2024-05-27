@@ -54,6 +54,7 @@ Route::middleware('auth')->group(function () {
 Route::post('/api/movie/', [\App\Http\Controllers\MovieController::class, 'getMovie'])->name('api.getMovie');
 Route::post('/api/game/', [\App\Http\Controllers\GameController::class, 'getGame'])->name('api.getGame');
 Route::post('/search', [\App\Http\Controllers\MovieController::class, 'search'])->name('search');
+Route::post('/active', [\App\Http\Controllers\IndexController::class, 'checkLicense'])->name('api.checkLicense');
 
 
 

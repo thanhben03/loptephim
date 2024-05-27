@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Country;
 use App\Models\Game;
 use App\Models\Genre;
+use App\Models\License;
 use App\Models\Movie;
 use App\Models\MovieCountry;
 use App\Models\MovieGenre;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
@@ -153,6 +155,28 @@ class IndexController extends Controller
         return view('client.app', [
             'games' => $games
         ]);
+
+    }
+
+    public function checkLicense(Request $request)
+    {
+        $currentTime = date('Y-m-d');
+        $license = $request->license;
+
+        try {
+            $check = License::query()
+                ->where('license', '=', $license)
+                ->where('expired', '>=', $currentTime)
+                ->firstOrFail();
+            return \response()->json([
+                'msg' => 'Kích hoạt thành công'
+            ], 200);
+        } catch (\Throwable $e) {
+            return \response()->json([
+                'msg' => 'Key hết hạn hoặc không tồn tại'
+            ], 400);
+        }
+
 
     }
 }

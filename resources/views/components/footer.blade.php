@@ -60,6 +60,7 @@
     </div>
 </div>
 
+
 <!-- Search model end -->
 
 <!-- Js Plugins -->
@@ -73,6 +74,53 @@
 <script src="{{asset('js/owl.carousel.min.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
 <script>
+
+    $( document ).ready(function() {
+        // document.cookie = 'active=true'
+        console.log(getCookie('active'))
+        if (getCookie('active') != 'true')
+            active()
+
+    });
+
+    function active() {
+        let license = prompt("Nhập key để tiếp tục sử dụng");
+        $.ajax({
+            url: '{{route('api.checkLicense')}}',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                "_token": "{{ csrf_token() }}",
+                'license': license
+            },
+            success: function (res) {
+                alert('Kích hoạt thành công');
+                document.cookie = 'active=true';
+            },
+            error: function (err) {
+                alert("Key hết hạn hoặc không tồn tại");
+                active();
+            }
+        })
+
+
+    }
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length,c.length);
+            }
+        }
+        return "";
+    }
+
     function showPopup() {
         document.getElementById("popup").style.display = "block";
     }
