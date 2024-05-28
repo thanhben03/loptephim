@@ -28,7 +28,9 @@ Route::get('/quoc-gia/{slug}', [IndexController::class, 'quocgia'])->name('clien
 Route::get('/game-mod', [IndexController::class, 'gamemod'])->name('client.gamemod');
 Route::get('/app-mod', [IndexController::class, 'appmod'])->name('client.appmod');
 
-
+Route::get('/get-device', function () {
+   echo  $_SERVER['HTTP_USER_AGENT'];
+});
 
 Route::prefix('admin')->middleware('auth')->name('admin.')->group(function ()
 {
