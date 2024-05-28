@@ -40,7 +40,7 @@ Route::get('/get-device', function () {
     $model = $dd->getModel();
 
     dd($osInfo, $device, $brand, $model);
-});
+})->name('test');
 
 Route::prefix('admin')->middleware('auth')->name('admin.')->group(function ()
 {
