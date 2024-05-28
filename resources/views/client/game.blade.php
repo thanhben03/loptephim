@@ -68,19 +68,6 @@
                                 </div>
                             </li>
                             <li>
-                                <div class="alert alert-success" role="alert">
-                                    <div class="movie-desc">
-                                        <label>Mô tả: </label>
-                                        <div class="form-group" id="game-desc-text">
-                                            <textarea class="form-control" disabled>
-
-                                            </textarea>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </li>
-                            <li>
                                 <div class="alert alert-danger" role="alert">
                                     <div class="movie-desc">
                                         <label>Tính năng mod: </label >
@@ -93,6 +80,20 @@
                                     </div>
                                 </div>
                             </li>
+                            <li>
+                                <div class="alert alert-success" role="alert">
+                                    <div class="movie-desc">
+                                        <label>Mô tả: </label>
+                                        <div class="form-group" id="game-desc-text">
+                                            <textarea class="form-control" disabled>
+
+                                            </textarea>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </li>
+
 {{--                            <li>--}}
 {{--                                <div class="alert alert-success">--}}
 {{--                                    <ul id="game-link">--}}

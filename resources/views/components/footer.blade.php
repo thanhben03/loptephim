@@ -109,61 +109,61 @@ https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js
 <script src="{{asset('js/main.js')}}"></script>
 <script>
 
-    $( document ).ready(function() {
+    // $( document ).ready(function() {
+    //
+    //     if (getCookie('active') != 'true') {
+    //         $('#staticBackdrop').modal('show')
+    //
+    //     }
+    //
+    // });
 
-        if (getCookie('active') != 'true') {
-            $('#staticBackdrop').modal('show')
+    {{--function active() {--}}
+    {{--    $.ajax({--}}
+    {{--        url: '{{route('api.checkLicense')}}',--}}
+    {{--        type: 'POST',--}}
+    {{--        dataType: 'json',--}}
+    {{--        data: {--}}
+    {{--            "_token": "{{ csrf_token() }}",--}}
+    {{--            'license': $("#license-input").val()--}}
+    {{--        },--}}
+    {{--        beforeSend: function () {--}}
+    {{--            $("#msg").removeClass()--}}
+    {{--        },--}}
+    {{--        success: function (res) {--}}
+    {{--            let date = new Date(res.license.expired);--}}
+    {{--            let curr = new Date();--}}
+    {{--            // document.cookie = `active=true; expires=${date};`;--}}
+    {{--            Cookies.set("active", true, {expires: 3/1440});--}}
+    {{--            $("#msg").text('Xác thực thành công !')--}}
+    {{--            $("#msg").addClass('alert alert-success')--}}
+    {{--            setTimeout(function () {--}}
+    {{--                $('#staticBackdrop').modal('toggle')--}}
+    {{--            }, 1500)--}}
 
-        }
+    {{--        },--}}
+    {{--        error: function (err) {--}}
+    {{--            $("#msg").text('Kết hết hạn hoặc không tồn tại !')--}}
+    {{--            $("#msg").addClass('alert alert-danger')--}}
 
-    });
+    {{--        }--}}
+    {{--    })--}}
+    {{--}--}}
 
-    function active() {
-        $.ajax({
-            url: '{{route('api.checkLicense')}}',
-            type: 'POST',
-            dataType: 'json',
-            data: {
-                "_token": "{{ csrf_token() }}",
-                'license': $("#license-input").val()
-            },
-            beforeSend: function () {
-                $("#msg").removeClass()
-            },
-            success: function (res) {
-                let date = new Date(res.license.expired);
-                let curr = new Date();
-                // document.cookie = `active=true; expires=${date};`;
-                Cookies.set("active", true, {expires: 3/1440});
-                $("#msg").text('Xác thực thành công !')
-                $("#msg").addClass('alert alert-success')
-                setTimeout(function () {
-                    $('#staticBackdrop').modal('toggle')
-                }, 1500)
-
-            },
-            error: function (err) {
-                $("#msg").text('Kết hết hạn hoặc không tồn tại !')
-                $("#msg").addClass('alert alert-danger')
-
-            }
-        })
-    }
-
-    function getCookie(cname) {
-        var name = cname + "=";
-        var ca = document.cookie.split(';');
-        for(var i = 0; i <ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0)==' ') {
-                c = c.substring(1);
-            }
-            if (c.indexOf(name) == 0) {
-                return c.substring(name.length,c.length);
-            }
-        }
-        return "";
-    }
+    {{--function getCookie(cname) {--}}
+    {{--    var name = cname + "=";--}}
+    {{--    var ca = document.cookie.split(';');--}}
+    {{--    for(var i = 0; i <ca.length; i++) {--}}
+    {{--        var c = ca[i];--}}
+    {{--        while (c.charAt(0)==' ') {--}}
+    {{--            c = c.substring(1);--}}
+    {{--        }--}}
+    {{--        if (c.indexOf(name) == 0) {--}}
+    {{--            return c.substring(name.length,c.length);--}}
+    {{--        }--}}
+    {{--    }--}}
+    {{--    return "";--}}
+    {{--}--}}
 
     function showPopup() {
         document.getElementById("popup").style.display = "block";
