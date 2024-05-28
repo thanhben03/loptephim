@@ -33,6 +33,7 @@ Route::get('/get-device', function () {
     $clientHints = \DeviceDetector\ClientHints::factory($_SERVER); // client hints are optional
 
     $dd = new \DeviceDetector\DeviceDetector($userAgent);
+    $dd->parse();
     $osInfo = $dd->getOs();
     $device = $dd->getDeviceName();
     $brand = $dd->getBrandName();
