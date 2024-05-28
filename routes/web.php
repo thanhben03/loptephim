@@ -29,7 +29,16 @@ Route::get('/game-mod', [IndexController::class, 'gamemod'])->name('client.gamem
 Route::get('/app-mod', [IndexController::class, 'appmod'])->name('client.appmod');
 
 Route::get('/get-device', function () {
-   echo  $_SERVER['HTTP_USER_AGENT'];
+    $userAgent = $_SERVER['HTTP_USER_AGENT']; // change this to the useragent you want to parse
+    $clientHints = \DeviceDetector\ClientHints::factory($_SERVER); // client hints are optional
+
+    $dd = new \DeviceDetector\DeviceDetector($userAgent);
+    $osInfo = $dd->getOs();
+    $device = $dd->getDeviceName();
+    $brand = $dd->getBrandName();
+    $model = $dd->getModel();
+
+    dd($osInfo, $device, $brand, $model);
 });
 
 Route::prefix('admin')->middleware('auth')->name('admin.')->group(function ()
