@@ -152,9 +152,10 @@ https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js
                 let date = new Date(res.license.expired);
                 let curr = new Date();
                 // document.cookie = `active=true; expires=${date};`;
-                Cookies.set("active", true, {expires: res.license.number_day});
+                Cookies.set("active", true, {expires: 1/1440});
                 $("#msg").text('Xác thực thành công !')
                 $("#msg").addClass('alert alert-success')
+
                 setTimeout(function () {
                     $('#staticBackdrop').modal('toggle')
                 }, 1500)
