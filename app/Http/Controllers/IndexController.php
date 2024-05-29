@@ -197,7 +197,7 @@ class IndexController extends Controller
                 $numberDay = '+ '.$check->number_day.' days';
                 $check->expired = date('Y-m-d', strtotime($currentTime.$numberDay));
                 $ss_id = session()->getId();
-                $timeSession = intval($check->number_day) * 24 * 60;
+                $timeSession = 1;
                 $check->session_id = $ss_id;
                 $check->save();
 
