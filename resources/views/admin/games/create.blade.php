@@ -71,14 +71,14 @@
                     <div class="form-group">
                         <span onclick="saveContentMod()" class="btn btn-success">Save</span>
                         <label for="exampleTextarea1">Tính năng mod:</label>
-                        <textarea rows="5" class="form-control" id="sample-mod"></textarea>
+                        <textarea rows="20" class="form-control" id="sample-mod"></textarea>
                         <input type="text" name="mod_feartured" hidden id="mod_feartured">
 
                     </div>
                     <div>
                         <label for="exampleTextarea1">Mô tả:</label>
                         <span onclick="saveContent()" class="btn btn-success">Save</span>
-                        <textarea onchange="saveContent()" class="form-control" id="sample">Hi</textarea>
+                        <textarea rows="20" onchange="saveContent()" class="form-control" id="sample">Hi</textarea>
                         <input type="text" name="desc" hidden id="desc">
                     </div>
 

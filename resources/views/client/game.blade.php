@@ -64,6 +64,7 @@
                                     <ul class="wrap-detail-movie">
                                         <li id="game-genre">Thể loại: 123</li>
                                         <li id="game-version">Phiên bản: 12</li>
+                                        <li id="game-code">Phiên bản: 12</li>
                                     </ul>
                                 </div>
                             </li>
@@ -158,6 +159,7 @@
                     $("#game-genre").text(`Thể loại: ${data.game.game_genre}`)
                     $("#game-version").text(`Version: ${data.game.version}`)
                     $("#game-desc-text").html(data.game.desc);
+                    $("#game-code").html(`Mã: #${data.game.id}`);
 
                     $("#game-feartured-text").html(`${data.game.mod_feartured}`)
                     $("#game-name").text(data.game.name)

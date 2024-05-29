@@ -66,8 +66,7 @@
 {{--                    </div>--}}
                     <div class="form-group">
                         <label for="exampleSelectGender">Ngôn ngữ:</label>
-                        <input type="text" name="is_vietsub" class="form-control" id="is_vietsub"
-                            placeholder="Thuyết minh, lồng tiếng">
+
                     </div>
                     <div class="form-group">
                         <label for="exampleInputCity1">Năm phát hành</label>

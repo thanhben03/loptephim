@@ -66,6 +66,7 @@
                                         <li id="movie-release_day">Ngày phát hành: 12</li>
                                         <li id="movie-country">Quốc gia: VN</li>
                                         <li id="movie-vietsub">Vietsub: Có</li>
+                                        <li id="movie-code"></li>
                                         <iframe class="movie-trailer" width="420" height="345" src="">
                                         </iframe>
                                     </ul>
@@ -97,6 +98,7 @@ zzzz
             $(window).scroll(function () {
                 if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
                     if (nextPageUrl) {
+
                         loadMore();
                     }
                 }
@@ -133,14 +135,13 @@ zzzz
                 },
                 success: function (data) {
                     $("#movie-genre").text(`Thể loại: ${data.movie.genre_name}`)
-                    $("#movie-country").text(`Quốc gia: ${data.movie.country_name}`)
+                    $("#movie-country").text(`Quốc gia: ${data.movie.country}`)
                     $("#movie-vietsub").text(`Vietsub: ${data.movie.is_vietsub}`)
                     $("#movie-release_day").text(`Ngày phát hành: ${data.movie.release_date}` )
 
                     $("#movie-vietsub").text(`Vietsub: ${data.movie.is_vietsub}`)
                     $("#movie-code").text(`Mã: #${data.movie.id}`)
                     $("#movie-release_day").text(`Năm: ${data.movie.release_date}` )
-                    // $("#movie-desc-text").text(data.movie.desc)
                     $("#movie-name").text(data.movie.title)
 
                     $(".movie-trailer").attr('src', `https://www.youtube.com/embed/${data.movie.trailer}`)

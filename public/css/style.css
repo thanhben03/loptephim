@@ -2177,7 +2177,7 @@ ol {
 	}
 	.header__right {
 		position: absolute;
-		left: -45px;
+		/*left: -45px;*/
 		top: 16px;
 		padding: 0;
 	}
