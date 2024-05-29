@@ -34,7 +34,7 @@
                                 </td>
 
                                 <td>
-                                        <label style="width: max-content" class="badge badge-danger">{{$game->genres->name}}</label>
+                                        <label style="width: max-content" class="badge badge-danger">{{$game->genre_name}}</label>
                                 </td>
 
                                 <td>{{$game->view}}</td>

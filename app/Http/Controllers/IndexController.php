@@ -13,6 +13,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
+use PhpParser\Builder;
 
 class IndexController extends Controller
 {
@@ -73,11 +74,13 @@ class IndexController extends Controller
     public function theloai(Request $request, $slug)
     {
         $genre = Genre::query()->where('slug', $slug)->first();
-        $movies = MovieGenre::query()
-            ->where('genre_id', $genre->id)
-//            ->with('movie')
+        $movies = Movie::query()
+            ->whereHas('movie_genres', function (\Illuminate\Database\Eloquent\Builder $query) use($genre){
+                $query->where('genre_id', $genre->id);
+            })
+            ->orderBy('created_at', 'desc')
+//            ->where('genre_id', $genre->id)
             ->paginate(4);
-
         if ($request->ajax()) {
             $view = view('client.genre_load', [
                 'movies' => $movies

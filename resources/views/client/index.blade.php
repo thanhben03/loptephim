@@ -219,7 +219,7 @@
                         html += `
                             <li>
                                 <div class="link-movie">
-                                    <a target="_blank" href="${link.link}">Link xem ${i}</a>
+                                    <a target="_blank" href="${link.link}">${link.name ? link.name : 'Link xem '+i}</a>
                                 </div>
                             </li>
                         `

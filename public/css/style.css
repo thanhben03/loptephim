@@ -635,7 +635,7 @@ ol {
 
 .product {
 	padding-bottom: 60px;
-	padding-top: 80px;
+	padding-top: 30px;
 }
 
 .product-page {
@@ -648,11 +648,11 @@ ol {
 }
 
 .trending__product {
-	margin-bottom: 50px;
+	margin-bottom: 16px;
 }
 
 .popular__product {
-	margin-bottom: 50px;
+	margin-bottom: 16px;
 }
 
 .recent__product {

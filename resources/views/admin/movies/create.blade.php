@@ -12,6 +12,10 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
+                        <label for="exampleInputEmail3">Tên hiển thị: </label>
+                        <input type="text" class="form-control" id="name_link" name="name_link" placeholder="Link vietsub,v.v">
+                    </div>
+                    <div class="form-group">
                         <label for="exampleInputEmail3">Link: </label>
                         <input type="text" class="form-control" id="linkModal" name="linkModal" placeholder="Link">
                     </div>
@@ -66,7 +70,11 @@
 {{--                    </div>--}}
                     <div class="form-group">
                         <label for="exampleSelectGender">Ngôn ngữ:</label>
-
+                        <select class="form-control" multiple name="language_id[]" id="language_id">
+                            @foreach($countries as $country)
+                                <option value="{{$country->id }}">{{$country->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputCity1">Năm phát hành</label>
@@ -106,35 +114,36 @@
     <script>
         $(document).ready(function() {
             $('#genre').select2();
+            $('#language_id').select2();
         });
-        const editor = SUNEDITOR.create((document.getElementById('sample') || 'sample'),{
-            lang: SUNEDITOR_LANG['en'],
-            // font : [
-            //     'Arial',
-            //     'tohoma',
-            //     'Courier New,Courier'
-            // ],
-            buttonList: [
-                ['undo', 'redo'],
-                ['font', 'fontSize', 'formatBlock'],
-                ['paragraphStyle', 'blockquote'],
-                ['bold', 'underline', 'italic', 'strike', 'subscript', 'superscript'],
-                ['fontColor', 'hiliteColor', 'textStyle'],
-                ['removeFormat'],
-                '/', // Line break
-                ['outdent', 'indent'],
-                ['align', 'horizontalRule', 'list', 'lineHeight'],
-                ['table', 'link', 'image', 'video', 'audio' /** ,'math' */], // You must add the 'katex' library at options to use the 'math' plugin.
-                /** ['imageGallery'] */ // You must add the "imageGalleryUrl".
-                ['fullScreen', 'showBlocks', 'codeView'],
-                ['preview', 'print'],
-                ['save', 'template'],
-                /** ['dir', 'dir_ltr', 'dir_rtl'] */ // "dir": Toggle text direction, "dir_ltr": Right to Left, "dir_rtl": Left to Right
-            ],
-            defaultStyle: 'font-family:arial'
-
-
-        });
+        // const editor = SUNEDITOR.create((document.getElementById('sample') || 'sample'),{
+        //     lang: SUNEDITOR_LANG['en'],
+        //     // font : [
+        //     //     'Arial',
+        //     //     'tohoma',
+        //     //     'Courier New,Courier'
+        //     // ],
+        //     buttonList: [
+        //         ['undo', 'redo'],
+        //         ['font', 'fontSize', 'formatBlock'],
+        //         ['paragraphStyle', 'blockquote'],
+        //         ['bold', 'underline', 'italic', 'strike', 'subscript', 'superscript'],
+        //         ['fontColor', 'hiliteColor', 'textStyle'],
+        //         ['removeFormat'],
+        //         '/', // Line break
+        //         ['outdent', 'indent'],
+        //         ['align', 'horizontalRule', 'list', 'lineHeight'],
+        //         ['table', 'link', 'image', 'video', 'audio' /** ,'math' */], // You must add the 'katex' library at options to use the 'math' plugin.
+        //         /** ['imageGallery'] */ // You must add the "imageGalleryUrl".
+        //         ['fullScreen', 'showBlocks', 'codeView'],
+        //         ['preview', 'print'],
+        //         ['save', 'template'],
+        //         /** ['dir', 'dir_ltr', 'dir_rtl'] */ // "dir": Toggle text direction, "dir_ltr": Right to Left, "dir_rtl": Left to Right
+        //     ],
+        //     defaultStyle: 'font-family:arial'
+        //
+        //
+        // });
 
         function saveContent() {
             // console.log(editor.getContents())
@@ -144,18 +153,23 @@
 
     </script>
     <script>
+        let i = 1;
         function addLinkToMovie() {
             let linkModal = $("#linkModal")[0];
+            let nameLink = $("#name_link")[0];
             // console.log(linkModal[0]); return;
             let link = $(".wrap-movie-link").append(
                 `
                     <div class="wrap-link">
-                        <input type="text" name="link[]" class="form-control" value="${linkModal.value}" id="exampleInputCity1">
+                        <div class="row" style="margin-bottom: 10px">
+                            <input type="text" name="link[${i}][name]" class= "col-6 " value="${nameLink.value}" id="exampleInputCity1">
+                            <input type="text" name="link[${i}][link]" class= "col-6 " value="${linkModal.value}" id="exampleInputCity1">
+                        </div>
                         <i onclick="removeLink(this)" class="typcn typcn-delete-outline menu-icon btn-deletel-link"></i>
                     </div>
                 `
             )
-
+            i++;
             linkModal.value = ''
             $('#modal').modal('toggle');
         }

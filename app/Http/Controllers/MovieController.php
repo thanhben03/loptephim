@@ -34,7 +34,6 @@ class MovieController extends Controller
 
     public function create()
     {
-
         return view('admin.movies.create');
     }
 
@@ -46,14 +45,14 @@ class MovieController extends Controller
             'thumbnail' => 'required',
             'country' => 'required',
             'release_date' => 'required',
-            'is_vietsub' => 'required',
+//            'is_vietsub' => 'required',
             'link' => 'required',
             'trailer' => 'required',
 //            'genre_id' => 'required',
 //            'country_id' => 'required',
         ]);
         unset($validated['link']);
-
+        $validated['is_vietsub'] = 1;
         DB::transaction(function () use ($validated,$request){
 
             $movie = Movie::create($validated);
@@ -62,13 +61,20 @@ class MovieController extends Controller
             foreach ($request->link as $key => $value) {
                 $inserts[] = [
                     'movie_id' => $movie->id,
-                    'link' => $value
+                    'link' => $value['link'],
+                    'name' => $value['name'],
                 ];
             }
             foreach ($request->genre_id as $key => $value) {
                 $insertsGenre[] = [
                     'movie_id' => $movie->id,
                     'genre_id' => $value
+                ];
+            }
+            foreach ($request->language_id as $key => $value) {
+                $insertsCountry[] = [
+                    'movie_id' => $movie->id,
+                    'country_id' => $value
                 ];
             }
 //            MovieCountry::query()->create([
@@ -80,6 +86,7 @@ class MovieController extends Controller
 //                'genre_id' => $request['genre_id']
 //            ]);
             MovieGenre::insert($insertsGenre);
+            MovieCountry::insert($insertsCountry);
             MovieLink::insert($inserts);
         });
 
@@ -99,11 +106,16 @@ class MovieController extends Controller
                     ->where('m.id', $movie->id)
                     ->pluck('mg.genre_id')
                     ->all();
+        $languageIds = DB::table('movie_countries as mg')
+            ->join('movies as m', 'm.id', '=', 'mg.movie_id')
+            ->where('m.id', $movie->id)
+            ->pluck('mg.country_id')
+            ->all();
         $links = DB::table('movie_links')
                 ->join('movies', 'movies.id', '=', 'movie_links.movie_id')
                 ->where('movies.id', $movie->id)
                 ->get();
-        return view('admin.movies.edit', compact('movie', 'links', 'genreIds'));
+        return view('admin.movies.edit', compact('movie', 'links', 'genreIds', 'languageIds'));
     }
 
     public function update(Request $request, Movie $movie)
@@ -112,7 +124,7 @@ class MovieController extends Controller
         $data = $request->all();
         unset($data['link']);
         unset($data['genre_id']);
-        unset($data['country_id']);
+        unset($data['language_id']);
         DB::transaction(function () use ($data,$request, $movie){
 
             $movie->fill($data);
@@ -121,18 +133,26 @@ class MovieController extends Controller
             foreach ($request->link as $key => $value) {
                 $inserts[] = [
                     'movie_id' => $movie->id,
-                    'link' => $value
+                    'link' => $value['link'],
+                    'name' => $value['name'],
                 ];
             }
 //            MovieCountry::query()->updateOrCreate([
 //                'movie_id' => $movie->id
 //            ], ['country_id' => $request['country_id']]);
             MovieGenre::query()->where('movie_id', $movie->id)->delete();
+            MovieCountry::query()->where('movie_id', $movie->id)->delete();
 
             foreach ($request->genre_id as $item) {
                 MovieGenre::query()->create([
                     'movie_id' => $movie->id,
                     'genre_id' => $item
+                ]);
+            }
+            foreach ($request->language_id as $item) {
+                MovieCountry::query()->create([
+                    'movie_id' => $movie->id,
+                    'country_id' => $item
                 ]);
             }
 

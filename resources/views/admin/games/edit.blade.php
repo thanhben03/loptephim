@@ -41,11 +41,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail3">Thể loại</label>
-                        <select class="form-control" name="genre_id">
-                            @foreach($genres as $genre)
-                                <option @if($genre->id == $game->genres->id) selected @endif value="{{$genre->id }}">{{$genre->name}}</option>
-                            @endforeach
-                        </select>
+                        <input type="text" class="form-control" value="{{$game->genre_name}}" name="genre_name">
 
                     </div>
                     <div class="form-group mt-3">

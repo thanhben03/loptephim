@@ -40,11 +40,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail3">Thể loại</label>
-                        <select class="form-control" name="genre_id">
-                            @foreach($genres as $genre)
-                                <option value="{{$genre->id }}">{{$genre->name}}</option>
-                            @endforeach
-                        </select>
+                        <input class="form-control" type="text" name="genre_name">
 
                         <div class="mt-3">
                             <select class="form-control" name="type">

@@ -67,9 +67,17 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleSelectGender">Ngôn ngữ:</label>
-                        <input value="{{$movie->is_vietsub}}" type="text" name="is_vietsub" class="form-control" id="is_vietsub"
-                               placeholder="Thuyết minh, lồng tiếng">
+                        <label for="exampleInputEmail3">Ngôn ngữ</label>
+                        <select class="form-control" name="language_id[]" multiple id="language_id">
+                            @foreach($countries as $language)
+                                <option
+                                    @if(in_array($language->id, $languageIds))
+                                        selected
+                                    @endif
+                                    value="{{$language->id }}">{{$language->name}}
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputCity1">Năm phát hành</label>
@@ -87,9 +95,14 @@
                         </div>
 
                              <div class="wrap-movie-link">
-                                 @foreach($links as $link)
+                                 @foreach($links as $key=> $link)
+
                                      <div class="wrap-link">
-                                         <input value="{{$link->link}}" type="text" name="link[]" class="form-control" id="exampleInputCity1">
+                                         <div class="row" style="margin-bottom: 10px">
+                                             <input value="{{$link->name}}" type="text" name="link[{{$key}}][name]" class="col-6" id="exampleInputCity1">
+                                             <input value="{{$link->link}}" type="text" name="link[{{$key}}][link]" class="col-6" id="exampleInputCity1">
+
+                                         </div>
                                          <i onclick="removeLink(this)" class="typcn typcn-delete-outline menu-icon btn-deletel-link"></i>
                                      </div>
                                  @endforeach
@@ -110,6 +123,7 @@
         $(document).ready(function() {
 
             $('#genre1').select2();
+            $('#language_id').select2();
         });
 
 
