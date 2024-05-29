@@ -10,7 +10,7 @@ class AdminController extends Controller
     public function index()
     {
         if (isset(Auth::user()->is_admin) && !Auth::user()->is_admin) {
-            return redirect()->back();
+            return redirect()->route('home');
         }
         return view('admin.index');
     }
