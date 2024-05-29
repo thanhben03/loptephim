@@ -80,7 +80,7 @@ class IndexController extends Controller
             })
             ->orderBy('created_at', 'desc')
 //            ->where('genre_id', $genre->id)
-            ->paginate(4);
+            ->paginate(12);
         if ($request->ajax()) {
             $view = view('client.genre_load', [
                 'movies' => $movies
