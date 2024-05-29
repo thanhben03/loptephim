@@ -11,7 +11,8 @@
 {{--                </div>--}}
 {{--            </div>--}}
 {{--            <div class="col-lg-6">--}}
-{{--                <div class="footer__nav">--}}
+{{--                <div class="f
+ooter__nav">--}}
 {{--                    <ul>--}}
 {{--                        <li class="active"><a href="./index.html">Homepage</a></li>--}}
 {{--                        <li><a href="./categories.html">Categories</a></li>--}}
@@ -124,12 +125,12 @@ https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js
 <script src="{{asset('js/main.js')}}"></script>
 <script>
 
-    $( document ).ready(function() {
-        if (getCookie('active') != 'true') {
-            $('#staticBackdrop').modal('show')
-
-        }
-    });
+    // $( document ).ready(function() {
+    //     if (getCookie('active') != 'true') {
+    //         $('#staticBackdrop').modal('show')
+    //
+    //     }
+    // });
 
     function active() {
         $.ajax({
