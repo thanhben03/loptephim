@@ -22,9 +22,13 @@ class GameController extends Controller
         view()->share('genres', $genres);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $games = Game::paginate(10);
+        $query = Game::query();
+        if ($request->q) {
+            $query->where('name', 'like', '%'.$request->q.'%');
+        }
+        $games = $query->paginate(10);
 //        dd($games[0]->genres);
         return view('admin.games.index', compact('games'));
     }
