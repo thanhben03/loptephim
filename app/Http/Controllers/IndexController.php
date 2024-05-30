@@ -225,6 +225,7 @@ class IndexController extends Controller
             $desktop = $_SERVER['HTTP_USER_AGENT'];
         }
 
+
         $currentTime = date('Y-m-d H:i:s');
         $license = $request->license;
         $timeSession = 0;
@@ -245,7 +246,7 @@ class IndexController extends Controller
                 $numberDay = '+ '.$check->number_day.' days';
                 $check->expired = date('Y-m-d', strtotime($currentTime.$numberDay));
                 $ss_id = session()->getId();
-                $timeSession = 1;
+                $timeSession = intval($check->number_day) * 24 * 60;
                 $check->session_id = $ss_id;
                 $check->save();
 

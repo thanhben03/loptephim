@@ -125,12 +125,12 @@ https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js
 <script src="{{asset('js/main.js')}}"></script>
 <script>
 
-    // $( document ).ready(function() {
-    //     if (getCookie('active') != 'true') {
-    //         $('#staticBackdrop').modal('show')
-    //
-    //     }
-    // });
+    $( document ).ready(function() {
+        if (getCookie('active') != 'true') {
+            $('#staticBackdrop').modal('show')
+
+        }
+    });
 
     function active() {
         $.ajax({
@@ -148,7 +148,8 @@ https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js
                 let date = new Date(res.license.expired);
                 let curr = new Date();
                 // document.cookie = `active=true; expires=${date};`;
-                Cookies.set("active", true, {expires: 1/1440});
+                let ttl = res.license.number_day;
+                Cookies.set("active", true, {expires: ttl});
                 $("#msg").text('Xác thực thành công !')
                 $("#msg").addClass('alert alert-success')
 
