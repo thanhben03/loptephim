@@ -32,7 +32,7 @@ class IndexController extends Controller
             ->select('m.*', 'g.name')
             ->where('g.slug', 'chieu-rap-nuoc-ngoai')
             ->orderBy('updated_at', 'desc')
-            ->take(16)
+            ->take(20)
             ->get();
 
         foreach ($phimle as $key => $item) {
@@ -58,7 +58,7 @@ class IndexController extends Controller
             ->select('m.*', 'g.name')
             ->where('g.slug', 'chieu-rap-viet')
             ->orderBy('updated_at', 'desc')
-            ->take(16)
+            ->take(20)
             ->get();
         foreach ($phimviet as $key => $item) {
             $id = $item->id;
@@ -82,7 +82,7 @@ class IndexController extends Controller
             ->select('m.*', 'g.name')
             ->where('g.slug', 'phim-hay-khac')
             ->orderBy('updated_at', 'desc')
-            ->take(16)
+            ->take(20)
             ->get();
         foreach ($phimRap as $key => $item) {
             $id = $item->id;
