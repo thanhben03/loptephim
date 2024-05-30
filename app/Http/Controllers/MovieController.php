@@ -25,9 +25,13 @@ class MovieController extends Controller
         view()->share('countries', $countries);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $movies = Movie::paginate(10);
+        $query = Movie::query();
+        if ($request->q) {
+            $query->where('title', 'like', '%'.$request->q.'%');
+        }
+        $movies = $query->paginate(10);
         return view('admin.movies.index', compact('movies'));
     }
 
