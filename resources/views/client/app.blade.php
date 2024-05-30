@@ -25,7 +25,7 @@
                         <div class="row">
                             <div class="col-lg-8 col-md-8 col-sm-8">
                                 <div class="section-title">
-                                    <h4>Game Mod</h4>
+                                    <h4>App Mod</h4>
                                 </div>
                             </div>
 
@@ -69,19 +69,6 @@
                                 </div>
                             </li>
                             <li>
-                                <div class="alert alert-success" role="alert">
-                                    <div class="movie-desc">
-                                        <label>Mô tả: </label>
-                                        <div class="form-group" id="game-desc-text">
-                                            <textarea class="form-control" disabled>
-
-                                            </textarea>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </li>
-                            <li>
                                 <div class="alert alert-danger" role="alert">
                                     <div class="movie-desc">
                                         <label>Tính năng mod: </label >
@@ -95,12 +82,26 @@
                                 </div>
                             </li>
                             <li>
-                                <div class="alert alert-success">
-                                    <ul id="game-link">
+                                <div class="alert alert-success" role="alert">
+                                    <div class="movie-desc">
+                                        <label>Mô tả: </label>
+                                        <div class="form-group" id="game-desc-text">
+                                            <textarea class="form-control" disabled>
 
-                                    </ul>
+                                            </textarea>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </li>
+
+{{--                            <li>--}}
+{{--                                <div class="alert alert-success">--}}
+{{--                                    <ul id="game-link">--}}
+
+{{--                                    </ul>--}}
+{{--                                </div>--}}
+{{--                            </li>--}}
                         </ul>
                     </div>
                 </div>

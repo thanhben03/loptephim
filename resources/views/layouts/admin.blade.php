@@ -418,7 +418,7 @@
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="collapse" href="#country" aria-expanded="false" aria-controls="charts">
                         <i class="typcn typcn-chart-pie-outline menu-icon"></i>
-                        <span class="menu-title">Quốc gia</span>
+                        <span class="menu-title">Ngôn Ngữ</span>
                         <i class="menu-arrow"></i>
                     </a>
                     <div class="collapse" id="country">

@@ -112,7 +112,21 @@
                                                     {{$item->title}}
                                                 </a>
                                             </span>
-                                            <span class="btn btn-success vietsub">{{$item->is_vietsub}}</span>
+
+                                            @if(is_array($item->countries) && count($item->countries)>=1)
+                                                <span class="btn btn-success vietsub">
+                                                        {{$item->countries[0]->name}}
+                                                </span>
+{{--                                                @foreach($item->countries as $a)--}}
+{{--                                                    <span class="btn btn-success vietsub">--}}
+{{--                                                        {{$a->name}}--}}
+{{--                                                    </span>--}}
+{{--                                                @endforeach--}}
+                                            @else
+                                                <span class="btn btn-success vietsub">
+                                                    {{$item->is_vietsub}}
+                                                </span>
+                                            @endif
 
                                         </div>
                                     </div>
@@ -201,10 +215,19 @@
                     }
                     $("#movie-genre").text(`Thể loại: ${genre_name}`)
                     $("#movie-country").text(`Quốc gia: ${data.movie.country}`)
-                    $("#movie-vietsub").text(`Vietsub: ${data.movie.is_vietsub}`)
                     $("#movie-release_day").text(`Ngày phát hành: ${data.movie.release_date}` )
 
-                    $("#movie-vietsub").text(`Vietsub: ${data.movie.is_vietsub}`)
+                    if (Array.isArray(data.movie.countries)) {
+                        let language_name = ''
+                        data.movie.countries.forEach((ele) => {
+                            console.log(ele)
+                            language_name += `${ele.name},`
+                        })
+
+                        $("#movie-vietsub").text(`Ngôn ngữ: ${language_name}`)
+                    } else {
+                        $("#movie-vietsub").text(`Vietsub: ${data.movie.is_vietsub}`)
+                    }
                     $("#movie-code").text(`Mã: #${data.movie.id}`)
                     $("#movie-release_day").text(`Năm: ${data.movie.release_date}` )
                     // $("#movie-desc-text").text(data.movie.desc)

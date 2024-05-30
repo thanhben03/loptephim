@@ -206,6 +206,11 @@ class MovieController extends Controller
                 ->select('m.*', 'g.name as genre_name', 'g.id as genre_id')
                 ->where('m.id', $id)
                 ->get();
+        $countries = DB::table('movies as m')
+            ->join('movie_countries as mc', 'mc.movie_id', '=', 'm.id')
+            ->join('countries as c', 'c.id', '=', 'mc.country_id')
+            ->select('c.name', 'c.id')
+            ->where('m.id', $id)->get();
         $genres = [];
         $results = [];
         if (count($movie) > 1) {
@@ -217,9 +222,11 @@ class MovieController extends Controller
             }
             $response = $movie->toArray()[0];
             $response->genre_name = $genres;
+            $response->countries = $countries;
 
             $movie[0] = $response;
         }
+        $movie[0]->countries = $countries;
         $movieView = Movie::query()->where('id', $id)->firstOrFail();
         $movieView->view = $movieView->view + 1;
         $movieView->save();

@@ -35,6 +35,21 @@ class IndexController extends Controller
             ->take(16)
             ->get();
 
+        foreach ($phimle as $key => $item) {
+            $id = $item->id;
+            $countries = DB::table('movies as m')
+                ->join('movie_countries as mc', 'mc.movie_id', '=', 'm.id')
+                ->join('countries as c', 'c.id', '=', 'mc.country_id')
+                ->select('c.name', 'c.id')
+                ->where('m.id', $id)->get();
+            if (count($countries) <= 0) {
+                $phimle[$key]->countries = $item->is_vietsub;
+
+            } else {
+                $phimle[$key]->countries = $countries->toArray();
+
+            }
+        }
 
 //        chieu rap viet
         $phimviet = DB::table('movies as m')
@@ -45,6 +60,21 @@ class IndexController extends Controller
             ->orderBy('updated_at', 'desc')
             ->take(16)
             ->get();
+        foreach ($phimviet as $key => $item) {
+            $id = $item->id;
+            $countries = DB::table('movies as m')
+                ->join('movie_countries as mc', 'mc.movie_id', '=', 'm.id')
+                ->join('countries as c', 'c.id', '=', 'mc.country_id')
+                ->select('c.name', 'c.id')
+                ->where('m.id', $id)->get();
+            if (count($countries) <= 0) {
+                $phimviet[$key]->countries = $item->is_vietsub;
+
+            } else {
+                $phimviet[$key]->countries = $countries->toArray();
+
+            }
+        }
 //        phim hay khac
         $phimRap = DB::table('movies as m')
             ->join('movie_genres as mg', 'mg.movie_id', '=','m.id')
@@ -54,6 +84,21 @@ class IndexController extends Controller
             ->orderBy('updated_at', 'desc')
             ->take(16)
             ->get();
+        foreach ($phimRap as $key => $item) {
+            $id = $item->id;
+            $countries = DB::table('movies as m')
+                ->join('movie_countries as mc', 'mc.movie_id', '=', 'm.id')
+                ->join('countries as c', 'c.id', '=', 'mc.country_id')
+                ->select('c.name', 'c.id')
+                ->where('m.id', $id)->get();
+            if (count($countries) <= 0) {
+                $phimRap[$key]->countries = $item->is_vietsub;
+
+            } else {
+                $phimRap[$key]->countries = $countries->toArray();
+
+            }
+        }
         $genres = Genre::get();
         $countries = Country::get();
 
@@ -78,7 +123,7 @@ class IndexController extends Controller
             ->whereHas('movie_genres', function (\Illuminate\Database\Eloquent\Builder $query) use($genre){
                 $query->where('genre_id', $genre->id);
             })
-            ->orderBy('created_at', 'desc')
+            ->orderBy('updated_at', 'desc')
 //            ->where('genre_id', $genre->id)
             ->paginate(12);
         if ($request->ajax()) {
@@ -134,7 +179,7 @@ class IndexController extends Controller
         }
 //        dd($movies[0]->movie);
         return view('client.game', [
-            'games' => $games
+            'games' => $games,
         ]);
 
     }
@@ -156,7 +201,7 @@ class IndexController extends Controller
         }
 //        dd($movies[0]->movie);
         return view('client.app', [
-            'games' => $games
+            'games' => $games,
         ]);
 
     }
