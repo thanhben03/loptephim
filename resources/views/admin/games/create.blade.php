@@ -67,7 +67,7 @@
                     <div class="form-group">
                         <span onclick="saveContentMod()" class="btn btn-success">Save</span>
                         <label for="exampleTextarea1">Tính năng mod:</label>
-                        <textarea rows="20" class="form-control" id="sample-mod"></textarea>
+                        <textarea rows="8" class="form-control" id="sample-mod"></textarea>
                         <input type="text" name="mod_feartured" hidden id="mod_feartured">
 
                     </div>
