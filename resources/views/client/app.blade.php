@@ -156,7 +156,7 @@
                 success: function (data) {
                     console.log(data)
 
-                    $("#game-genre").text(`Thể loại: ${data.game.game_genre}`)
+                    $("#game-genre").text(`Thể loại: ${data.game.genre_name}`)
                     $("#game-version").text(`Version: ${data.game.version}`)
                     $("#game-desc-text").html(data.game.desc);
                     $("#game-code").html(`Mã: #${data.game.id}`);

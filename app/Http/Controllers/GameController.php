@@ -126,8 +126,8 @@ class GameController extends Controller
     {
         $id = $request->id;
         $game = DB::table('games as g')
-                ->join('games_genres as gg', 'g.genre_id', '=', 'gg.id')
-                ->select('g.*', 'gg.name as game_genre')
+//                ->join('games_genres as gg', 'g.genre_id', '=', 'gg.id')
+//                ->select('g.*', 'gg.name as game_genre')
                 ->where('g.id', $id)
                 ->first();
         $gameView = Game::query()->where('id', $id)->firstOrFail();
