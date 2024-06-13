@@ -98,6 +98,30 @@
         align-items: center;
         background-color: #0a763f;
     }
+
+    .popup-game figure {
+        padding: 0 !important;
+        width: 100% !important;
+        height: 228px !important;
+    }
+
+    .nice-select {
+        margin-top: 25px;
+        /* margin-left: auto; */
+        height: 37px;
+        display: flex;
+        align-items: center;
+        background: blue;
+        color: white;
+        font-weight: 700;
+    }
 }
+.popup-game figure {
+    padding: 0 !important;
+    width: 100% !important;
+    height: 228px !important;
+}
+
+
 
 

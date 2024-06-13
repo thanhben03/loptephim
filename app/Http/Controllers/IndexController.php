@@ -227,12 +227,13 @@ class IndexController extends Controller
 
 
         $currentTime = date('Y-m-d H:i:s');
+
         $license = $request->license;
         $timeSession = 0;
         $res_number_day = 0; // tra ve client de luu so ngay ton tai cua cookie
         try {
             $check = License::query()
-                ->where('license', '=', $license)
+                ->where('name', '=', $license)
                 ->firstOrFail();
             if ($check->expired != null) {
                 if ($check->expired <= $currentTime) {

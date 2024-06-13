@@ -35,10 +35,15 @@ ooter__nav">--}}
             @csrf
 
             <input type="text" name="movie_name" id="search-input" placeholder="Search here.....">
-
+            <select class="form-control" name="type_search">
+                <option value="0">Phim</option>
+                <option value="1">Game/App</option>
+            </select>
             <div class="mt-4" style="float: right">
                 <button class="btn btn-success"  type="submit">Tìm kiếm</button>
+
             </div>
+
         </form>
         <div class="popup">
             <div class="so btn btn-info" onclick="chonSo(0)">0</div>

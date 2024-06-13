@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [IndexController::class, 'index'])->name('home');
-Route::post('/search', [IndexController::class, 'index'])->name('search');
+//Route::post('/search', [IndexController::class, 'index'])->name('search');
 
 //Movie
 Route::get('/the-loai/{slug}', [IndexController::class, 'theloai'])->name('client.theloai');

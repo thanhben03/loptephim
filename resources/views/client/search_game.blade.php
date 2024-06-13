@@ -8,6 +8,7 @@
                     <div class="breadcrumb__links">
                         <a href="{{route('home')}}"><i class="fa fa-home"></i> Home</a>
                         <a href="#">Game</a>
+                        <span>Search</span>
 {{--                        <span>{{$genre->name}}</span>--}}
                     </div>
                 </div>
@@ -31,7 +32,22 @@
 
                         </div>
                         <div class="row movie-container">
-                            @include('client.game_load')
+                            <div class="col-6" style="padding: 4px">
+                                <div class="product__item" onclick="showModalDetail({{$query->id}})">
+                                    <div class="game__item__pic set-bg">
+                                        <img style="height: 100%" src="{{$query->thumbnail}}" alt="">
+                                        <div class="btn btn-success vietsub" style="margin: 5px 0">{{$query->version}}</div>
+                                        {{--                <div onclick="showModalDetail({{$item->id}})" class="comment">Download</div>--}}
+                                    </div>
+                                    <div class="product__item__text">
+                                        <span class="title-movie-mobile">
+                                            <a onclick="showModalDetail({{$query->id}})" class="link-movie-mobile">
+                                                {{$query->name}}
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
                     </div>
@@ -46,7 +62,7 @@
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Chi tiết phim</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Chi tiết game</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -114,33 +130,33 @@
 @endsection
 @push('custom-js')
     <script>
-        $(document).ready(function () {
-            let nextPageUrl = '{{$games->nextPageUrl()}}';
-            $(window).scroll(function () {
-                if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
-                    if (nextPageUrl) {
-                        loadMore();
-                    }
-                }
-            })
+        {{--$(document).ready(function () {--}}
+        {{--    let nextPageUrl = '{{$games->nextPageUrl()}}';--}}
+        {{--    $(window).scroll(function () {--}}
+        {{--        if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {--}}
+        {{--            if (nextPageUrl) {--}}
+        {{--                loadMore();--}}
+        {{--            }--}}
+        {{--        }--}}
+        {{--    })--}}
 
-            function loadMore() {
-                $.ajax({
-                    url: nextPageUrl,
-                    type: 'get',
-                    beforeSend: function () {
-                        nextPageUrl = ''
-                    },
-                    success: function (data) {
-                        nextPageUrl = data.nextPageUrl;
-                        $(".movie-container").append(data.view);
-                    },
-                    error: function (xhr, status, err) {
-                        console.log(err)
-                    }
-                })
-            }
-        })
+        {{--    function loadMore() {--}}
+        {{--        $.ajax({--}}
+        {{--            url: nextPageUrl,--}}
+        {{--            type: 'get',--}}
+        {{--            beforeSend: function () {--}}
+        {{--                nextPageUrl = ''--}}
+        {{--            },--}}
+        {{--            success: function (data) {--}}
+        {{--                nextPageUrl = data.nextPageUrl;--}}
+        {{--                $(".movie-container").append(data.view);--}}
+        {{--            },--}}
+        {{--            error: function (xhr, status, err) {--}}
+        {{--                console.log(err)--}}
+        {{--            }--}}
+        {{--        })--}}
+        {{--    }--}}
+        {{--})--}}
     </script>
     <script>
         function showModalDetail(idGame) {

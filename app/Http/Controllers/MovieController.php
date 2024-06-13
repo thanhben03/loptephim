@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Country;
+use App\Models\Game;
 use App\Models\Genre;
 use App\Models\Movie;
 use App\Models\MovieCountry;
@@ -180,12 +181,16 @@ class MovieController extends Controller
         $query = Movie::query();
 
         // Tìm kiếm theo tên phim
-        if ($request->movie_name != null) {
+        if ($request->movie_name != null && $request->input('type_search') == 0) {
             $query->where('title', 'like', '%' . $request->input('movie_name') . '%')
             ->orWhere('id', $request->input('movie_name'))
                 ->orderBy('id', 'desc')
 
             ;
+        } else {
+            $query = Game::query()->where('id', '=', $request->input('movie_name'))
+                ->orderBy('id', 'desc')->first();
+            return view('client.search_game', compact('query'));
         }
 
         $movies = $query->paginate(4);
