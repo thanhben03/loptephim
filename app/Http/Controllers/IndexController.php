@@ -169,7 +169,7 @@ class IndexController extends Controller
             ->orderBy('id', 'desc')
 
 //            ->with('movie')
-            ->paginate(4);
+            ->paginate(6);
 
         if ($request->ajax()) {
             $view = view('client.game_load', [
