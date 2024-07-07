@@ -26,7 +26,9 @@ class GameController extends Controller
     {
         $query = Game::query();
         if ($request->q) {
-            $query->where('name', 'like', '%'.$request->q.'%');
+            $query->where('name', 'like', '%'.$request->q.'%')
+                ->orderBy('updated_at', 'desc')
+            ;
         }
         $games = $query->paginate(10);
 //        dd($games[0]->genres);
@@ -75,6 +77,7 @@ class GameController extends Controller
         $data = $request->all();
         unset($data['link']);
         $game->fill($data);
+        $game->touch();
         $game->save();
 
         return back()->with('success', 'Updated Successfull !');

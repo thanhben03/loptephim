@@ -166,9 +166,10 @@ class IndexController extends Controller
     {
         $games = Game::query()
             ->where('type', '=', 0)
-            ->orderBy('id', 'desc')
+            ->orderBy('updated_at', 'desc')
 
-//            ->with('movie')
+
+            //            ->with('movie')
             ->paginate(6);
 
         if ($request->ajax()) {
