@@ -133,6 +133,7 @@ class MovieController extends Controller
         DB::transaction(function () use ($data,$request, $movie){
 
             $movie->fill($data);
+            $movie->touch();
             $inserts = [];
             MovieLink::query()->where('movie_id', $movie->id)->delete();
             foreach ($request->link as $key => $value) {
