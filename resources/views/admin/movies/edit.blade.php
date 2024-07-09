@@ -11,6 +11,10 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
+                        <label for="exampleInputEmail3">Tên hiển thị: </label>
+                        <input type="text" class="form-control" id="name_link" name="name_link" placeholder="Link vietsub,v.v">
+                    </div>
+                    <div class="form-group">
                         <label for="exampleInputEmail3">Link: </label>
                         <input type="text" class="form-control" id="linkModal" name="linkModal" placeholder="Link">
                     </div>
