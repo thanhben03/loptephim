@@ -136,19 +136,23 @@
     <script>
 
 
+        let i = 1;
         function addLinkToMovie() {
             let linkModal = $("#linkModal")[0];
+            let nameLink = $("#name_link")[0];
             // console.log(linkModal[0]); return;
             let link = $(".wrap-movie-link").append(
                 `
-                     <div class="wrap-link">
-                        <input type="text" name="link[]" class="form-control" value="${linkModal.value}" id="exampleInputCity1">
+                    <div class="wrap-link">
+                        <div class="row" style="margin-bottom: 10px">
+                            <input type="text" name="link[${i}][name]" class= "col-6 " value="${nameLink.value}" id="exampleInputCity1">
+                            <input type="text" name="link[${i}][link]" class= "col-6 " value="${linkModal.value}" id="exampleInputCity1">
+                        </div>
                         <i onclick="removeLink(this)" class="typcn typcn-delete-outline menu-icon btn-deletel-link"></i>
                     </div>
-
                 `
             )
-
+            i++;
             linkModal.value = ''
             $('#modal').modal('toggle');
         }
