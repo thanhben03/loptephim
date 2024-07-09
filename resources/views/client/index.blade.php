@@ -35,7 +35,7 @@
                                             <span class="title-movie-mobile">
                                                 <a onclick="showModalDetail({{$item->id}})" class="link-movie-mobile" href="#">{{$item->title}}</a>
                                             </span>
-                                            <span class="btn btn-success vietsub">{{$item->is_vietsub}}</span>
+                                            <span class="btn btn-success vietsub">{{$item->countries}}</span>
 
                                         </div>
                                     </div>

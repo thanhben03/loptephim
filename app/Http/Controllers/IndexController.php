@@ -34,7 +34,6 @@ class IndexController extends Controller
             ->orderBy('updated_at', 'desc')
             ->take(20)
             ->get();
-
         foreach ($phimle as $key => $item) {
             $id = $item->id;
             $countries = DB::table('movies as m')
@@ -46,7 +45,7 @@ class IndexController extends Controller
                 $phimle[$key]->countries = $item->is_vietsub;
 
             } else {
-                $phimle[$key]->countries = $countries->toArray();
+                $phimle[$key]->countries = $countries->toArray()[0]->name;
 
             }
         }
@@ -101,7 +100,6 @@ class IndexController extends Controller
         }
         $genres = Genre::get();
         $countries = Country::get();
-
         view()->share('genres', $genres);
         view()->share('phimviet', $phimviet);
         view()->share('phimRap', $phimRap);
