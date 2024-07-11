@@ -129,13 +129,33 @@ https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js
 "></script>
 <script src="{{asset('js/main.js')}}"></script>
 <script>
-
+    let interval;
     $( document ).ready(function() {
+
         if (getCookie('active') != 'true') {
             $('#staticBackdrop').modal('show')
 
         }
+        // interval = setInterval(checkLicenseTenSecond, 2000)
     });
+
+    function checkLicenseTenSecond() {
+        console.log(getCookie('session_id'));
+        if(getCookie('laravel_session').length <= 0) {
+            console.log(getCookie('laravel_session'))
+            clearInterval(interval)
+        }
+        $.ajax({
+            url: '{{route('api.liveLicense')}}',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                "_token": "{{ csrf_token() }}"
+            },
+            success: function (res) {
+            }
+        })
+    }
 
     function active() {
         $.ajax({

@@ -249,6 +249,10 @@
                         i++;
                     })
                     $("#movie-link").html(html);
+                },
+                error: function (err) {
+                    $('#staticBackdrop').modal('show')
+                    Cookies.set("active", '');
                 }
             })
         }

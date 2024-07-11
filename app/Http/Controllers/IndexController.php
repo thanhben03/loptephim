@@ -11,6 +11,7 @@ use App\Models\MovieCountry;
 use App\Models\MovieGenre;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
 use PhpParser\Builder;
@@ -243,13 +244,13 @@ class IndexController extends Controller
                     throw new \Exception('Key chỉ được kích hoạt trên một thiết bị');
                 }
             } else {
+
                 $numberDay = '+ '.$check->number_day.' days';
                 $check->expired = date('Y-m-d', strtotime($currentTime.$numberDay));
                 $ss_id = session()->getId();
                 $timeSession = intval($check->number_day) * 24 * 60;
                 $check->session_id = $ss_id;
                 $check->save();
-
             }
             return \response()->json([
                 'msg' => 'Kích hoạt thành công',
@@ -260,6 +261,22 @@ class IndexController extends Controller
             return \response()->json([
                 'msg' => $e->getMessage()
             ], 400);
+        }
+
+
+    }
+
+    public function liveLicense(Request $request)
+    {
+        $data = $request->all();
+        $currentSessionId = \request()->cookie('session_id');
+        try {
+            $exist = License::query()
+                ->where('session_id', '=', $currentSessionId)
+                ->firstOrFail();
+        } catch (\Throwable $e) {
+            Cookie::queue(Cookie::forget('session_id'));
+            echo $e->getMessage();
         }
 
 

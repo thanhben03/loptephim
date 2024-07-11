@@ -42,7 +42,7 @@ Route::get('/get-device', function () {
     dd($osInfo, $device, $brand, $model);
 })->name('test');
 
-Route::prefix('admin')->middleware('auth')->name('admin.')->group(function ()
+Route::prefix('admin')->middleware(['auth', 'live.license'])->name('admin.')->group(function ()
 {
     Route::get('/',[\App\Http\Controllers\AdminController::class,'index'])->name('index');
    Route::resource('/genre',GenreController::class);
@@ -56,7 +56,8 @@ Route::prefix('admin')->middleware('auth')->name('admin.')->group(function ()
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified', 'live.license'])
+    ->name('dashboard');
 
 Route::middleware(['auth', 'singleSession'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -64,11 +65,14 @@ Route::middleware(['auth', 'singleSession'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::post('/api/movie/', [\App\Http\Controllers\MovieController::class, 'getMovie'])->name('api.getMovie');
-Route::post('/api/game/', [\App\Http\Controllers\GameController::class, 'getGame'])->name('api.getGame');
-Route::post('/search', [\App\Http\Controllers\MovieController::class, 'search'])->name('search');
 Route::post('/active', [\App\Http\Controllers\IndexController::class, 'checkLicense'])->name('api.checkLicense');
 
+Route::middleware('live.license')->group(function () {
+    Route::post('/api/movie/', [\App\Http\Controllers\MovieController::class, 'getMovie'])->name('api.getMovie');
+    Route::post('/api/game/', [\App\Http\Controllers\GameController::class, 'getGame'])->name('api.getGame');
+    Route::post('/search', [\App\Http\Controllers\MovieController::class, 'search'])->name('search');
+    Route::post('/live-license', [\App\Http\Controllers\IndexController::class, 'liveLicense'])->name('api.liveLicense');
+});
 
 
 require __DIR__.'/auth.php';
