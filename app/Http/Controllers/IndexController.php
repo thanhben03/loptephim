@@ -244,12 +244,12 @@ class IndexController extends Controller
                     throw new \Exception('Key chỉ được kích hoạt trên một thiết bị');
                 }
             } else {
-
                 $numberDay = '+ '.$check->number_day.' days';
                 $check->expired = date('Y-m-d', strtotime($currentTime.$numberDay));
                 $ss_id = session()->getId();
                 $timeSession = intval($check->number_day) * 24 * 60;
                 $check->session_id = $ss_id;
+                $check->status = 3; // set trang thai da kich hoat
                 $check->save();
             }
             return \response()->json([
