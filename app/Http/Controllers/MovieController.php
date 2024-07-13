@@ -32,7 +32,7 @@ class MovieController extends Controller
         if ($request->q) {
             $query->where('title', 'like', '%'.$request->q.'%');
         }
-        $movies = $query->paginate(10);
+        $movies = $query->orderBy('updated_at', 'desc')->paginate(10);
         return view('admin.movies.index', compact('movies'));
     }
 

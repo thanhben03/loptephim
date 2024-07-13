@@ -42,7 +42,7 @@ Route::get('/get-device', function () {
     dd($osInfo, $device, $brand, $model);
 })->name('test');
 
-Route::prefix('admin')->middleware(['auth', 'live.license'])->name('admin.')->group(function ()
+Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function ()
 {
     Route::get('/',[\App\Http\Controllers\AdminController::class,'index'])->name('index');
    Route::resource('/genre',GenreController::class);
