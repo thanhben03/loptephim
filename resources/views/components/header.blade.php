@@ -52,7 +52,7 @@
                             <li><a href="#">Liên hệ</a>
                                 <ul class="dropdown my-dropdown">
                                     <li><a target="_blank" href="https://www.facebook.com/cnlopte?mibextid=LQQJ4d">Fanpage</a></li>
-                                    <li><a target="_blank" href="https://t.me/ModGameAppTrick">Telegram</a></li>
+                                    <li><a target="_blank" href="https://t.me/LopteMod">Telegram</a></li>
                                 </ul>
                             </li>
 {{--                            <li><a href="#">Quốc gia</a>--}}
