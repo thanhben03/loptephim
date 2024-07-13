@@ -82,7 +82,7 @@
                                 </div>
                             </li>
                             <li>
-                                <div class="alert alert-success" role="alert">
+                                <div class="alert alert-success popup-game" role="alert">
                                     <div class="movie-desc">
                                         <label>Mô tả: </label>
                                         <div class="form-group" id="game-desc-text">
