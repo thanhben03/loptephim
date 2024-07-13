@@ -27,10 +27,9 @@ class GameController extends Controller
         $query = Game::query();
         if ($request->q) {
             $query->where('name', 'like', '%'.$request->q.'%')
-                ->orderBy('updated_at', 'desc')
             ;
         }
-        $games = $query->paginate(10);
+        $games = $query->orderBy('updated_at', 'desc')->paginate(10);
 //        dd($games[0]->genres);
         return view('admin.games.index', compact('games'));
     }
