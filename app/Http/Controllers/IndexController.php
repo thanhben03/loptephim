@@ -249,6 +249,7 @@ class IndexController extends Controller
                 $ss_id = session()->getId();
                 $timeSession = intval($check->number_day) * 24 * 60;
                 $check->session_id = $ss_id;
+                $check->ip = request()->ip();
                 $check->status = 3; // set trang thai da kich hoat
                 $check->save();
             }
