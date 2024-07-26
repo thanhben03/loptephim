@@ -99,7 +99,7 @@
         background-color: #0a763f;
     }
 
-    .popup-game figure {
+    .popup-game figure, .popup-game iframe {
         padding: 0 !important;
         width: 100% !important;
         height: 228px !important;
@@ -116,7 +116,7 @@
         font-weight: 700;
     }
 }
-.popup-game figure {
+.popup-game figure, .popup-game iframe {
     padding: 0 !important;
     width: 100% !important;
     height: 228px !important;
