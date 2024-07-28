@@ -19,6 +19,6 @@
         </div>
     </div>
     <div class="container">
-        <div class="alert alert-info">Follow <a style="text-decoration: dashed" href="https://www.facebook.com/cnlopte">Fanpage</a> Để Lấy Mã Phim & Game</div>
+        <div class="alert alert-info">Follow <a style="text-decoration: dashed" target="_blank" href="https://www.facebook.com/cnlopte">Fanpage</a> Để Lấy Mã Phim & Game</div>
     </div>
 </section>
