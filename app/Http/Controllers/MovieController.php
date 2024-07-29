@@ -189,7 +189,9 @@ class MovieController extends Controller
 
             ;
         } else {
-            $query = Game::query()->where('name', 'like','%'.$request->input('movie_name').'%')
+            $query = Game::query()->where('id', '=',$request->input('movie_name'))
+                ->orWhere('name','like', '%'. $request->input('movie_name') . '%')
+
                 ->orderBy('updated_at', 'desc')->first();
             return view('client.search_game', compact('query'));
         }
