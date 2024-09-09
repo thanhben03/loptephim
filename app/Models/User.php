@@ -3,11 +3,11 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Livewire\Attributes\Session;
 
 class User extends Authenticatable
 {
@@ -21,6 +21,8 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'money',
+        'avatar',
         'password',
     ];
 
@@ -43,5 +45,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    protected $appends = [
+        'status_buy_key'
+    ];
+
+    public function posts()
+    {
+        return $this->belongsToMany(Post::class, 'user_posts', 'user_id', 'post_id');
+    }
 
 }

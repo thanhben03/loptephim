@@ -1,0 +1,16 @@
+div#modal-comment {
+    overflow: scroll !important;
+}
+
+.comment {
+
+}
+
+.time-comment {
+    font-size: 10px;
+}
+
+#wrap-comment {
+    height: 240px;
+    overflow: auto;
+}

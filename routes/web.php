@@ -72,6 +72,13 @@ Route::middleware('live.license')->group(function () {
     Route::post('/api/game/', [\App\Http\Controllers\GameController::class, 'getGame'])->name('api.getGame');
     Route::post('/search', [\App\Http\Controllers\MovieController::class, 'search'])->name('search');
     Route::post('/live-license', [\App\Http\Controllers\IndexController::class, 'liveLicense'])->name('api.liveLicense');
+    Route::get('/main-post', [\App\Http\Controllers\IndexController::class, 'mainPost'])->name('mainPost');
+    Route::post('/comment/', [IndexController::class, 'postComment'])->name('postComment');
+    Route::post('/get-comment/', [IndexController::class, 'getCommentByIdPost'])->name('getCommentByIdPost');
+    Route::post('/like-post', [IndexController::class, 'likePost'])->name('likePost');
+
+
+
 });
 
 

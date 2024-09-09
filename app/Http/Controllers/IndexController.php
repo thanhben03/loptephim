@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Country;
 use App\Models\Game;
 use App\Models\Genre;
@@ -9,8 +10,14 @@ use App\Models\License;
 use App\Models\Movie;
 use App\Models\MovieCountry;
 use App\Models\MovieGenre;
+use App\Models\Post;
+use App\Models\PostLike;
+use App\Models\TotalReward;
+use App\Models\User;
+use App\Models\UserPost;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
@@ -115,6 +122,60 @@ class IndexController extends Controller
         return view('client.index');
     }
 
+    public function mainPost(Request $request)
+    {
+        $posts = Post::query()
+            ->active()
+            ->orderBy('updated_at', 'desc')
+            ->get();
+        $totalReward = TotalReward::query()
+            ->whereMonth('apply_date', now()->month)
+            ->whereYear('apply_date', now()->year)
+            ->first();
+        $fromUser = '';
+
+
+        if ($request->query('user_id')) {
+            $fromUser = User::query()->where('id', $request->query('user_id'))->first()->name;
+            $user_posts = UserPost::query()
+                ->where('user_id', $request->query('user_id'))
+                ->pluck('post_id')->toArray();
+            $posts = Post::query()
+                ->active()
+                ->whereIn('id', $user_posts)
+                ->orderBy('updated_at', 'desc')
+                ->get();
+        }
+        if ($request->query('q')) {
+            $posts = Post::query()
+                ->active()
+                ->where('id', $request->query('q'))
+                ->orderBy('updated_at', 'desc')
+                ->get();
+        }
+        foreach ($posts as $post) {
+            $likes = [];
+            foreach ($post->like as $like) {
+                $likes[] = $like->session_like_id;
+            }
+
+            $post->like = $likes;
+        }
+
+        $user = Auth::user();
+        $now = Carbon::now();
+        $month = $now->month;
+        $year = $now->year;
+
+        $tops = PostLike::query()->select('post_id', DB::raw('count(*) as like_count'))
+            ->whereMonth('created_at', $month)
+            ->whereYear('created_at', $year)
+            ->groupBy('post_id')
+            ->orderBy('like_count', 'desc')
+            ->get();
+        return view('client.main-post', compact('totalReward','posts', 'user', 'tops', 'fromUser'));
+    }
+
     public function theloai(Request $request, $slug)
     {
         $genre = Genre::query()->where('slug', $slug)->first();
@@ -123,7 +184,6 @@ class IndexController extends Controller
                 $query->where('genre_id', $genre->id);
             })
             ->orderBy('updated_at', 'desc')
-//            ->where('genre_id', $genre->id)
             ->paginate(12);
         if ($request->ajax()) {
             $view = view('client.genre_load', [
@@ -280,6 +340,73 @@ class IndexController extends Controller
             echo $e->getMessage();
         }
 
+
+    }
+
+    public function postComment(Request $request)
+    {
+        $data = $request->all();
+        $data['ip'] = $request->ip();
+        $comment = Comment::query()->create($data);
+
+        return response()->json([
+            'msg' => 'success',
+            'data' => $comment
+        ]);
+
+    }
+
+    public function getCommentByIdPost(Request $request)
+    {
+        $post_id = $request->post_id;
+        $titlePost = Post::query()
+            ->where('id', $post_id)
+            ->select('title')
+            ->firstOrFail();
+        $comments = Comment::query()
+            ->where('post_id', $post_id)
+            ->orderBy('created_at', 'desc')
+            ->get();
+        $comments->title_post = $titlePost->title;
+        return response()->json([
+            'data' => $comments,
+            'title_post' => $titlePost
+
+        ]);
+    }
+
+    public function likePost(Request $request)
+    {
+        $currentSessionId = \request()->cookie('session_id');
+//        if ($currentSessionId == null) {
+//            return response()->json([
+//                'status' => 'error',
+//                'msg' => 'Session id not found !'
+//            ], 400);
+//        }
+        $data = $request->all();
+        $data['ip'] = $request->ip();
+        $post = Post::query()->where('id', $data['post_id'])->first();
+        $ss_id = session()->getId();
+        $data['session_like_id'] = $ss_id;
+
+        $isLike = PostLike::query()
+            ->where('post_id', $data['post_id'])
+            ->where('session_like_id', $data['session_like_id'])
+            ->first();
+        if (!$isLike) {
+            PostLike::query()->create($data);
+        } else {
+            return response()->json([
+                'status' => 'error',
+                'msg' => 'error'
+            ], 400);
+        }
+        return response()->json([
+            'status' => 'success',
+            'msg' => 'success',
+            'link' => $post->link
+        ])->withCookie(cookie('session_like_id', $ss_id));
 
     }
 }
