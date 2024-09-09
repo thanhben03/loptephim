@@ -19,7 +19,6 @@ class CheckLiveLicense
     {
         try {
             $currentSessionId = \request()->cookie('session_id');
-
             $exist = License::query()
                 ->where('session_id', $currentSessionId)
                 ->firstOrFail();
@@ -27,7 +26,7 @@ class CheckLiveLicense
         } catch (\Throwable $e) {
             Cookie::queue(Cookie::forget('session_id'));
 
-            return response(['error' => $e->getMessage()], Response::HTTP_FORBIDDEN);
+            return response(['error' => 'You dont have permission'], Response::HTTP_FORBIDDEN);
         }
         return $next($request);
     }
