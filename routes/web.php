@@ -80,7 +80,7 @@ Route::get('/test', function () {
 })->name('test.camera');
 
 Route::post('/in-phieu', function (Request $request) {
-    dd($request->all());
+    return response()->json([]);
 });
 
 
