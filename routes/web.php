@@ -4,6 +4,8 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\CountryController;
+use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
@@ -76,6 +78,10 @@ Route::get('/test', function () {
         return 'Request failed with status: ' . $response->status();
     }
 })->name('test.camera');
+
+Route::post('/in-phieu', function (Request $request) {
+    dd($request->all());
+});
 
 
 Route::get('/dashboard', function () {
