@@ -4,14 +4,8 @@
 <script>
     function a() {
         $.ajax({
-            type: "POST",
-            url: "https://8e10-113-23-96-150.ngrok-free.app/command",
-            crossDomain: true,
-            headers: {  'Access-Control-Allow-Origin': 'https://8e10-113-23-96-150.ngrok-free.app/command' },
-            type: 'json',
-            data: {
-              'command': 'scan_qr'
-            },
+            type: "GET",
+            url: "{{route('test.camera')}}",
             success: function (res) {
                 console.log(res)
             },

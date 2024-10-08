@@ -4,6 +4,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\CountryController;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,6 +58,24 @@ Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function ()
 Route::get('/test-api', function () {
     return view('test');
 });
+
+Route::get('/test', function () {
+    $response = Http::withHeaders([
+        'Content-Type' => 'application/json',
+    ])->post('https://8e10-113-23-96-150.ngrok-free.app/command', [
+        'command' => 'scan_qr',
+    ]);
+
+// Kiểm tra phản hồi
+    if ($response->successful()) {
+        // Xử lý phản hồi thành công
+        $data = $response->json();
+        return $data;
+    } else {
+        // Xử lý lỗi nếu yêu cầu không thành công
+        return 'Request failed with status: ' . $response->status();
+    }
+})->name('test.camera');
 
 
 Route::get('/dashboard', function () {
