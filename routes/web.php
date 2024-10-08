@@ -83,6 +83,7 @@ Route::post('/in-phieu', function (Request $request) {
     return response()->json([
         'stt' => 1000,
         'bn_name' => 'Nguyen Van A',
+        'dob' => '2002/3/5',
         'gender' => 'Nam',
         'birthplace' => 'An Giang',
         'arrival_time' => '2024/7/7',
