@@ -64,7 +64,7 @@ Route::get('/test-api', function () {
 Route::get('/test', function () {
     $response = Http::withHeaders([
         'Content-Type' => 'application/json',
-    ])->post('https://8e10-113-23-96-150.ngrok-free.app/command', [
+    ])->post('crow-wondrous-asp.ngrok-free.app/command', [
         'command' => 'scan_qr',
     ]);
 
