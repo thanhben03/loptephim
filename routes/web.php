@@ -54,6 +54,11 @@ Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function ()
     Route::resource('/license',\App\Http\Controllers\LicenseController::class);
 });
 
+Route::get('/test-api', function () {
+    return view('test');
+});
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified', 'live.license'])
@@ -80,6 +85,7 @@ Route::middleware('live.license')->group(function () {
 
 
 });
+
 
 
 require __DIR__.'/auth.php';
