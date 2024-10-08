@@ -80,7 +80,14 @@ Route::get('/test', function () {
 })->name('test.camera');
 
 Route::post('/in-phieu', function (Request $request) {
-    return response()->json([]);
+    return response()->json([
+        'stt' => 1000,
+        'bn_name' => 'Nguyen Van A',
+        'gender' => 'Nam',
+        'birthplace' => 'An Giang',
+        'arrival_time' => '2024/7/7',
+        'department' => 'Khoa CNTT'
+    ]);
 });
 
 
