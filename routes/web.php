@@ -80,13 +80,17 @@ Route::get('/test', function () {
 })->name('test.camera');
 
 Route::post('/in-phieu', function (Request $request) {
+    $dataRaw = $request->input('scan_qr') ?? "089202017098|352576714|Lê Văn Lương|23052002|Nam|Tổ 10 Ấp An Thái, Hòa Bình, Chợ Mới, An Giang|31122021";
+    $arrData = explode("|", $dataRaw);
+    $strBirthday = $arrData[3];
+    $birthday = substr($strBirthday, 0, 2).'/'. substr($strBirthday, 2,2). '/'. substr($strBirthday, 4);
     return response()->json([
-        'stt' => 1000,
-        'bn_name' => 'Nguyen Van A',
+        'stt' => rand(0,1000),
+        'bn_name' => $arrData[2],
         'dob' => '2002/3/5',
-        'gender' => 'Nam',
-        'birthplace' => 'An Giang',
-        'arrival_time' => '2024/7/7',
+        'gender' => $arrData[4],
+        'birthplace' => $birthday,
+        'arrival_time' => \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->toDateTimeString(),
         'department' => 'Khoa CNTT'
     ]);
 });
