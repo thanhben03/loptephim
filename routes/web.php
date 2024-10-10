@@ -4,6 +4,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\CountryController;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Http;
@@ -87,10 +88,10 @@ Route::post('/in-phieu', function (Request $request) {
     return response()->json([
         'stt' => rand(0,1000),
         'bn_name' => $arrData[2],
-        'dob' => '2002/3/5',
+        'dob' => $birthday,
         'gender' => $arrData[4],
-        'birthplace' => $birthday,
-        'arrival_time' => \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->toDateTimeString(),
+        'birthplace' => $arrData[5],
+        'arrival_time' => Carbon::now('Asia/Ho_Chi_Minh')->toDateTimeString(),
         'department' => 'Khoa CNTT'
     ]);
 });
