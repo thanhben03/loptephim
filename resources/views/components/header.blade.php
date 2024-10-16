@@ -47,7 +47,7 @@
                             <li class="{{ request()->is('*phim-hay-khac') ? 'active' : '' }}"><a href="{{route('client.theloai', 'phim-hay-khac')}}">Phim Hay Khác</a></li>
                             <li class="{{ request()->is('*game-mod') ? 'active' : '' }}"><a href="{{route('client.gamemod')}}">Game mod</a></li>
                             <li class="{{ request()->is('*app-mod') ? 'active' : '' }}"><a href="{{route('client.appmod')}}">App mod</a></li>
-                            <li class=""><a href="https://loptekey.site/main-post">Bài viết thành viên</a></li>
+                            <li class=""><a href="https://loptephim.xyz/main-post">Bài viết thành viên</a></li>
 
                             <li><a href="#">Liên hệ</a>
                                 <ul class="dropdown my-dropdown">

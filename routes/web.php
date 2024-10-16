@@ -69,7 +69,7 @@ Route::get('/test', function () {
         'command' => 'scan_qr',
     ]);
 
-// Kiểm tra phản hồi
+    // Kiểm tra phản hồi
     if ($response->successful()) {
         // Xử lý phản hồi thành công
         $data = $response->json();
