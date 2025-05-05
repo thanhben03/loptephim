@@ -36,8 +36,9 @@ ooter__nav">--}}
 
             <input type="text" name="movie_name" id="search-input" placeholder="Search here.....">
             <select class="form-control" name="type_search">
-                <option value="0">Phim</option>
                 <option value="1">Game/App</option>
+                <option value="0">Phim</option>
+                
             </select>
             <div class="mt-4" style="float: right">
                 <button class="btn btn-success"  type="submit">Tìm kiếm</button>
@@ -46,17 +47,7 @@ ooter__nav">--}}
 
         </form>
         <div class="popup">
-            <div class="so btn btn-info" onclick="chonSo(0)">0</div>
-            <div class="so btn btn-info" onclick="chonSo(1)">1</div>
-            <div class="so btn btn-info" onclick="chonSo(2)">2</div>
-            <div class="so btn btn-info" onclick="chonSo(3)">3</div>
-            <div class="so btn btn-info" onclick="chonSo(4)">4</div>
-            <div class="so btn btn-info" onclick="chonSo(5)">5</div>
-            <div class="so btn btn-info" onclick="chonSo(6)">6</div>
-            <div class="so btn btn-info" onclick="chonSo(7)">7</div>
-            <div class="so btn btn-info" onclick="chonSo(8)">8</div>
-            <div class="so btn btn-info" onclick="chonSo(9)">9</div>
-            <button class="btn btn-danger" onclick="clearValue()">Clear</button>
+         
         </div>
     </div>
 </div>
@@ -79,20 +70,7 @@ ooter__nav">--}}
             </div>
         </div>
     </div>
-    <div class="popup">
-        <div class="so btn btn-info" onclick="chonSo1(0)">0</div>
-        <div class="so btn btn-info" onclick="chonSo1(1)">1</div>
-        <div class="so btn btn-info" onclick="chonSo1(2)">2</div>
-        <div class="so btn btn-info" onclick="chonSo1(3)">3</div>
-        <div class="so btn btn-info" onclick="chonSo1(4)">4</div>
-        <div class="so btn btn-info" onclick="chonSo1(5)">5</div>
-        <div class="so btn btn-info" onclick="chonSo1(6)">6</div>
-        <div class="so btn btn-info" onclick="chonSo1(7)">7</div>
-        <div class="so btn btn-info" onclick="chonSo1(8)">8</div>
-        <div class="so btn btn-info" onclick="chonSo1(9)">9</div>
-        <button class="btn btn-danger" onclick="clearValue1()">Clear</button>
-    </div>
-</div>
+   
 <!-- Search model end -->
 
 <!-- Button trigger modal -->
@@ -131,9 +109,11 @@ https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js
 <script>
     let interval;
     $( document ).ready(function() {
-
+        
         if (getCookie('active') != 'true') {
             $('#staticBackdrop').modal('show')
+            
+            console.log('1231231231')
 
         }
         // interval = setInterval(checkLicenseTenSecond, 2000)

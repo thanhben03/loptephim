@@ -41,13 +41,13 @@
                 <div class="header__nav">
                     <nav class="header__menu mobile-menu">
                         <ul class="d-flex">
-                            <li class="{{ Request::routeIs('home') ? 'active' : '' }}"><a href="{{route('home')}}">Homepage</a></li>
-                            <li class="{{ request()->is('*rap-nuoc-ngoai') ? 'active' : '' }}"><a href="{{route('client.theloai', 'chieu-rap-nuoc-ngoai')}}">Rạp Nước Ngoài</a></li>
-                            <li class="{{ request()->is('*rap-viet') ? 'active' : '' }}"><a href="{{route('client.theloai', 'chieu-rap-viet')}}">Rạp Việt</a></li>
-                            <li class="{{ request()->is('*phim-hay-khac') ? 'active' : '' }}"><a href="{{route('client.theloai', 'phim-hay-khac')}}">Phim Hay Khác</a></li>
+                           
+                            <li class="{{ request()->is('*rap-nuoc-ngoai') ? 'active' : '' }}"><a href="{{route('client.theloai', 'chieu-rap-nuoc-ngoai')}}">Xem Phim</a></li>
+                           
+                           
                             <li class="{{ request()->is('*game-mod') ? 'active' : '' }}"><a href="{{route('client.gamemod')}}">Game mod</a></li>
                             <li class="{{ request()->is('*app-mod') ? 'active' : '' }}"><a href="{{route('client.appmod')}}">App mod</a></li>
-                            <li class=""><a href="https://loptephim.xyz/main-post">Bài viết thành viên</a></li>
+                            <li class=""><a href="https://videoview.us/category/board">Game Online</a></li>
 
                             <li><a href="#">Liên hệ</a>
                                 <ul class="dropdown my-dropdown">

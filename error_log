@@ -5,3 +5,24 @@ Stack trace:
 #0 /home/benboits/loptephim.benboit.shop/server.php(21): require_once()
 #1 {main}
   thrown in /home/benboits/loptephim.benboit.shop/public/index.php on line 34
+[26-Jul-2024 12:43:21 UTC] PHP Warning:  require(/home/loptekey/loptephim.xyz/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/loptekey/loptephim.xyz/public/index.php on line 34
+[26-Jul-2024 12:43:21 UTC] PHP Warning:  require(/home/loptekey/loptephim.xyz/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/loptekey/loptephim.xyz/public/index.php on line 34
+[26-Jul-2024 12:43:21 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/loptekey/loptephim.xyz/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/loptekey/loptephim.xyz/public/index.php:34
+Stack trace:
+#0 /home/loptekey/loptephim.xyz/server.php(21): require_once()
+#1 {main}
+  thrown in /home/loptekey/loptephim.xyz/public/index.php on line 34
+[26-Jul-2024 12:43:22 UTC] PHP Warning:  require(/home/loptekey/loptephim.xyz/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/loptekey/loptephim.xyz/public/index.php on line 34
+[26-Jul-2024 12:43:22 UTC] PHP Warning:  require(/home/loptekey/loptephim.xyz/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/loptekey/loptephim.xyz/public/index.php on line 34
+[26-Jul-2024 12:43:22 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/loptekey/loptephim.xyz/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/loptekey/loptephim.xyz/public/index.php:34
+Stack trace:
+#0 /home/loptekey/loptephim.xyz/server.php(21): require_once()
+#1 {main}
+  thrown in /home/loptekey/loptephim.xyz/public/index.php on line 34
+[26-Jul-2024 12:45:53 UTC] PHP Warning:  require(/home/loptekey/loptephim.xyz/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/loptekey/loptephim.xyz/public/index.php on line 34
+[26-Jul-2024 12:45:53 UTC] PHP Warning:  require(/home/loptekey/loptephim.xyz/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/loptekey/loptephim.xyz/public/index.php on line 34
+[26-Jul-2024 12:45:53 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/loptekey/loptephim.xyz/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/loptekey/loptephim.xyz/public/index.php:34
+Stack trace:
+#0 /home/loptekey/loptephim.xyz/server.php(21): require_once()
+#1 {main}
+  thrown in /home/loptekey/loptephim.xyz/public/index.php on line 34

@@ -178,13 +178,36 @@ class IndexController extends Controller
 
     public function theloai(Request $request, $slug)
     {
-        $genre = Genre::query()->where('slug', $slug)->first();
-        $movies = Movie::query()
-            ->whereHas('movie_genres', function (\Illuminate\Database\Eloquent\Builder $query) use($genre){
-                $query->where('genre_id', $genre->id);
-            })
+         $movies = DB::table('movies as m')
+            ->join('movie_genres as mg', 'mg.movie_id', '=','m.id')
+            ->join('genres as g', 'g.id', '=','mg.genre_id')
+            ->select('m.*', 'g.name')
+            ->where('g.slug', $slug)
             ->orderBy('updated_at', 'desc')
             ->paginate(12);
+        foreach ($movies as $key => $item) {
+            $id = $item->id;
+            $countries = DB::table('movies as m')
+                ->join('movie_countries as mc', 'mc.movie_id', '=', 'm.id')
+                ->join('countries as c', 'c.id', '=', 'mc.country_id')
+                ->select('c.name', 'c.id')
+                ->where('m.id', $id)->get();
+            if (count($countries) <= 0) {
+                $movies[$key]->countries = $item->is_vietsub;
+
+            } else {
+                $movies[$key]->countries = $countries->toArray();
+
+            }
+        }
+        
+        $genre = Genre::query()->where('slug', $slug)->first();
+        // $movies = Movie::query()
+        //     ->whereHas('movie_genres', function (\Illuminate\Database\Eloquent\Builder $query) use($genre){
+        //         $query->where('genre_id', $genre->id);
+        //     })
+        //     ->orderBy('updated_at', 'desc')
+        //     ->paginate(12);
         if ($request->ajax()) {
             $view = view('client.genre_load', [
                 'movies' => $movies
@@ -248,7 +271,7 @@ class IndexController extends Controller
     {
         $games = Game::query()
             ->where('type', '=', 1)
-            ->orderBy('id', 'desc')
+            ->orderBy('updated_at', 'desc')
 
 //            ->with('movie')
             ->paginate(4);

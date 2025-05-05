@@ -12,7 +12,13 @@
                         {{$item->title}}
                     </a>
                 </span>
-                <span class="btn btn-success vietsub">{{$item->is_vietsub}}</span>
+                <span class="btn btn-success vietsub">
+                    @if(is_array($item->countries))
+                        {{$item->countries[0]->name}}
+                    @else
+                        {{$item->countries}}
+                    @endif
+                </span>
 
             </div>
         </div>

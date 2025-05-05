@@ -131,7 +131,6 @@ class MovieController extends Controller
         unset($data['genre_id']);
         unset($data['language_id']);
         DB::transaction(function () use ($data,$request, $movie){
-
             $movie->fill($data);
             $movie->touch();
             $inserts = [];

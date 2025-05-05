@@ -103,7 +103,7 @@
 
                                      <div class="wrap-link">
                                          <div class="row" style="margin-bottom: 10px">
-                                             <input value="{{$link->name}}" type="text" name="link[{{$key}}][name]" class="col-6" id="exampleInputCity1">
+                                             <input value="{{$link->name}}" type="text" name="link[{{$key}}][name]" class="col-6 link_count" id="exampleInputCity1">
                                              <input value="{{$link->link}}" type="text" name="link[{{$key}}][link]" class="col-6" id="exampleInputCity1">
 
                                          </div>
@@ -135,9 +135,14 @@
     </script>
     <script>
 
-
-        let i = 1;
+        
         function addLinkToMovie() {
+            // Chọn tất cả các input trong DOM
+            const inputs = document.querySelectorAll('.link_count');
+            
+            // Trả về số lượng input
+            i = inputs.length ;
+            console.log(i);
             let linkModal = $("#linkModal")[0];
             let nameLink = $("#name_link")[0];
             // console.log(linkModal[0]); return;
